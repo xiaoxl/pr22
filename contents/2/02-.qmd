@@ -1,1 +1,18 @@
 # more advanced techniques
+
+
+
+
+
+
+{{< include 02-01.qmd >}}
+
+{{< include 02-02.qmd >}}
+
+{{< include 02-03.qmd >}}
+
+{{< include 02-04-ex.qmd >}}
+
+{{< include 02-05-proj.qmd >}}
+
+

@@ -20,14 +20,10 @@ We will talk about the relation between Python and Anaconda and more about packa
 1. Go to [Anaconda download page](https://www.anaconda.com/). Download and install Anaconda. 
 2. There are several IDEs for Python bundled with Anaconda. Pick any one you like. I personally use VS Code. Here we use Spyder as an example for now since it doesn't require any configurations.
 3. Here is a screenshot of Spyder 5.1.5. 
+![](assests/img/20220801150626.png)  
 
 
 4. The right lower window is the console. Type the following code, and run. If `Hello world!` is displayed, the Python environment is set up successfully. Now you can start to play with Python!
-
-```{python}
-print('Hello world!')
-```
-
 
 
 ### Code editor

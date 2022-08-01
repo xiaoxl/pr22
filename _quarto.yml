@@ -7,7 +7,8 @@ number-sections: true
 toc-depth: 2
 number-depth: 4
 bibliography: book.bib
-csl: contents/institute-of-mathematical-statistics.csl
+csl: contents/ims.csl
+
 
 format:
   html:
@@ -16,25 +17,31 @@ format:
     documentclass: scrreprt
 
 book:
-  title: "Python/R for Data Science 2022 Fall"
+  title: "Python/R for Data Science"
+  subtitle: "Lecture notes for 2022 Fall at Arkansas Tech University"
   author: "Xinli Xiao"
   date: last-modified
+  downloads: [pdf]
   chapters: 
-    - part: index.qmd
+    - index.qmd
+    - part: "Part I: Python"
       chapters: 
         - contents/1/01-.qmd
-        - contents/2/02-.qmd
+    #     - contents/2/02-.qmd
+    #     - contents/3/03-.qmd
+    #     - contents/4/04-.qmd
+    # - part: "Part II: R"
+    #   chapters:
+    #     - contents/5/05-.qmd
     - contents/references.qmd
-  navbar: 
-    left:
-      - contents/1/01-.qmd
-    pinned: true
   sidebar:
     style: floating
     border: true
     search: true
-    collapse-level: 2
+    collapse-level: 1
     pinned: false
+  navbar:
+    subtitle: "2022 Fall"
   page-navigation: true
 
 
