@@ -1,0 +1,20 @@
+## List
+
+append
+
+extend
+
+
+### List Comprehension
+List Comprehension is a convenient way to create lists based on the values of an existing list. It cannot provide any real improvement to the performance of the codes, but it can make the codes shorter and easier to read.
+
+The format of list Comprehension is
+```
+newlist = [expression for item in iterable if condition == True]
+```
+
+
+```{example}
+hehehe
+```
+

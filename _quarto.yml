@@ -1,23 +1,44 @@
 project:
   type: book
+  output-dir: docs
 
-book:
-  title: "pr22"
-  author: "Jane Doe"
-  date: "8/1/2022"
-  chapters:
-    - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
+toc: true
+number-sections: true
+toc-depth: 2
+number-depth: 4
+bibliography: book.bib
+csl: institute-of-mathematical-statistics.csl
 
 format:
   html:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+
+book:
+  title: "Python/R for Data Science 2022 Fall"
+  author: "Xinli Xiao"
+  date: last-modified
+  chapters: 
+    - part: index.qmd
+      chapters: 
+        - chapters/1/01-.qmd
+        - chapters/2/02-.qmd
+    - references.qmd
+  navbar: 
+    left:
+      - chapters/1/01-.qmd
+    pinned: true
+  sidebar:
+    style: floating
+    border: true
+    search: true
+    collapse-level: 2
+    pinned: false
+  page-navigation: true
+
+
+    
 
 
 
