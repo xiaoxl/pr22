@@ -7,7 +7,7 @@ number-sections: true
 toc-depth: 2
 number-depth: 4
 bibliography: book.bib
-csl: institute-of-mathematical-statistics.csl
+csl: contents/institute-of-mathematical-statistics.csl
 
 format:
   html:
@@ -22,12 +22,12 @@ book:
   chapters: 
     - part: index.qmd
       chapters: 
-        - chapters/1/01-.qmd
-        - chapters/2/02-.qmd
-    - references.qmd
+        - contents/1/01-.qmd
+        - contents/2/02-.qmd
+    - contents/references.qmd
   navbar: 
     left:
-      - chapters/1/01-.qmd
+      - contents/1/01-.qmd
     pinned: true
   sidebar:
     style: floating
