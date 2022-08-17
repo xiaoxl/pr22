@@ -1,0 +1,24 @@
+
+## Exercises
+
+
+::: {#exr-}
+## Compare two `numpy` arraies
+Consider two `numpy` arraies `x` and `y`. Compare them entry by entry. We would like to know how many are the same.
+:::
+
+<details>
+<summary>Click to expand.</summary>
+
+::: {.solution}
+Note that `bool` values `True` and `False` can be treated as numbers `1` and `0`. 
+
+```{python}
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 1, 4, 4, 5])
+
+numofsame = np.sum(x == y)
+print(numofsame)
+```
+:::
+</details>

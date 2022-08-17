@@ -14,3 +14,5 @@ A few advantages about R:
 
 
 {{< include 05-01.qmd >}}
+
+{{< include 05-02.qmd >}}

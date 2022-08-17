@@ -7,12 +7,12 @@ number-sections: true
 toc-depth: 2
 number-depth: 4
 bibliography: book.bib
-csl: contents/ims.csl
-
+csl: C:/Users/Xinli/Documents/ims.csl
 
 format:
   html:
-    theme: cosmo
+    theme: zephyr
+    split_by: section
   pdf:
     documentclass: scrreprt
 
@@ -26,9 +26,9 @@ book:
     - index.qmd
     - part: "Part I: Python"
       chapters: 
-        - contents/1/01-.qmd
-    #     - contents/2/02-.qmd
-    #     - contents/3/03-.qmd
+        # - contents/1/01-.qmd
+        # - contents/2/02-.qmd
+        - contents/3/03-.qmd
     #     - contents/4/04-.qmd
     # - part: "Part II: R"
     #   chapters:
