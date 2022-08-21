@@ -163,3 +163,19 @@ Use list comprehension to get the index and the value as a tuple for items in th
 ## More list comprehension
 Use list comprehension to find the common numbers in two lists (without using a tuple or set) `list_a = [1, 2, 3, 4]`, `list_b = [2, 3, 4, 5]`.
 :::
+
+
+::: {#exr-}
+## Probability
+Compute the probability that two people out of 23 share the same birthday. The math formula for this is 
+$$1-\frac{365!/(365-23)!}{365^{23}}=1-\frac{365}{365}\cdot\frac{365-1}{365}\cdot\frac{365-2}{365}\cdot\ldots\cdot\frac{365-22}{365}.$$
+
+1. To directly use the formula we have to use a high performance math package, e.g. `math`. Please use `math.factorial` to compute the above formula.
+
+2. Please use the right hand side of the above formula to compute the probability using the following steps.
+    a. Please use the list comprehension to create a list $\left[\frac{365}{365},\frac{365-1}{365},\frac{365-2}{365},\ldots,\frac{365-22}{365}\right]$. 
+    b. Use `numpy.prod` to compute the product of elements of the above list.
+    c. Compute the probability by finishing the formula.
+
+3. Please use `time` to test which method mentioned above is faster.
+:::

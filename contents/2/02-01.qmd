@@ -1,5 +1,5 @@
 
-## Built-in Types: numeric types and `str`
+## Built-in Types: numeric types and `str` {#sec-path}
 
 This section is based on @You2020.
 

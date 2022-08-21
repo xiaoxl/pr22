@@ -92,6 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="02-ex_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="02-ex_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -232,6 +233,20 @@ have so many parts. We would also want to try this symbol: '. Do you know how to
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 11 (More list comprehension) </strong></span></p>
 <p>Use list comprehension to find the common numbers in two lists (without using a tuple or set) <code>list_a = [1, 2, 3, 4]</code>, <code>list_b = [2, 3, 4, 5]</code>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12 (Probability) </strong></span>Compute the probability that two people out of 23 share the same birthday. The math formula for this is</p>
+<p><span class="math display">\[1-\frac{365!/(365-23)!}{365^{23}}=1-\frac{365}{365}\cdot\frac{365-1}{365}\cdot\frac{365-2}{365}\cdot\ldots\cdot\frac{365-22}{365}.\]</span></p>
+<ol type="1">
+<li><p>To directly use the formula we have to use a high performance math package, e.g.&nbsp;<code>math</code>. Please use <code>math.factorial</code> to compute the above formula.</p></li>
+<li><p>Please use the right hand side of the above formula to compute the probability using the following steps.</p>
+<ol type="a">
+<li>Please use the list comprehension to create a list <span class="math inline">\(\left[\frac{365}{365},\frac{365-1}{365},\frac{365-2}{365},\ldots,\frac{365-22}{365}\right]\)</span>.</li>
+<li>Use <code>numpy.prod</code> to compute the product of elements of the above list.</li>
+<li>Compute the probability by finishing the formula.</li>
+</ol></li>
+<li><p>Please use <code>time</code> to test which method mentioned above is faster.</p></li>
+</ol>
 </div>
 </section>
 
