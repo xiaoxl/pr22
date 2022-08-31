@@ -78,7 +78,7 @@ In Python a module is simply a file with the .py extension containing Python cod
 #| eval: false
 
 # from assests/codes/example.py
-display(Markdown(text))
+
 def f(x):
     print(x)
 

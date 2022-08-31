@@ -1,18 +1,11 @@
-# R Fundamentals
 
-@Wic2017
-
-A few advantages about R:
-
-- Free and open source comparing to some other tools like Excel and SPSS.
-- Optimized with vectorization.
-
-
-
+# Visualization
 
 
 
 
 {{< include 05-01.qmd >}}
+
+
 
 {{< include 05-02.qmd >}}

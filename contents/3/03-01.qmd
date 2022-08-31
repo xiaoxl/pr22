@@ -1,4 +1,4 @@
-## `numpy`
+## Basics
 
 The basic data structure for `numpy` is `numpy.ndarray`. You may treat it as a generalized version of lists. However it can do so much more than the build-in `list`. 
 
@@ -16,13 +16,15 @@ In many cases, `numpy.ndarray` is a huge object since it stores tons of data. Th
 However there are many cases that 
 :::
 
-### Create `np.ndarray`
+## Create `np.ndarray`
 
 - convert a list into a numpy array.
-- `np.zeros`
-- `np.ones`
+- `np.zeros`, `np.zeros_like`
+- `np.ones`, `np.ones_like`
+- `np.eye`
 - `np.random.rand`
 - `np.arange`
+- `np.linspace`
 
 ::: {.callout-note}
 Please be very careful about the format of the input. For example, when you want to specify the dimension of the array, using `np.zeros`, you need to input a `tuple`. On the other hand, when using `np.random.rand`, you just directly input the dimensions one by one.
@@ -39,41 +41,278 @@ In this case, the official documents are always your friend.
 :::
 
 
-### Basic indexing and slicing
 
-### Common attributes and methods
+## Mathematical and Statistical Methods
+
+- `+`, `-`, `*`, `/`, `**`, etc.. 
+- `np.sin`, `np.exp`, `np.sqrt`, etc..
+
+- `mean`, `sum`, `std`, `var`, `cumsum`
+- `max` and `min`
+- `maximum` and `minimum`
+- `argmin` and `argmax`
+
+- `np.sort`
+- `np.unique`, `np.any`
+
+- `np.dot`: Matrix multiplication
+- `np.concatenate`
+
+- Broadcast
+
+
+::: {#exm-}
+## Axis
+Given `A = np.array([[1,2],[3,4]])` and `B = np.array([[5,6],[7,8]])`, please use `np.concatenate` to concatencate these two matrices to get a new matrix, in the order:
+
+- `A` left, `B` right
+- `A` right, `B` left
+- `A` up, `B` down
+- `A` down, `B` up
+:::
+
+
+## Common attributes and methods
 
 - `shape`
 - `dtype`
+- `ndim`
 - Any arithmetic operations between equal-size arrays applies the operation element-wise. 
 
 
-### Fancy indexing
+
+::: {#exm-}
+`MNIST` is a very famous dataset of hand written images. Here is how to load it. Note that in this instance of the dataset the data are stored as `numpy` arraies.
+```{python}
+#| eval: false
+import tensorflow as tf
+
+(X_train, y_train), (X_test, y_test) = tf.keras.datasets.mnist.load_data()
+X_train.shape
+```
+
+:::
+
+## Basic indexing and slicing
+
+First see the following example.
 
 
-### Transposing Arrays and Swapping Axes
+::: {#exm-}
+```{python}
+import numpy as np
+arr = np.arange(10)
 
+print(arr[5])
+print(arr[5:8])
+
+arr[5:8] = 12
+print(arr)
+
+print(arr[5:8:2])
+print(arr[8:5:-1])
+print(arr[::-1])
+```
+:::
+
+`numpy.array` will use the same copy of data by default. Therefore if we don't make copies explicitly and just slice the numpy array, we will make changes to the same copy.
+
+
+::: {#exm-}
+
+```{python}
+import numpy as np
+arr = np.arange(10)
+b = arr[5:8]
+print('arr is {}'.format(arr))
+print('b is {}'.format(b))
+
+b[0] = -1
+print('arr is {}'.format(arr))
+print('b is {}'.format(b))
+
+
+arr[6] = -2
+print('arr is {}'.format(arr))
+print('b is {}'.format(b))
+```
+:::
+
+
+The way to make explicit copy is `.copy()`.
+
+
+::: {#exm-}
+
+```{python}
+import numpy as np
+arr = np.arange(10)
+b = arr[5:8].copy()
+print('arr is {}'.format(arr))
+print('b is {}'.format(b))
+
+b[0] = -1
+print('arr is {}'.format(arr))
+print('b is {}'.format(b))
+
+
+arr[6] = -2
+print('arr is {}'.format(arr))
+print('b is {}'.format(b))
+```
+:::
+
+To do slicing in higher dimensional case, you may either treat a `numpy` array as a nested list, or you may directly work with it with multiindexes.
+
+
+::: {#exm-}
+
+```{python}
+import numpy as np
+arr3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+
+print('case 1:\n {}'.format(arr3d))
+print('case 2:\n {}'.format(arr3d[0, 1, 2]))
+print('case 3:\n {}'.format(arr3d[:, 0: 2, 1]))
+print('case 4:\n {}'.format(arr3d[:, 0: 2, 1:2]))
+```
+
+:::
+
+
+## Boolean Indexing
+`numpy` array can accept index in terms of numpy arries with boolean indexing.
+
+
+::: {#exm-}
+
+```{python}
+import numpy as np
+a = np.arange(4)
+b = np.array([True, True, False, True])
+print(a)
+print(b)
+print(a[b])
+```
+:::
+
+We could combine this way with the logic computation to filter out the elements we don't want.
+
+
+::: {#exm-}
+Please replace the odd number in the array by its negative.
+
+```{python}
+import numpy as np
+arr = np.arange(10)
+odd = arr %2 == 1
+arr[odd] = arr[odd] * (-1)
+
+print(arr)
+```
+
+
+:::
+
+## Fancy indexing
+Fancy indexing is a term adopted by NumPy to describe indexing using integer arrays. 
+
+::: {#exm-}
+
+```{python}
+import numpy as np
+
+arr = np.zeros((8, 4))
+for i in range(8):
+    arr[i] = i
+
+arr[[4, 3, 0, 6]]
+```
+
+:::
+
+::: {#exm-}
+
+```{python}
+import numpy as np
+
+arr = np.arange(32).reshape((8, 4))
+print(arr)
+print(arr[[1, 5, 7, 2], [0, 3, 1, 2]])
+print(arr[[1, 5, 7, 2]][:, [0, 3, 1, 2]])
+```
+
+:::
+## More commands
+
+- `.T`
 - `axis=n` is very important.
+- `np.reshape()`
+- `np.tile()`
+- `np.repeat()`
 
-### Mathematical and Statistical Methods
+
+## More advanced commands
+
+- `np.where()`
+- `np.any()`
+- `np.all()`
+- `np.argsort()`
 
 
-- `mean`
-- `sum`
-- `std`, `var`
-- `cumsum`
-- `max` and `min`
-- `maximum` and `minimum`
-- `argmin`, `argmax`
 
-- `np.sort`
-- `unique`
-- `any`
 
-- `dot`: Matrix multiplication
-- `concatenate`
+::: {#exm-}
+Get the position where elements of `a` and `b` match.
 
-### Examples
+```{python}
+a = np.array([1,2,3,2,3,4,3,4,5,6])
+b = np.array([7,2,10,2,7,4,9,4,9,8])
+
+np.where(a == b)
+```
+
+:::
+
+::: {#exm-}
+
+```{python}
+a = np.array([1,2,3,2,3,4,3,4,5,6])
+b = np.array([7,2,10,2,7,4,9,4,9,8])
+
+np.where(a == b, a*2, b+1)
+```
+
+:::
+
+
+::: {#exm-}
+## Playing with axis
+
+
+```{python}
+import numpy as np
+a = np.array([[[1,2],[3,4]],[[5,6],[7,8]]])
+
+np.any(a==1, axis=0)
+np.any(a==1, axis=1)
+np.any(a==1, axis=2)
+
+
+np.any(a==2, axis=0)
+np.any(a==2, axis=1)
+np.any(a==2, axis=2)
+
+np.any(a==5, axis=0)
+np.any(a==5, axis=1)
+np.any(a==5, axis=2)
+```
+
+
+:::
+
+
+## Examples
 ::: {#exm-}
 ## Random walks
 Adam walks randomly along the axis. He starts from `0`. Every step he has equal possibility to go left or right. Please simulate this process.

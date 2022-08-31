@@ -107,7 +107,7 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/references.html" rel="next">
+<link href="../../contents/3/03-.html" rel="next">
 <link href="../../contents/1/01-.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -197,6 +197,11 @@ div.csl-indent {
   <a href="../../contents/2/02-.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Basics</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/3/03-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Package: <code>numpy</code></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -222,6 +227,11 @@ div.csl-indent {
   <a href="../../contents/app/path.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title"><code>PATH</code></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/app/virtenv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Virtual environments</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -233,10 +243,30 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-path" id="toc-sec-path" class="nav-link active" data-scroll-target="#sec-path"> <span class="header-section-number">2.1</span> Built-in Types: numeric types and <code>str</code></a></li>
-  <li><a href="#fundamentals" id="toc-fundamentals" class="nav-link" data-scroll-target="#fundamentals"> <span class="header-section-number">2.2</span> Fundamentals</a></li>
-  <li><a href="#flows-and-logic" id="toc-flows-and-logic" class="nav-link" data-scroll-target="#flows-and-logic"> <span class="header-section-number">2.3</span> Flows and Logic</a></li>
-  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list"> <span class="header-section-number">2.4</span> <code>list</code></a></li>
+  <li><a href="#sec-path" id="toc-sec-path" class="nav-link active" data-scroll-target="#sec-path"> <span class="header-section-number">2.1</span> Built-in Types: numeric types and <code>str</code></a>
+  <ul class="collapse">
+  <li><a href="#numeric-types-and-math-expressions" id="toc-numeric-types-and-math-expressions" class="nav-link" data-scroll-target="#numeric-types-and-math-expressions"> <span class="header-section-number">2.1.1</span> Numeric types and math expressions</a></li>
+  <li><a href="#str" id="toc-str" class="nav-link" data-scroll-target="#str"> <span class="header-section-number">2.1.2</span> <code>str</code></a></li>
+  </ul></li>
+  <li><a href="#fundamentals" id="toc-fundamentals" class="nav-link" data-scroll-target="#fundamentals"> <span class="header-section-number">2.2</span> Fundamentals</a>
+  <ul class="collapse">
+  <li><a href="#indentation" id="toc-indentation" class="nav-link" data-scroll-target="#indentation"> <span class="header-section-number">2.2.1</span> Indentation</a></li>
+  <li><a href="#binary-operators-and-comparisons" id="toc-binary-operators-and-comparisons" class="nav-link" data-scroll-target="#binary-operators-and-comparisons"> <span class="header-section-number">2.2.2</span> Binary operators and comparisons</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import"> <span class="header-section-number">2.2.3</span> <code>import</code></a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"> <span class="header-section-number">2.2.4</span> Comments</a></li>
+  <li><a href="#dynamic-references-strong-types" id="toc-dynamic-references-strong-types" class="nav-link" data-scroll-target="#dynamic-references-strong-types"> <span class="header-section-number">2.2.5</span> Dynamic references, strong types</a></li>
+  <li><a href="#everything-is-an-object" id="toc-everything-is-an-object" class="nav-link" data-scroll-target="#everything-is-an-object"> <span class="header-section-number">2.2.6</span> Everything is an object</a></li>
+  <li><a href="#mutable-and-immutable-objects" id="toc-mutable-and-immutable-objects" class="nav-link" data-scroll-target="#mutable-and-immutable-objects"> <span class="header-section-number">2.2.7</span> Mutable and immutable objects</a></li>
+  </ul></li>
+  <li><a href="#flows-and-logic" id="toc-flows-and-logic" class="nav-link" data-scroll-target="#flows-and-logic"> <span class="header-section-number">2.3</span> Flows and Logic</a>
+  <ul class="collapse">
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"> <span class="header-section-number">2.3.1</span> <code>for</code> loop</a></li>
+  <li><a href="#if-conditional-control" id="toc-if-conditional-control" class="nav-link" data-scroll-target="#if-conditional-control"> <span class="header-section-number">2.3.2</span> <code>if</code> conditional control</a></li>
+  </ul></li>
+  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list"> <span class="header-section-number">2.4</span> <code>list</code></a>
+  <ul class="collapse">
+  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"> <span class="header-section-number">2.4.1</span> List Comprehension</a></li>
+  </ul></li>
   <li><a href="#dict" id="toc-dict" class="nav-link" data-scroll-target="#dict"> <span class="header-section-number">2.5</span> <code>dict</code></a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">2.6</span> Exercises</a></li>
   <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"> <span class="header-section-number">2.7</span> Projects</a></li>
@@ -422,7 +452,7 @@ Note
 <p>In Python a module is simply a file with the .py extension containing Python code. Assume that we have a Python file <code>example.py</code> stored in the folder <code>assests/codes/</code>. The file is as follows.</p>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from assests/codes/example.py</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>display(Markdown(text))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -506,11 +536,11 @@ Note
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'This is the id of the first list (which is updated) of the new `container`: '</span>, <span class="bu">id</span>(container[<span class="dv">0</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>This is `container`:  ([1], [2])
-This is the id of `container`:  1928898673728
-This is the id of the first list of `container`:  1928898802624
+This is the id of `container`:  2162078474176
+This is the id of the first list of `container`:  2162078640256
 This is the new `container`:  ([1, 2], [2])
-This is the id of the new `container`:  1928898673728
-This is the id of the first list (which is updated) of the new `container`:  1928898802624</code></pre>
+This is the id of the new `container`:  2162078474176
+This is the id of the first list (which is updated) of the new `container`:  2162078640256</code></pre>
 </div>
 </div>
 <p>You can see that the tuple <code>container</code> and its first object stay the same, although we add one element to the first object.</p>
@@ -787,6 +817,26 @@ Click for Hint.
 <p><span class="proof-title"><em>Solution</em> (<span class="header-section-number">2.8</span> Hint). </span>You may use <code>if</code> to do the conversion. Or you may use <code>dict</code> to do the conversion.</p>
 </div>
 </details>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.16 (<code>sorted</code>) </strong></span>Please read through the <a href="https://docs.python.org/3/howto/sorting.html#key-functions">Key funtions</a> in this article, and sort the following two lists.</p>
+<ol type="1">
+<li><p>Sort <code>list1 = [[11,2,3], [2, 3, 1], [5,-1, 2], [2, 3,-8]]</code> according to the sum of each list.</p></li>
+<li><p>Sort <code>list2 = [{'a': 1, 'b': 2}, {'a': 3, 'b': 4},{'a': 5, 'b': 2}]</code> according to the <code>b</code> value of each dictionary.</p></li>
+</ol>
+</div>
+<div id="exr-fantasyinventorycode" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.17 (Fantasy Game Inventory) </strong></span>You are creating a fantasy video game. The data structure to model the player’s inventory will be a dictionary where the keys are string values describing the item in the inventory and the value is an integer value detailing how many of that item the player has. For example, the dictionary value <code>{'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}</code> means the player has 1 rope, 6 torches, 42 gold coins, and so on.</p>
+<p>Write a program to take any possible <code>inventory</code> and display it like the following:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Inventory:</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span> arrow</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span> gold coin</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> rope</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> torch</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> dagger</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>Total number of items: <span class="dv">62</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
@@ -913,8 +963,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/3/03-.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Package: <code>numpy</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

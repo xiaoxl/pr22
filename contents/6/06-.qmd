@@ -1,7 +1,16 @@
-# R for Data Sciences
 
 
+# Classes/Packages for Python
 
 
 
 {{< include 06-01.qmd >}}
+
+{{< include 06-02.qmd >}}
+
+
+{{< include 06-ex.qmd >}}
+
+
+{{< include 06-proj.qmd >}}
+

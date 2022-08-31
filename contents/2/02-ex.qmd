@@ -179,3 +179,5 @@ $$1-\frac{365!/(365-23)!}{365^{23}}=1-\frac{365}{365}\cdot\frac{365-1}{365}\cdot
 
 3. Please use `time` to test which method mentioned above is faster.
 :::
+
+

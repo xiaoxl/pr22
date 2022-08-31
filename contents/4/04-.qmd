@@ -1,23 +1,20 @@
+# Package: `pandas`
 
 
-# Classes/Packages for Python
+{{< include 04-01.qmd >}}
 
-```{r}
-#| label: fig-airquality
-#| fig-cap: Temperature and ozone level.
-#| warning: false
 
-library(ggplot2)
+{{< include 04-02.qmd >}}
 
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess"
-)
+{{< include 04-03.qmd >}}
 
-print(R.version)
-```
+{{< include 04-04.qmd >}}
 
+
+{{< include 04-ex.qmd >}}
+
+
+{{< include 04-proj.qmd >}}
 
 
 
-{{< include 03-01.qmd >}}
