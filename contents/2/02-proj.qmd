@@ -6,6 +6,7 @@ Most projects are based on @McK2017, @Klo2021.
 ::: {#exr-}
 ## Determine the indefinite article
 Please finish the following tasks.
+
 1. Please construct a list `aeiou` that contains all vowels.
 2. Given a word `word`, we would like to find the indefinite article `article` before `word`. (Hint: the article should be `an` if the first character of `word` is a vowel, and `a` if not.)
 :::
