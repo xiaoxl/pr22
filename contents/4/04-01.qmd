@@ -1,21 +1,11 @@
 
 
 
-## `pandas`
 
-The basic data structure for `pandas` is `pandas.DataFrame`. You may treat it as a generalized version of tables.
 
-To use `pandas`, we just import it. In most cases you would like to use the alias `pd`.
-```{python}
-#| eval: false
-import pandas as pd
-```
+## Basic `pandas`
 
-Since `DataFrame` is more like a table, the biggest questions here is not to do computations (which is still very important), but to retrieve, search, sort, merge, etc.. those data. 
-
-### Basic `pandas`
-
-####  `Series` and `DataFrame`
+###  `Series` and `DataFrame`
 A *Series* is a 1-d array-like object which has index. The default index is starting from `0`. You may change the index to be something assigned by you. Thus it can be treated as a generalization of a `dict`.
 
 ```{python}
@@ -50,16 +40,25 @@ df.head()
 
 
 ::: {.callout-note}
-We may use the setting `columns=` or `index=` as well as the methods `.rename(columns=, index=)` to change the column names and the index names.
+We may use the setting `columns=` or `index=` as well as the methods `.rename(columns=, index=)` to change the column names and the index names. See the following example.
+
+```{python}
+import numpy as np
+import pandas as pd
+data = pd.DataFrame(np.arange(16).reshape((4, 4)),
+                    index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                    columns=['one', 'two', 'three', 'four'])
+```
+
 :::
 
-#### Accessing data
+### Accessing data
 - A column in a DataFrame can be retrieved as a Series either by dict-like notation or by attribute. What one gets from this is a Series object.
     - dict-like notation: `df['a']`
     - by attribute: `df.a`. Note that if the name of the column is not suitable for attribute names, this method doesn't work.
 - Rows are retrieved by `.loc` if using the index, and by `.iloc` if using the row number.
 
-#### Updating data
+### Updating data
 - Assign values to a column of a DataFrame will update that column. If the column doesn't exist, new column will be created.
 - When assign values with non-existent row index, that part of the data will be discarded. 
 - Any time if there are no values with a specific column and row, it will show as `NaN`. 
@@ -79,10 +78,42 @@ df
 
 :::
 
-- Index
-- Reindex
+
+### Indexing, Selection, and Filtering
+
+- We can use logical expresssion to filter DataFrame.
+
+
+```{python}
+import pandas as pd
+data = pd.DataFrame(np.arange(16).reshape((4, 4)),
+                    index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                    columns=['one', 'two', 'three', 'four'])
+data[data['one']>5]
+```
+
+
+- `.loc`, `.iloc`
+
+```{python}
+import pandas as pd
+data = pd.DataFrame(np.arange(16).reshape((4, 4)),
+                    index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                    columns=['one', 'two', 'three', 'four'])
+print(data.loc['Colorado', ['two', 'three']])
+print(data.iloc[2, [3, 0, 1]])
+```
+
+
+### essential
+
+- indexing: very very import for pandas
+
+
+
+
 - Dropping entries
-- Indexing, Selection, and Filtering
+
 
 - Arithmetic and Data Alignment
 - Operations between DataFrame and Series
@@ -92,18 +123,7 @@ df
 - Summarizing and Computing Descriptive Statistics
 - Correlation and Covariance
 - Unique Values, Value Counts, and Membership
+
+
+
 - Reading and Writing Data in Text Format
-
-### Data cleaning
-
-- Handling Missing Data
-- Data Transformation
-- String Manipulation
-
-### Data Wrangling
-
-- Join
-- Combine
-- Reshape
-
-### Data Aggregation and Group Operations

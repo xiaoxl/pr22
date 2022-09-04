@@ -1,1 +1,13 @@
-## d
+
+## Data cleaning
+
+- Handling Missing Data
+- Data Transformation
+- String Manipulation
+
+
+
+::: {#thm-} 
+fddsf
+
+:::

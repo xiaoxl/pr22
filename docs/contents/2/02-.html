@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.179">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -148,9 +153,11 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Python/R for Data Science</span>
-  </a>
+    </a>
+  </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -202,6 +209,11 @@ div.csl-indent {
   <a href="../../contents/3/03-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Package: <code>numpy</code></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/4/04-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Package: <code>pandas</code></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -239,37 +251,37 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-path" id="toc-sec-path" class="nav-link active" data-scroll-target="#sec-path"> <span class="header-section-number">2.1</span> Built-in Types: numeric types and <code>str</code></a>
+  <li><a href="#sec-path" id="toc-sec-path" class="nav-link active" data-scroll-target="#sec-path"><span class="toc-section-number">2.1</span>  Built-in Types: numeric types and <code>str</code></a>
   <ul class="collapse">
-  <li><a href="#numeric-types-and-math-expressions" id="toc-numeric-types-and-math-expressions" class="nav-link" data-scroll-target="#numeric-types-and-math-expressions"> <span class="header-section-number">2.1.1</span> Numeric types and math expressions</a></li>
-  <li><a href="#str" id="toc-str" class="nav-link" data-scroll-target="#str"> <span class="header-section-number">2.1.2</span> <code>str</code></a></li>
+  <li><a href="#numeric-types-and-math-expressions" id="toc-numeric-types-and-math-expressions" class="nav-link" data-scroll-target="#numeric-types-and-math-expressions"><span class="toc-section-number">2.1.1</span>  Numeric types and math expressions</a></li>
+  <li><a href="#str" id="toc-str" class="nav-link" data-scroll-target="#str"><span class="toc-section-number">2.1.2</span>  <code>str</code></a></li>
   </ul></li>
-  <li><a href="#fundamentals" id="toc-fundamentals" class="nav-link" data-scroll-target="#fundamentals"> <span class="header-section-number">2.2</span> Fundamentals</a>
+  <li><a href="#fundamentals" id="toc-fundamentals" class="nav-link" data-scroll-target="#fundamentals"><span class="toc-section-number">2.2</span>  Fundamentals</a>
   <ul class="collapse">
-  <li><a href="#indentation" id="toc-indentation" class="nav-link" data-scroll-target="#indentation"> <span class="header-section-number">2.2.1</span> Indentation</a></li>
-  <li><a href="#binary-operators-and-comparisons" id="toc-binary-operators-and-comparisons" class="nav-link" data-scroll-target="#binary-operators-and-comparisons"> <span class="header-section-number">2.2.2</span> Binary operators and comparisons</a></li>
-  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import"> <span class="header-section-number">2.2.3</span> <code>import</code></a></li>
-  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"> <span class="header-section-number">2.2.4</span> Comments</a></li>
-  <li><a href="#dynamic-references-strong-types" id="toc-dynamic-references-strong-types" class="nav-link" data-scroll-target="#dynamic-references-strong-types"> <span class="header-section-number">2.2.5</span> Dynamic references, strong types</a></li>
-  <li><a href="#everything-is-an-object" id="toc-everything-is-an-object" class="nav-link" data-scroll-target="#everything-is-an-object"> <span class="header-section-number">2.2.6</span> Everything is an object</a></li>
-  <li><a href="#mutable-and-immutable-objects" id="toc-mutable-and-immutable-objects" class="nav-link" data-scroll-target="#mutable-and-immutable-objects"> <span class="header-section-number">2.2.7</span> Mutable and immutable objects</a></li>
+  <li><a href="#indentation" id="toc-indentation" class="nav-link" data-scroll-target="#indentation"><span class="toc-section-number">2.2.1</span>  Indentation</a></li>
+  <li><a href="#binary-operators-and-comparisons" id="toc-binary-operators-and-comparisons" class="nav-link" data-scroll-target="#binary-operators-and-comparisons"><span class="toc-section-number">2.2.2</span>  Binary operators and comparisons</a></li>
+  <li><a href="#import" id="toc-import" class="nav-link" data-scroll-target="#import"><span class="toc-section-number">2.2.3</span>  <code>import</code></a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="toc-section-number">2.2.4</span>  Comments</a></li>
+  <li><a href="#dynamic-references-strong-types" id="toc-dynamic-references-strong-types" class="nav-link" data-scroll-target="#dynamic-references-strong-types"><span class="toc-section-number">2.2.5</span>  Dynamic references, strong types</a></li>
+  <li><a href="#everything-is-an-object" id="toc-everything-is-an-object" class="nav-link" data-scroll-target="#everything-is-an-object"><span class="toc-section-number">2.2.6</span>  Everything is an object</a></li>
+  <li><a href="#mutable-and-immutable-objects" id="toc-mutable-and-immutable-objects" class="nav-link" data-scroll-target="#mutable-and-immutable-objects"><span class="toc-section-number">2.2.7</span>  Mutable and immutable objects</a></li>
   </ul></li>
-  <li><a href="#flows-and-logic" id="toc-flows-and-logic" class="nav-link" data-scroll-target="#flows-and-logic"> <span class="header-section-number">2.3</span> Flows and Logic</a>
+  <li><a href="#flows-and-logic" id="toc-flows-and-logic" class="nav-link" data-scroll-target="#flows-and-logic"><span class="toc-section-number">2.3</span>  Flows and Logic</a>
   <ul class="collapse">
-  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"> <span class="header-section-number">2.3.1</span> <code>for</code> loop</a></li>
-  <li><a href="#if-conditional-control" id="toc-if-conditional-control" class="nav-link" data-scroll-target="#if-conditional-control"> <span class="header-section-number">2.3.2</span> <code>if</code> conditional control</a></li>
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><span class="toc-section-number">2.3.1</span>  <code>for</code> loop</a></li>
+  <li><a href="#if-conditional-control" id="toc-if-conditional-control" class="nav-link" data-scroll-target="#if-conditional-control"><span class="toc-section-number">2.3.2</span>  <code>if</code> conditional control</a></li>
   </ul></li>
-  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list"> <span class="header-section-number">2.4</span> <code>list</code></a>
+  <li><a href="#list" id="toc-list" class="nav-link" data-scroll-target="#list"><span class="toc-section-number">2.4</span>  <code>list</code></a>
   <ul class="collapse">
-  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"> <span class="header-section-number">2.4.1</span> List Comprehension</a></li>
+  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"><span class="toc-section-number">2.4.1</span>  List Comprehension</a></li>
   </ul></li>
-  <li><a href="#dict" id="toc-dict" class="nav-link" data-scroll-target="#dict"> <span class="header-section-number">2.5</span> <code>dict</code></a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">2.6</span> Exercises</a></li>
-  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"> <span class="header-section-number">2.7</span> Projects</a></li>
+  <li><a href="#dict" id="toc-dict" class="nav-link" data-scroll-target="#dict"><span class="toc-section-number">2.5</span>  <code>dict</code></a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">2.6</span>  Exercises</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">2.7</span>  Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -536,11 +548,11 @@ Note
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'This is the id of the first list (which is updated) of the new `container`: '</span>, <span class="bu">id</span>(container[<span class="dv">0</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>This is `container`:  ([1], [2])
-This is the id of `container`:  2474264762880
-This is the id of the first list of `container`:  2474265104512
+This is the id of `container`:  2811048163264
+This is the id of the first list of `container`:  2811048402496
 This is the new `container`:  ([1, 2], [2])
-This is the id of the new `container`:  2474264762880
-This is the id of the first list (which is updated) of the new `container`:  2474265104512</code></pre>
+This is the id of the new `container`:  2811048163264
+This is the id of the first list (which is updated) of the new `container`:  2811048402496</code></pre>
 </div>
 </div>
 <p>You can see that the tuple <code>container</code> and its first object stay the same, although we add one element to the first object.</p>
@@ -718,8 +730,8 @@ have so many parts. We would also want to try this symbol: '. Do you know how to
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.6 (List reference) </strong></span></p>
 <ol type="1">
+<li><span class="theorem-title"><strong>Exercise 2.6 (List reference) </strong></span></li>
 <li><p>Given the list <code>a</code>, make a new reference <code>b</code> to <code>a</code>. Update the first entry in <code>b</code> to be <code>0</code>. What happened to the first entry in <code>a</code>? Explain your answer in a text block.</p></li>
 <li><p>Given the list <code>a</code>, make a new copy <code>b</code> of the list <code>a</code> using the function <code>list</code>. Update the first entry in <code>b</code> to be <code>0</code>. What happened to the first entry in <code>a</code>? Explain your answer in a text block.</p></li>
 </ol>
@@ -731,24 +743,19 @@ have so many parts. We would also want to try this symbol: '. Do you know how to
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.8 (More list comprehension) </strong></span></p>
-<p>Use list comprehension to find all of the numbers from 1-1000 that are divisible by 7.</p>
+<p><span class="theorem-title"><strong>Exercise 2.8 (More list comprehension) </strong></span>Use list comprehension to find all of the numbers from 1-1000 that are divisible by 7.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.9 (More list comprehension) </strong></span></p>
-<p>Count the number of spaces in a string.</p>
+<p><span class="theorem-title"><strong>Exercise 2.9 (More list comprehension) </strong></span>Count the number of spaces in a string.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.10 (More list comprehension) </strong></span></p>
-<p>Use list comprehension to get the index and the value as a tuple for items in the list <code>['hi', 4, 8.99, 'apple', ('t,b', 'n')]</code>. Result would look like <code>[(index, value), (index, value), ...]</code>.</p>
+<p><span class="theorem-title"><strong>Exercise 2.10 (More list comprehension) </strong></span>Use list comprehension to get the index and the value as a tuple for items in the list <code>['hi', 4, 8.99, 'apple', ('t,b', 'n')]</code>. Result would look like <code>[(index, value), (index, value), ...]</code>.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.11 (More list comprehension) </strong></span></p>
-<p>Use list comprehension to find the common numbers in two lists (without using a tuple or set) <code>list_a = [1, 2, 3, 4]</code>, <code>list_b = [2, 3, 4, 5]</code>.</p>
+<p><span class="theorem-title"><strong>Exercise 2.11 (More list comprehension) </strong></span>Use list comprehension to find the common numbers in two lists (without using a tuple or set) <code>list_a = [1, 2, 3, 4]</code>, <code>list_b = [2, 3, 4, 5]</code>.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.12 (Probability) </strong></span>Compute the probability that two people out of 23 share the same birthday. The math formula for this is</p>
-<p><span class="math display">\[1-\frac{365!/(365-23)!}{365^{23}}=1-\frac{365}{365}\cdot\frac{365-1}{365}\cdot\frac{365-2}{365}\cdot\ldots\cdot\frac{365-22}{365}.\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 2.12 (Probability) </strong></span>Compute the probability that two people out of 23 share the same birthday. The math formula for this is <span class="math display">\[1-\frac{365!/(365-23)!}{365^{23}}=1-\frac{365}{365}\cdot\frac{365-1}{365}\cdot\frac{365-2}{365}\cdot\ldots\cdot\frac{365-22}{365}.\]</span></p>
 <ol type="1">
 <li><p>To directly use the formula we have to use a high performance math package, e.g.&nbsp;<code>math</code>. Please use <code>math.factorial</code> to compute the above formula.</p></li>
 <li><p>Please use the right hand side of the above formula to compute the probability using the following steps.</p>
@@ -780,8 +787,7 @@ Click for Hint.
 </div>
 </details>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.14 (Datetime and files names) </strong></span></p>
-<p>We would like to write a program to quickly generate <code>N</code> files. Every time we run the code, <code>N</code> files will be generated. We hope to store all files generated and organize them in a neat way. To achieve this, one way is to create a subfolder for each run and store all files generated during that run in the particular subfolder. Since we would like to make it fast, the real point of this task is to find a way to automatically generate the file names for the files generated and the folder names for the subfolders generated. You don’t need to worry about the contents of the files and empty files are totally fine for this problem.</p>
+<p><span class="theorem-title"><strong>Exercise 2.14 (Datetime and files names) </strong></span>We would like to write a program to quickly generate <code>N</code> files. Every time we run the code, <code>N</code> files will be generated. We hope to store all files generated and organize them in a neat way. To achieve this, one way is to create a subfolder for each run and store all files generated during that run in the particular subfolder. Since we would like to make it fast, the real point of this task is to find a way to automatically generate the file names for the files generated and the folder names for the subfolders generated. You don’t need to worry about the contents of the files and empty files are totally fine for this problem.</p>
 </div>
 <details>
 <summary>
@@ -817,7 +823,7 @@ Click for Hint.
 Click for Hint.
 </summary>
 <div class="solution proof">
-<p><span class="proof-title"><em>Solution</em> (<span class="header-section-number">2.8</span> Hint). </span>You may use <code>if</code> to do the conversion. Or you may use <code>dict</code> to do the conversion.</p>
+<p><span class="proof-title"><em>Solution</em> (Hint). </span>You may use <code>if</code> to do the conversion. Or you may use <code>dict</code> to do the conversion.</p>
 </div>
 </details>
 <div id="exr-" class="theorem exercise">
@@ -931,7 +937,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
