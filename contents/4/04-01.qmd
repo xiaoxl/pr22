@@ -56,7 +56,7 @@ data = pd.DataFrame(np.arange(16).reshape((4, 4)),
 - A column in a DataFrame can be retrieved as a Series either by dict-like notation or by attribute. What one gets from this is a Series object.
     - dict-like notation: `df['a']`
     - by attribute: `df.a`. Note that if the name of the column is not suitable for attribute names, this method doesn't work.
-- Rows are retrieved by `.loc` if using the index, and by `.iloc` if using the row number.
+- Rows are retrieved by `.loc` if using the row index, and by `.iloc` if using the row number.
 
 ### Updating data
 - Assign values to a column of a DataFrame will update that column. If the column doesn't exist, new column will be created.
@@ -66,6 +66,8 @@ data = pd.DataFrame(np.arange(16).reshape((4, 4)),
 ::: {#exm-}
 
 ```{python}
+import pandas as pd
+
 data = {'a': [1, 2, 3, 4],
         'b': [1.1, 2.1, 3.1, 4.1],
         'c': ['a', 'b', 'c', 'd']}
@@ -81,11 +83,19 @@ df
 
 ### Indexing, Selection, and Filtering
 
+- Series indexing `(obj[...])` works analogously to NumPy array indexing, except you
+can use the Series’s index values instead of only integers. 
+
+
+
+
+
 - We can use logical expresssion to filter DataFrame.
 
 
 ```{python}
 import pandas as pd
+
 data = pd.DataFrame(np.arange(16).reshape((4, 4)),
                     index=['Ohio', 'Colorado', 'Utah', 'New York'],
                     columns=['one', 'two', 'three', 'four'])
@@ -103,6 +113,28 @@ data = pd.DataFrame(np.arange(16).reshape((4, 4)),
 print(data.loc['Colorado', ['two', 'three']])
 print(data.iloc[2, [3, 0, 1]])
 ```
+
+- Slicing with labels behaves differently than normal Python slicing in that the end‐
+point is inclusive. 
+
+```{python}
+import pandas as pd
+
+obj = pd.Series(np.arange(4.), index=['a', 'b', 'c', 'd'])
+obj['b':'c']
+```
+
+
+
+
+```{python}
+import pandas as pd
+data = pd.DataFrame(np.arange(16).reshape((4, 4)),
+                    index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                    columns=['one', 'two', 'three', 'four'])
+```
+
+
 
 
 ### essential

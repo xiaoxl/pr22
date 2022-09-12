@@ -16,6 +16,7 @@ Please download [this file](assests/img/20220824224849.png).
 
 ::: {#exr-}
 ## Random
+Please finish the following tasks. 
 
 1. Use the package `np.random` to flip a coin 100 times and record the result in a list `coin`.
 2. Assume that the coin is not fair, and the probability to get `H` is `p`. Write a code to flip the coin 100 times and record the result in a list `coin`, with a given parameter `p`. You may use `p=.4` as the first choice.
