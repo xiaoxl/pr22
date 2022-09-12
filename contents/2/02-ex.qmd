@@ -128,6 +128,8 @@ print(newsentence)
 ::: {#exr-}
 ## List reference
 
+Please finish the following tasks.
+
 1. Given the list `a`, make a new reference `b` to `a`. Update the first entry in `b` to be `0`. What happened to the first entry in `a`? Explain your answer in a text block.
 
 2. Given the list `a`, make a new copy `b` of the list `a` using the function `list`. Update the first entry in `b` to be `0`. What happened to the first entry in `a`? Explain your answer in a text block. 
