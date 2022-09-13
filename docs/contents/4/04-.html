@@ -248,7 +248,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#function-application-and-mapping" id="toc-function-application-and-mapping" class="nav-link" data-scroll-target="#function-application-and-mapping"><span class="toc-section-number">4.1.6</span>  Function Application and Mapping</a></li>
   <li><a href="#sorting-and-ranking" id="toc-sorting-and-ranking" class="nav-link" data-scroll-target="#sorting-and-ranking"><span class="toc-section-number">4.1.7</span>  Sorting and Ranking</a></li>
   <li><a href="#summarizing-and-computing-descriptive-statistics" id="toc-summarizing-and-computing-descriptive-statistics" class="nav-link" data-scroll-target="#summarizing-and-computing-descriptive-statistics"><span class="toc-section-number">4.1.8</span>  Summarizing and Computing Descriptive Statistics</a></li>
-  <li><a href="#reading-and-writing-data-in-text-format" id="toc-reading-and-writing-data-in-text-format" class="nav-link" data-scroll-target="#reading-and-writing-data-in-text-format"><span class="toc-section-number">4.1.9</span>  Reading and Writing Data in Text Format</a></li>
+  <li><a href="#unique-values-value-counts-and-membership" id="toc-unique-values-value-counts-and-membership" class="nav-link" data-scroll-target="#unique-values-value-counts-and-membership"><span class="toc-section-number">4.1.9</span>  Unique Values, Value Counts, and Membership</a></li>
+  <li><a href="#reading-and-writing-data-in-text-format" id="toc-reading-and-writing-data-in-text-format" class="nav-link" data-scroll-target="#reading-and-writing-data-in-text-format"><span class="toc-section-number">4.1.10</span>  Reading and Writing Data in Text Format</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">4.2</span>  Exercises</a></li>
   <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">4.3</span>  Projects</a></li>
@@ -725,15 +726,15 @@ Note
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f, axis<span class="op">=</span><span class="st">'columns'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>one      0.285337
-two      0.581366
-three    0.737709
-four     0.209290
+<pre><code>one      0.882776
+two      0.575095
+three    0.687154
+four     0.586364
 dtype: float64
-Ohio        0.652325
-Colorado    0.606044
-Utah        0.574486
-New York    0.302674
+Ohio        0.329620
+Colorado    0.757126
+Utah        0.933763
+New York    0.454314
 dtype: float64</code></pre>
 </div>
 </div>
@@ -751,9 +752,9 @@ dtype: float64</code></pre>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         one       two     three      four
-max  0.97248  0.848924  0.920384  0.744820
-min  0.05746  0.064153  0.038190  0.223057</code></pre>
+<pre><code>          one       two     three      four
+max  0.841052  0.894855  0.947238  0.810943
+min  0.031240  0.212843  0.080182  0.436462</code></pre>
 </div>
 </div>
 </div>
@@ -768,16 +769,21 @@ min  0.05746  0.064153  0.038190  0.223057</code></pre>
 <section id="summarizing-and-computing-descriptive-statistics" class="level3" data-number="4.1.8">
 <h3 data-number="4.1.8" class="anchored" data-anchor-id="summarizing-and-computing-descriptive-statistics"><span class="header-section-number">4.1.8</span> Summarizing and Computing Descriptive Statistics</h3>
 <ul>
-<li><p><code>sum</code>, <code>cumsum</code></p></li>
-<li><p><code>mean</code>, <code>median</code></p></li>
-<li><p><code>describe()</code></p></li>
-<li><p>Correlation and Covariance ### Unique Values, Value Counts, and Membership</p></li>
-<li><p><code>unique</code></p></li>
-<li><p><code>value_counts</code></p></li>
+<li><code>sum</code>, <code>cumsum</code></li>
+<li><code>mean</code>, <code>median</code></li>
+<li><code>.describe()</code></li>
+<li><code>.cov</code>, <code>.corr</code></li>
 </ul>
 </section>
-<section id="reading-and-writing-data-in-text-format" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="reading-and-writing-data-in-text-format"><span class="header-section-number">4.1.9</span> Reading and Writing Data in Text Format</h3>
+<section id="unique-values-value-counts-and-membership" class="level3" data-number="4.1.9">
+<h3 data-number="4.1.9" class="anchored" data-anchor-id="unique-values-value-counts-and-membership"><span class="header-section-number">4.1.9</span> Unique Values, Value Counts, and Membership</h3>
+<ul>
+<li><code>unique</code></li>
+<li><code>value_counts</code></li>
+</ul>
+</section>
+<section id="reading-and-writing-data-in-text-format" class="level3" data-number="4.1.10">
+<h3 data-number="4.1.10" class="anchored" data-anchor-id="reading-and-writing-data-in-text-format"><span class="header-section-number">4.1.10</span> Reading and Writing Data in Text Format</h3>
 <ul>
 <li><code>read_csv</code></li>
 <li><code>read_excel</code></li>
