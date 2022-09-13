@@ -13,11 +13,11 @@ Since `DataFrame` is more like a table, the biggest questions here is not to do 
 {{< include 04-01.qmd >}}
 
 
-{{< include 04-02.qmd >}}
+<!-- {{< include 04-02.qmd >}}
 
 {{< include 04-03.qmd >}}
 
-{{< include 04-04.qmd >}}
+{{< include 04-04.qmd >}} -->
 
 
 {{< include 04-ex.qmd >}}

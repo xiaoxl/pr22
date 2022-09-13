@@ -244,13 +244,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#accessing-data" id="toc-accessing-data" class="nav-link" data-scroll-target="#accessing-data"><span class="toc-section-number">4.1.2</span>  Accessing data</a></li>
   <li><a href="#updating-data" id="toc-updating-data" class="nav-link" data-scroll-target="#updating-data"><span class="toc-section-number">4.1.3</span>  Updating data</a></li>
   <li><a href="#indexing-selection-and-filtering" id="toc-indexing-selection-and-filtering" class="nav-link" data-scroll-target="#indexing-selection-and-filtering"><span class="toc-section-number">4.1.4</span>  Indexing, Selection, and Filtering</a></li>
-  <li><a href="#essential" id="toc-essential" class="nav-link" data-scroll-target="#essential"><span class="toc-section-number">4.1.5</span>  essential</a></li>
+  <li><a href="#essential-functions" id="toc-essential-functions" class="nav-link" data-scroll-target="#essential-functions"><span class="toc-section-number">4.1.5</span>  Essential functions</a></li>
+  <li><a href="#function-application-and-mapping" id="toc-function-application-and-mapping" class="nav-link" data-scroll-target="#function-application-and-mapping"><span class="toc-section-number">4.1.6</span>  Function Application and Mapping</a></li>
+  <li><a href="#sorting-and-ranking" id="toc-sorting-and-ranking" class="nav-link" data-scroll-target="#sorting-and-ranking"><span class="toc-section-number">4.1.7</span>  Sorting and Ranking</a></li>
+  <li><a href="#summarizing-and-computing-descriptive-statistics" id="toc-summarizing-and-computing-descriptive-statistics" class="nav-link" data-scroll-target="#summarizing-and-computing-descriptive-statistics"><span class="toc-section-number">4.1.8</span>  Summarizing and Computing Descriptive Statistics</a></li>
+  <li><a href="#reading-and-writing-data-in-text-format" id="toc-reading-and-writing-data-in-text-format" class="nav-link" data-scroll-target="#reading-and-writing-data-in-text-format"><span class="toc-section-number">4.1.9</span>  Reading and Writing Data in Text Format</a></li>
   </ul></li>
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="toc-section-number">4.2</span>  Data cleaning</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="toc-section-number">4.3</span>  Data Wrangling</a></li>
-  <li><a href="#data-aggregation-and-group-operations" id="toc-data-aggregation-and-group-operations" class="nav-link" data-scroll-target="#data-aggregation-and-group-operations"><span class="toc-section-number">4.4</span>  Data Aggregation and Group Operations</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">4.5</span>  Exercises</a></li>
-  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">4.6</span>  Projects</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">4.2</span>  Exercises</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">4.3</span>  Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -546,7 +547,7 @@ Name: Utah, dtype: int32</code></pre>
 </div>
 </div>
 <ul>
-<li>Slicing with labels behaves differently than normal Python slicing in that the end‐ point is inclusive.</li>
+<li>Slicing with labels behaves differently than normal Python slicing in that the endpoint is inclusive.</li>
 </ul>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -559,58 +560,303 @@ c    2.0
 dtype: float64</code></pre>
 </div>
 </div>
+<ul>
+<li>Reindex <code>.reindex()</code>:</li>
+</ul>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(np.arange(<span class="dv">16</span>).reshape((<span class="dv">4</span>, <span class="dv">4</span>)),</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    index<span class="op">=</span>[<span class="st">'Ohio'</span>, <span class="st">'Colorado'</span>, <span class="st">'Utah'</span>, <span class="st">'New York'</span>],</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>data.reindex(index <span class="op">=</span> [<span class="st">'Colorado'</span>, <span class="st">'Arkansas'</span>, <span class="st">'New York'</span>],</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>             columns <span class="op">=</span> [<span class="st">'three'</span>, <span class="st">'five'</span>, <span class="st">'one'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>three</th>
+      <th>five</th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Colorado</th>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>.loc</code> and <code>.reindex</code> are very similar to each other. The main difference between theses two is that <code>.loc</code> will return a view and <code>.reindex</code> will return a copy in most cases.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When locate data using indexes, duplicate labels will return all results.</p>
+</div>
+</div>
+<ul>
+<li><code>pd.DataFrame.drop()</code> and <code>pd.DataFrame.dropna()</code></li>
+</ul>
+</section>
+<section id="essential-functions" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="essential-functions"><span class="header-section-number">4.1.5</span> Essential functions</h3>
+<ul>
+<li>Arithmetic and Data Alignment Elements of the same index and columns will be computed. By default, if any entry is <code>nan</code>, the answer will be <code>nan</code>. You may use <code>fill_value</code> argument to fill the empty slots.</li>
+</ul>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="13">
+<span class="theorem-title"><strong>Example 4.2 </strong></span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame(np.arange(<span class="fl">12.</span>).reshape((<span class="dv">3</span>, <span class="dv">4</span>)), columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'abcd'</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame(np.arange(<span class="fl">20.</span>).reshape((<span class="dv">4</span>, <span class="dv">5</span>)), columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'abcde'</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df2.loc[<span class="dv">1</span>, <span class="st">'b'</span>] <span class="op">=</span> np.nan</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>df1.add(df2, fill_value<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9.0</td>
+      <td>5.0</td>
+      <td>13.0</td>
+      <td>15.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>24.0</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15.0</td>
+      <td>16.0</td>
+      <td>17.0</td>
+      <td>18.0</td>
+      <td>19.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Relatedly, when reindexing a Series or DataFrame, you can also specify a <code>fill_value</code>.</p>
+</section>
+<section id="function-application-and-mapping" class="level3" data-number="4.1.6">
+<h3 data-number="4.1.6" class="anchored" data-anchor-id="function-application-and-mapping"><span class="header-section-number">4.1.6</span> Function Application and Mapping</h3>
+<p>We may apply functions to each row/column of a DataFrame. If the function is built-in function that is compatible with DataFrame, you can directly call the function that it will be applied automatically to each row/column. If it is not, we can call <code>apply</code> to get the desired result.</p>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="14">
+<span class="theorem-title"><strong>Example 4.3 </strong></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(np.random.rand(<span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                    index<span class="op">=</span>[<span class="st">'Ohio'</span>, <span class="st">'Colorado'</span>, <span class="st">'Utah'</span>, <span class="st">'New York'</span>],</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x.<span class="bu">max</span>() <span class="op">-</span> x.<span class="bu">min</span>()</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f, axis<span class="op">=</span><span class="st">'columns'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>one      0.285337
+two      0.581366
+three    0.737709
+four     0.209290
+dtype: float64
+Ohio        0.652325
+Colorado    0.606044
+Utah        0.574486
+New York    0.302674
+dtype: float64</code></pre>
+</div>
+</div>
+</div>
+<p>We can use more complicated function to get more complicated result.</p>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="15">
+<span class="theorem-title"><strong>Example 4.4 </strong></span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(np.random.rand(<span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                    index<span class="op">=</span>[<span class="st">'Ohio'</span>, <span class="st">'Colorado'</span>, <span class="st">'Utah'</span>, <span class="st">'New York'</span>],</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: pd.Series([x.<span class="bu">max</span>(), x.<span class="bu">min</span>()], index<span class="op">=</span>[<span class="st">'max'</span>, <span class="st">'min'</span>])</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         one       two     three      four
+max  0.97248  0.848924  0.920384  0.744820
+min  0.05746  0.064153  0.038190  0.223057</code></pre>
+</div>
+</div>
 </div>
 </section>
-<section id="essential" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="essential"><span class="header-section-number">4.1.5</span> essential</h3>
+<section id="sorting-and-ranking" class="level3" data-number="4.1.7">
+<h3 data-number="4.1.7" class="anchored" data-anchor-id="sorting-and-ranking"><span class="header-section-number">4.1.7</span> Sorting and Ranking</h3>
 <ul>
-<li><p>indexing: very very import for pandas</p></li>
-<li><p>Dropping entries</p></li>
-<li><p>Arithmetic and Data Alignment</p></li>
-<li><p>Operations between DataFrame and Series</p></li>
-<li><p>Function Application and Mapping</p></li>
-<li><p>Sorting and Ranking</p></li>
-<li><p>Axis Indexes with Duplicate Labels</p></li>
-<li><p>Summarizing and Computing Descriptive Statistics</p></li>
-<li><p>Correlation and Covariance</p></li>
-<li><p>Unique Values, Value Counts, and Membership</p></li>
-<li><p>Reading and Writing Data in Text Format</p></li>
+<li><code>.sort_values(by=)</code></li>
+<li><code>.rank(ascending=, method=)</code></li>
 </ul>
 </section>
-</section>
-<section id="data-cleaning" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">4.2</span> Data cleaning</h2>
+<section id="summarizing-and-computing-descriptive-statistics" class="level3" data-number="4.1.8">
+<h3 data-number="4.1.8" class="anchored" data-anchor-id="summarizing-and-computing-descriptive-statistics"><span class="header-section-number">4.1.8</span> Summarizing and Computing Descriptive Statistics</h3>
 <ul>
-<li>Handling Missing Data</li>
-<li>Data Transformation</li>
-<li>String Manipulation</li>
+<li><p><code>sum</code>, <code>cumsum</code></p></li>
+<li><p><code>mean</code>, <code>median</code></p></li>
+<li><p><code>describe()</code></p></li>
+<li><p>Correlation and Covariance ### Unique Values, Value Counts, and Membership</p></li>
+<li><p><code>unique</code></p></li>
+<li><p><code>value_counts</code></p></li>
 </ul>
-<div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4.1 </strong></span>fddsf</p>
+</section>
+<section id="reading-and-writing-data-in-text-format" class="level3" data-number="4.1.9">
+<h3 data-number="4.1.9" class="anchored" data-anchor-id="reading-and-writing-data-in-text-format"><span class="header-section-number">4.1.9</span> Reading and Writing Data in Text Format</h3>
+<ul>
+<li><code>read_csv</code></li>
+<li><code>read_excel</code></li>
+<li><code>df.to_csv</code></li>
+</ul>
+<!-- {{< include 04-02.qmd >}}
+
+
+## Data Wrangling
+
+- Hierarchical indexing
+- Join
+- Combine
+- Reshape
+
+
+
+{{< include 04-04.qmd >}} -->
+</section>
+</section>
+<section id="exercises" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.2</span> Exercises</h2>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.1 </strong></span>Please use the following code to generate a series <code>ser</code>, and then finish the following tasks.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>mylist <span class="op">=</span> <span class="bu">list</span>(<span class="st">'abcedfghijklmnopqrstuvwxyz'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>myarr <span class="op">=</span> np.arange(<span class="dv">26</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>mydict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(mylist, myarr))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> pd.Series(mydict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Convert the series <code>ser</code> into a dataframe <code>df</code> with its index as another column on the dataframe.</li>
+<li>Pick the two columns of <code>df</code> and set them into two serieses <code>ser1</code> and <code>ser2</code>.</li>
+<li>Combine two series <code>ser1</code> and <code>ser2</code> to form a new dataframe <code>newdf</code>, and name their columns <code>ser1</code> and <code>ser2</code>.</li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.2 </strong></span>Consider two serieses <code>ser1</code> and <code>ser2</code>. You may use the following <code>ser1</code> and <code>ser2</code> as an example. The output of each questions below should be a series. You may want to learn the following commands:</p>
+<ul>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.union1d.html"><code>np.union1d()</code></a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.intersect1d.html"><code>np.intersect1d()</code></a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.isin.html"><code>np.isin()</code></a></li>
+</ul>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ser1 <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>ser2 <span class="op">=</span> pd.Series([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Find all the elements from <code>ser1</code> that are also in <code>ser2</code>.</li>
+<li>Find all the elements from <code>ser2</code> that are also in <code>ser1</code>.</li>
+<li>From <code>ser1</code> remove items present in <code>ser2</code>.</li>
+<li>Find the union of <code>ser1</code> and <code>ser2</code>.</li>
+<li>Find the intersection of <code>ser1</code> and <code>ser2</code>.</li>
+<li>Find all the elemetns that are in either <code>ser1</code> or <code>ser2</code>, but not both.</li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.3 (Some statistics) </strong></span>Please check the following commands and answer the following questions.</p>
+<ul>
+<li>[<code>np.percentile()</code>]</li>
+<li>[<code>np.</code>]</li>
+</ul>
+</div>
+<p>How to bin a numeric series to 10 groups of equal size?</p>
+<ol start="12" type="1">
+<li>How to convert a numpy array to a dataframe of given shape? (L1)</li>
+</ol>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.4 </strong></span>read and write pandas csv</p>
 </div>
 </section>
-<section id="data-wrangling" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">4.3</span> Data Wrangling</h2>
-<ul>
-<li>Hierarchical indexing</li>
-<li>Join</li>
-<li>Combine</li>
-<li>Reshape</li>
-</ul>
-</section>
-<section id="data-aggregation-and-group-operations" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="data-aggregation-and-group-operations"><span class="header-section-number">4.4</span> Data Aggregation and Group Operations</h2>
-</section>
-<section id="exercises" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.5</span> Exercises</h2>
-</section>
-<section id="projects" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">4.6</span> Projects</h2>
+<section id="projects" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="projects"><span class="header-section-number">4.3</span> Projects</h2>
 
 
 </section>

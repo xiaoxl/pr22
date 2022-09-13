@@ -114,8 +114,7 @@ print(data.loc['Colorado', ['two', 'three']])
 print(data.iloc[2, [3, 0, 1]])
 ```
 
-- Slicing with labels behaves differently than normal Python slicing in that the end‐
-point is inclusive. 
+- Slicing with labels behaves differently than normal Python slicing in that the endpoint is inclusive. 
 
 ```{python}
 import pandas as pd
@@ -125,37 +124,115 @@ obj['b':'c']
 ```
 
 
-
-
+- Reindex `.reindex()`:
 ```{python}
 import pandas as pd
 data = pd.DataFrame(np.arange(16).reshape((4, 4)),
                     index=['Ohio', 'Colorado', 'Utah', 'New York'],
                     columns=['one', 'two', 'three', 'four'])
+
+data.reindex(index = ['Colorado', 'Arkansas', 'New York'],
+             columns = ['three', 'five', 'one'])
 ```
 
 
+::: {.callout-note}
+`.loc` and `.reindex` are very similar to each other. The main difference between theses two is that `.loc` will return a view and `.reindex` will return a copy in most cases.
+:::
 
 
-### essential
-
-- indexing: very very import for pandas
-
-
+::: {.callout-note}
+When locate data using indexes, duplicate labels will return all results.
+:::
 
 
-- Dropping entries
+- `pd.DataFrame.drop()` and `pd.DataFrame.dropna()`
 
 
+
+### Essential functions
 - Arithmetic and Data Alignment
-- Operations between DataFrame and Series
-- Function Application and Mapping
-- Sorting and Ranking
-- Axis Indexes with Duplicate Labels
-- Summarizing and Computing Descriptive Statistics
-- Correlation and Covariance
-- Unique Values, Value Counts, and Membership
+Elements of the same index and columns will be computed. By default, if any entry is `nan`, the answer will be `nan`. You may use `fill_value` argument to fill the empty slots.
+
+
+::: {#exm-}
+
+```{python}
+import pandas as pd
+import numpy as np
+df1 = pd.DataFrame(np.arange(12.).reshape((3, 4)), columns=list('abcd'))
+df2 = pd.DataFrame(np.arange(20.).reshape((4, 5)), columns=list('abcde'))
+df2.loc[1, 'b'] = np.nan
+
+df1.add(df2, fill_value=0)
+```
+
+:::
+
+Relatedly, when reindexing a Series or DataFrame, you can also specify a `fill_value`.
+
+
+### Function Application and Mapping
+We may apply functions to each row/column of a DataFrame. If the function is built-in function that is compatible with DataFrame, you can directly call the function that it will be applied automatically to each row/column. If it is not, we can call `apply` to get the desired result. 
+
+
+::: {#exm-}
+
+```{python}
+import pandas as pd
+data = pd.DataFrame(np.random.rand(4, 4),
+                    index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                    columns=['one', 'two', 'three', 'four'])
+
+f = lambda x: x.max() - x.min()
+
+print(data.apply(f))
+print(data.apply(f, axis='columns'))
+```
+
+:::
+
+
+We can use more complicated function to get more complicated result.
+
+::: {#exm-}
+
+```{python}
+import pandas as pd
+data = pd.DataFrame(np.random.rand(4, 4),
+                    index=['Ohio', 'Colorado', 'Utah', 'New York'],
+                    columns=['one', 'two', 'three', 'four'])
+
+f = lambda x: pd.Series([x.max(), x.min()], index=['max', 'min'])
+
+print(data.apply(f))
+```
+
+:::
+
+
+### Sorting and Ranking
+
+- `.sort_values(by=)`
+- `.rank(ascending=, method=)`
 
 
 
-- Reading and Writing Data in Text Format
+
+### Summarizing and Computing Descriptive Statistics
+
+- `sum`, `cumsum`
+- `mean`, `median`
+- `.describe()`
+- `.cov`, `.corr`
+
+### Unique Values, Value Counts, and Membership
+- `unique`
+- `value_counts`
+
+
+
+### Reading and Writing Data in Text Format
+- `read_csv`
+- `read_excel`
+- `df.to_csv`

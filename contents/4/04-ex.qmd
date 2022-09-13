@@ -1,2 +1,72 @@
 ## Exercises
 
+
+::: {#exr-}
+Please use the following code to generate a series `ser`, and then finish the following tasks.
+
+```{python}
+import pandas as pd
+import numpy as np
+
+
+mylist = list('abcedfghijklmnopqrstuvwxyz')
+myarr = np.arange(26)
+mydict = dict(zip(mylist, myarr))
+ser = pd.Series(mydict)
+```
+
+1. Convert the series `ser` into a dataframe `df` with its index as another column on the dataframe.
+2. Pick the two columns of `df` and set them into two serieses `ser1` and `ser2`. 
+3. Combine two series `ser1` and `ser2` to form a new dataframe `newdf`, and name their columns `ser1` and `ser2`.
+:::
+
+
+
+
+::: {#exr-}
+Consider two serieses `ser1` and `ser2`. You may use the following `ser1` and `ser2` as an example. The output of each questions below should be a series. You may want to learn the following commands:
+
+- [`np.union1d()`](https://numpy.org/doc/stable/reference/generated/numpy.union1d.html)
+- [`np.intersect1d()`](https://numpy.org/doc/stable/reference/generated/numpy.intersect1d.html)
+- [`np.isin()`](https://numpy.org/doc/stable/reference/generated/numpy.isin.html)
+
+```{python}
+import pandas as pd
+
+ser1 = pd.Series([1, 2, 3, 4, 5])
+ser2 = pd.Series([4, 5, 6, 7, 8])
+```
+1. Find all the elements from `ser1` that are also in `ser2`.
+2. Find all the elements from `ser2` that are also in `ser1`.
+3. From `ser1` remove items present in `ser2`.
+4. Find the union of `ser1` and `ser2`.
+5. Find the intersection of `ser1` and `ser2`.
+6. Find all the elemetns that are in either `ser1` or `ser2`, but not both.
+:::
+
+
+
+::: {#exr-}
+## Some statistics
+Please check the following commands and answer the following questions.
+
+- [`np.percentile()`]
+- [`np.`]
+
+
+
+:::
+
+
+
+How to bin a numeric series to 10 groups of equal size?
+
+
+
+12. How to convert a numpy array to a dataframe of given shape? (L1)
+
+
+
+::: {#exr-}
+read and write pandas csv
+:::

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-inpute8b54a3d</title>
+<title>quarto-inputf39cb4f2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -159,7 +159,7 @@ dtype: int64</code></pre>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'c'</span>: [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'e'</span>, <span class="st">'f'</span>, <span class="st">'g'</span>]}</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="29">
 
 <div>
 
@@ -260,7 +260,7 @@ Note
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>newcol <span class="op">=</span> {<span class="dv">1</span>: <span class="st">'good'</span>, <span class="dv">3</span>: <span class="st">'better'</span>, <span class="dv">5</span>: <span class="st">'best'</span>}</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'d'</span>] <span class="op">=</span> pd.Series(newcol)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="31">
 
 <div>
 
@@ -323,7 +323,7 @@ Note
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                    index<span class="op">=</span>[<span class="st">'Ohio'</span>, <span class="st">'Colorado'</span>, <span class="st">'Utah'</span>, <span class="st">'New York'</span>],</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>data[data[<span class="st">'one'</span>]<span class="op">&gt;</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="32">
 
 <div>
 
@@ -378,28 +378,95 @@ Name: Utah, dtype: int32</code></pre>
 </div>
 </div>
 <ul>
-<li>Slicing with labels behaves differently than normal Python slicing in that the end‐ point is inclusive.</li>
+<li>Slicing with labels behaves differently than normal Python slicing in that the endpoint is inclusive.</li>
 </ul>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> pd.Series(np.arange(<span class="fl">4.</span>), index<span class="op">=</span>[<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>obj[<span class="st">'b'</span>:<span class="st">'c'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>b    1.0
 c    2.0
 dtype: float64</code></pre>
 </div>
 </div>
+<ul>
+<li>Reindex <code>.reindex()</code>:</li>
+</ul>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(np.arange(<span class="dv">16</span>).reshape((<span class="dv">4</span>, <span class="dv">4</span>)),</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                    index<span class="op">=</span>[<span class="st">'Ohio'</span>, <span class="st">'Colorado'</span>, <span class="st">'Utah'</span>, <span class="st">'New York'</span>],</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>data.reindex(index <span class="op">=</span> [<span class="st">'Colorado'</span>, <span class="st">'Arkansas'</span>, <span class="st">'New York'</span>],</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>             columns <span class="op">=</span> [<span class="st">'three'</span>, <span class="st">'five'</span>, <span class="st">'one'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>three</th>
+      <th>five</th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Colorado</th>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>.loc</code> and <code>.reindex</code> are very similar to each other. The main difference between theses two is that <code>.loc</code> will return a view and <code>.reindex</code> will return a copy in most cases.</p>
+</div>
 </div>
 </section>
 <section id="essential" class="level3">
-<h3 class="anchored" data-anchor-id="essential">essential</h3>
+<h3 class="anchored" data-anchor-id="essential">Essential</h3>
+<ul>
+<li><code>pd.Seiers.reindex()</code> and <code>pd.DataFrame.reindex()</code></li>
+</ul>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="12">
+<span class="theorem-title"><strong>Example 2 </strong></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> pd.Series([<span class="fl">4.5</span>, <span class="fl">7.2</span>, <span class="op">-</span><span class="fl">5.3</span>, <span class="fl">3.6</span>], index<span class="op">=</span>[<span class="st">'d'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>, <span class="st">'c'</span>])</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>obj2 <span class="op">=</span> obj.reindex([<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'e'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <ul>
 <li><p>indexing: very very import for pandas</p></li>
 <li><p>Dropping entries</p></li>
