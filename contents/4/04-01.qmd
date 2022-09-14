@@ -146,8 +146,6 @@ When locate data using indexes, duplicate labels will return all results.
 :::
 
 
-- `pd.DataFrame.drop()` and `pd.DataFrame.dropna()`
-
 
 
 ### Essential functions
@@ -170,7 +168,6 @@ df1.add(df2, fill_value=0)
 :::
 
 Relatedly, when reindexing a Series or DataFrame, you can also specify a `fill_value`.
-
 
 ### Function Application and Mapping
 We may apply functions to each row/column of a DataFrame. If the function is built-in function that is compatible with DataFrame, you can directly call the function that it will be applied automatically to each row/column. If it is not, we can call `apply` to get the desired result. 
@@ -236,3 +233,8 @@ print(data.apply(f))
 - `read_csv`
 - `read_excel`
 - `df.to_csv`
+
+
+### Copies and views
+
+- `inplace`
