@@ -715,10 +715,10 @@ The base of b is None</code></pre>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    plt.plot(row)</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;matplotlib.legend.Legend at 0x2c0f33e15e0&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x248b6130e80&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="03-_files/figure-html/cell-17-output-2.png" width="569" height="404"></p>
+<p><img src="03-_files/figure-html/cell-17-output-2.png" width="578" height="404"></p>
 </div>
 </div>
 </div>
@@ -730,7 +730,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>positions.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>8.0</code></pre>
+<pre><code>5.0</code></pre>
 </div>
 </div>
 <ul>
@@ -739,7 +739,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>array([6., 8., 3.])</code></pre>
+<pre><code>array([5., 1., 2.])</code></pre>
 </div>
 </div>
 <ul>
@@ -748,8 +748,9 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>array([0., 1., 2., 3., 2., 3., 4., 5., 4., 3., 2., 1., 2., 3., 2., 3., 4.,
-       3., 2., 3., 4., 3., 4., 5., 6., 5., 6., 7., 6., 7., 8.])</code></pre>
+<pre><code>array([ 0.,  1.,  2.,  3.,  4.,  5.,  4.,  3.,  2.,  1.,  0.,  1.,  0.,
+       -1.,  0., -1., -2., -1.,  0., -1., -2., -1.,  0., -1., -2., -1.,
+        0.,  1.,  0., -1., -2.])</code></pre>
 </div>
 </div>
 <ul>
@@ -758,7 +759,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>array([ True,  True,  True])</code></pre>
+<pre><code>array([ True, False, False])</code></pre>
 </div>
 </div>
 <ul>
@@ -767,7 +768,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>3</code></pre>
+<pre><code>1</code></pre>
 </div>
 </div>
 <ul>
@@ -776,7 +777,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>positions.argmax(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>array([30, 30,  3], dtype=int64)</code></pre>
+<pre><code>array([5, 1, 2], dtype=int64)</code></pre>
 </div>
 </div>
 </div>
@@ -901,9 +902,9 @@ Click to expand.
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.17 (Adding one axis) </strong></span>Please download <a href="assests/img/20220824224849.png">this file</a>.</p>
 <ol type="1">
-<li>Please use <code>matplotlib.imread()</code> to read the file as a 2D numpy array.</li>
+<li>Please use <code>matplotlib.pyplot.imread()</code> to read the file as a 3D numpy array.</li>
 <li>Check the shape of the array.</li>
-<li>Add one additional axis to it to make it into a 3D array.</li>
+<li>Add one additional axis to it as axis 0 to make it into a 4D array.</li>
 </ol>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -914,6 +915,18 @@ Click to expand.
 <li>For each list <code>coin</code> created above, write a code to find the longest <code>H</code> streak. We only need the biggest number of consecutive <code>H</code> we get during this 100 tosses. It is NOT necessary to know when we start the streak.</li>
 </ol>
 </div>
+<details>
+<summary>
+Click for Hint.
+</summary>
+<div class="solution proof">
+<p><span class="proof-title"><em>Solution</em>. </span>The following ideas can be used to solve the problem.</p>
+<ul>
+<li><code>np.where</code></li>
+<li>string, <code>split</code> and <code>join</code></li>
+</ul>
+</div>
+</details>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.19 (Bins) </strong></span>Please read the <a href="https://numpy.org/doc/stable/reference/generated/numpy.digitize.html#numpy-digitize">document of <code>np.digitize</code></a>, and use it to do the following task.</p>
 <p>Set the following bins:</p>
@@ -940,6 +953,14 @@ Click to expand.
 <li>Please sort it along the 2nd row.</li>
 </ol>
 </div>
+<details>
+<summary>
+Click for Hint.
+</summary>
+<div class="solution proof">
+<p><span class="proof-title"><em>Solution</em>. </span>Please use <code>np.argsort</code> for the problem.</p>
+</div>
+</details>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.21 (One-hot vector) </strong></span>Compute the one-hot encodings of a given array. You may use the following array as a test example. In this example, there are <code>3</code> labels. So the one-hot vectors are 3 dimensional vectors.</p>
 <p>For more infomation about one-hot encodings, you may check the <a href="https://en.wikipedia.org/wiki/One-hot#Machine_learning_and_statistics">Wiki page</a>. You are not allowed to use packages that can directly compute the one-hot encodings for this problem.</p>

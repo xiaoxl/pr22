@@ -337,7 +337,7 @@ dtype: int64</code></pre>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'c'</span>: [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>, <span class="st">'e'</span>, <span class="st">'f'</span>, <span class="st">'g'</span>]}</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
 
@@ -438,7 +438,7 @@ Note
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>newcol <span class="op">=</span> {<span class="dv">1</span>: <span class="st">'good'</span>, <span class="dv">3</span>: <span class="st">'better'</span>, <span class="dv">5</span>: <span class="st">'best'</span>}</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'d'</span>] <span class="op">=</span> pd.Series(newcol)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="7">
 
 <div>
 
@@ -501,7 +501,7 @@ Note
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                    index<span class="op">=</span>[<span class="st">'Ohio'</span>, <span class="st">'Colorado'</span>, <span class="st">'Utah'</span>, <span class="st">'New York'</span>],</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                    columns<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>])</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>data[data[<span class="st">'one'</span>]<span class="op">&gt;</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="8">
 
 <div>
 
@@ -563,7 +563,7 @@ Name: Utah, dtype: int32</code></pre>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> pd.Series(np.arange(<span class="fl">4.</span>), index<span class="op">=</span>[<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>obj[<span class="st">'b'</span>:<span class="st">'c'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>b    1.0
 c    2.0
 dtype: float64</code></pre>
@@ -580,7 +580,7 @@ dtype: float64</code></pre>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>data.reindex(index <span class="op">=</span> [<span class="st">'Colorado'</span>, <span class="st">'Arkansas'</span>, <span class="st">'New York'</span>],</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>             columns <span class="op">=</span> [<span class="st">'three'</span>, <span class="st">'five'</span>, <span class="st">'one'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="11">
 
 <div>
 
@@ -659,7 +659,7 @@ Note
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>df2.loc[<span class="dv">1</span>, <span class="st">'b'</span>] <span class="op">=</span> np.nan</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>df1.add(df2, fill_value<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="12">
 
 <div>
 
@@ -731,15 +731,15 @@ Note
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f, axis<span class="op">=</span><span class="st">'columns'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>one      0.584618
-two      0.752796
-three    0.440139
-four     0.730343
+<pre><code>one      0.456236
+two      0.790401
+three    0.743559
+four     0.827898
 dtype: float64
-Ohio        0.589802
-Colorado    0.407343
-Utah        0.789815
-New York    0.602899
+Ohio        0.793934
+Colorado    0.536326
+Utah        0.698412
+New York    0.501383
 dtype: float64</code></pre>
 </div>
 </div>
@@ -758,8 +758,8 @@ dtype: float64</code></pre>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          one       two     three      four
-max  0.687792  0.844276  0.466464  0.803927
-min  0.210902  0.066752  0.168957  0.246106</code></pre>
+max  0.738595  0.703134  0.981316  0.987194
+min  0.255978  0.160669  0.149142  0.198268</code></pre>
 </div>
 </div>
 </div>
@@ -896,7 +896,7 @@ min  0.210902  0.066752  0.168957  0.246106</code></pre>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'k1'</span>: [<span class="st">'one'</span>, <span class="st">'two'</span>] <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> [<span class="st">'two'</span>], </span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'k2'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>]})</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>data.drop_duplicates([<span class="st">'k1'</span>], keep<span class="op">=</span><span class="st">'last'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="16">
 
 <div>
 
@@ -951,7 +951,7 @@ min  0.210902  0.066752  0.168957  0.246106</code></pre>
 <span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'animal'</span>] <span class="op">=</span> data[<span class="st">'food'</span>].<span class="bu">str</span>.lower().<span class="bu">map</span>(meat_to_animal)</span>
 <span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'food'</span>].<span class="bu">map</span>(<span class="kw">lambda</span> x: meat_to_animal[x.lower()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>0       pig
 1       pig
 2       pig

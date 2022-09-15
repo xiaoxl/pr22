@@ -8,9 +8,9 @@
 ## Adding one axis
 Please download [this file](assests/img/20220824224849.png).   
 
-1. Please use `matplotlib.imread()` to read the file as a 2D numpy array.
+1. Please use `matplotlib.pyplot.imread()` to read the file as a 3D numpy array.
 2. Check the shape of the array.
-3. Add one additional axis to it to make it into a 3D array. 
+3. Add one additional axis to it as axis 0 to make it into a 4D array. 
 :::
 
 
@@ -23,6 +23,18 @@ Please finish the following tasks.
 3. For each list `coin` created above, write a code to find the longest `H` streak. We only need the biggest number of consecutive `H` we get during this 100 tosses. It is NOT necessary to know when we start the streak.
 :::
 
+
+<details>
+<summary>Click for Hint.</summary>
+
+::: {.solution}
+The following ideas can be used to solve the problem.
+
+- `np.where`
+- string, `split` and `join`
+:::
+
+</details>
 
 
 
@@ -58,6 +70,15 @@ a = np.random.rand(5, 5)
 1. Please sort it along the 3rd column.
 2. Please sort it along the 2nd row.
 :::
+
+
+<details>
+<summary>Click for Hint.</summary>
+
+::: {.solution}
+Please use `np.argsort` for the problem.
+:::
+</details>
 
 
 ::: {#exr-}
