@@ -757,15 +757,15 @@ Note
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f, axis<span class="op">=</span><span class="st">'columns'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>one      0.970724
-two      0.309989
-three    0.569417
-four     0.765100
+<pre><code>one      0.632538
+two      0.932018
+three    0.567485
+four     0.608462
 dtype: float64
-Ohio        0.792703
-Colorado    0.644592
-Utah        0.564319
-New York    0.598014
+Ohio        0.607960
+Colorado    0.136755
+Utah        0.558636
+New York    0.911721
 dtype: float64</code></pre>
 </div>
 </div>
@@ -784,8 +784,8 @@ dtype: float64</code></pre>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.<span class="bu">apply</span>(f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          one       two     three      four
-max  0.767972  0.933446  0.912670  0.945879
-min  0.128809  0.211450  0.156036  0.034292</code></pre>
+max  0.985849  0.900722  0.841474  0.990646
+min  0.384471  0.146352  0.118633  0.436157</code></pre>
 </div>
 </div>
 </div>
@@ -875,10 +875,8 @@ min  0.128809  0.211450  0.156036  0.034292</code></pre>
      0    1    2
 0  1.0  6.5  3.0
 1  1.0  NaN  NaN
-3  NaN  6.5  3.0</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     0    1    2   4
+3  NaN  6.5  3.0
+     0    1    2   4
 0  1.0  6.5  3.0 NaN
 1  1.0  NaN  NaN NaN
 2  NaN  NaN  NaN NaN
@@ -918,12 +916,12 @@ min  0.128809  0.211450  0.156036  0.034292</code></pre>
 <div id="exm-" class="theorem example">
 <div class="cell" data-execution_count="17">
 <span class="theorem-title"><strong>Example 4.6 </strong></span>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'k1'</span>: [<span class="st">'one'</span>, <span class="st">'two'</span>] <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> [<span class="st">'two'</span>], </span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'k2'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>]})</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>data.drop_duplicates([<span class="st">'k1'</span>], keep<span class="op">=</span><span class="st">'last'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'k1'</span>: [<span class="st">'one'</span>, <span class="st">'two'</span>] <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> [<span class="st">'two'</span>], </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'k2'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>]})</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>data.drop_duplicates([<span class="st">'k1'</span>], keep<span class="op">=</span><span class="st">'last'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 
 <div>
@@ -959,26 +957,26 @@ min  0.128809  0.211450  0.156036  0.034292</code></pre>
 <div id="exm-" class="theorem example">
 <div class="cell" data-execution_count="18">
 <span class="theorem-title"><strong>Example 4.7 </strong></span>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'food'</span>: [<span class="st">'bacon'</span>, <span class="st">'pulled pork'</span>, <span class="st">'bacon'</span>,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'Pastrami'</span>, <span class="st">'corned beef'</span>, <span class="st">'Bacon'</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'pastrami'</span>, <span class="st">'honey ham'</span>, <span class="st">'nova lox'</span>],</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'ounces'</span>: [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">6</span>, <span class="fl">7.5</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>]})</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>meat_to_animal <span class="op">=</span> {</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'bacon'</span>: <span class="st">'pig'</span>,</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'pulled pork'</span>: <span class="st">'pig'</span>,</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'pastrami'</span>: <span class="st">'cow'</span>,</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'corned beef'</span>: <span class="st">'cow'</span>,</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'honey ham'</span>: <span class="st">'pig'</span>,</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'nova lox'</span>: <span class="st">'salmon'</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'animal'</span>] <span class="op">=</span> data[<span class="st">'food'</span>].<span class="bu">str</span>.lower().<span class="bu">map</span>(meat_to_animal)</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'food'</span>].<span class="bu">map</span>(<span class="kw">lambda</span> x: meat_to_animal[x.lower()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'food'</span>: [<span class="st">'bacon'</span>, <span class="st">'pulled pork'</span>, <span class="st">'bacon'</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'Pastrami'</span>, <span class="st">'corned beef'</span>, <span class="st">'Bacon'</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'pastrami'</span>, <span class="st">'honey ham'</span>, <span class="st">'nova lox'</span>],</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'ounces'</span>: [<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">12</span>, <span class="dv">6</span>, <span class="fl">7.5</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>]})</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>meat_to_animal <span class="op">=</span> {</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'bacon'</span>: <span class="st">'pig'</span>,</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'pulled pork'</span>: <span class="st">'pig'</span>,</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'pastrami'</span>: <span class="st">'cow'</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'corned beef'</span>: <span class="st">'cow'</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'honey ham'</span>: <span class="st">'pig'</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'nova lox'</span>: <span class="st">'salmon'</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'animal'</span>] <span class="op">=</span> data[<span class="st">'food'</span>].<span class="bu">str</span>.lower().<span class="bu">map</span>(meat_to_animal)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'food'</span>].<span class="bu">map</span>(<span class="kw">lambda</span> x: meat_to_animal[x.lower()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>0       pig
 1       pig
@@ -1006,25 +1004,25 @@ Name: food, dtype: object</code></pre>
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="example-movies"><span class="header-section-number">4.2.3</span> Example: Movies</h3>
 <p>Below we explore the MovieLens 1M datasets. You may download it from this <a href="assests/datasets/movies.dat">link</a>.</p>
 <div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>mnames <span class="op">=</span> [<span class="st">'movie_id'</span>, <span class="st">'title'</span>, <span class="st">'genres'</span>]</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> pd.read_table(<span class="st">'assests/datasets/movies.dat'</span>, sep<span class="op">=</span><span class="st">'::'</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                       header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>mnames, engine<span class="op">=</span><span class="st">"python"</span>,</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                       encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>all_genres <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>movies[<span class="st">'genres'</span>].<span class="bu">map</span>(<span class="kw">lambda</span> x: all_genres.extend(x.split(<span class="st">'|'</span>)))</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> pd.unique(all_genres)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>dummies <span class="op">=</span> pd.DataFrame(np.zeros((<span class="bu">len</span>(movies), <span class="bu">len</span>(genres))), columns<span class="op">=</span>genres)</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, gen <span class="kw">in</span> <span class="bu">enumerate</span>(movies.genres):</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    indices <span class="op">=</span> dummies.columns.get_indexer(gen.split(<span class="st">'|'</span>))</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    dummies.iloc[i, indices] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>movies_windic <span class="op">=</span> movies.join(dummies.add_prefix(<span class="st">'Genre_'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mnames <span class="op">=</span> [<span class="st">'movie_id'</span>, <span class="st">'title'</span>, <span class="st">'genres'</span>]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> pd.read_table(<span class="st">'assests/datasets/movies.dat'</span>, sep<span class="op">=</span><span class="st">'::'</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                       header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>mnames, engine<span class="op">=</span><span class="st">"python"</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                       encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>all_genres <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>movies[<span class="st">'genres'</span>].<span class="bu">map</span>(<span class="kw">lambda</span> x: all_genres.extend(x.split(<span class="st">'|'</span>)))</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> pd.unique(all_genres)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>dummies <span class="op">=</span> pd.DataFrame(np.zeros((<span class="bu">len</span>(movies), <span class="bu">len</span>(genres))), columns<span class="op">=</span>genres)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, gen <span class="kw">in</span> <span class="bu">enumerate</span>(movies.genres):</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    indices <span class="op">=</span> dummies.columns.get_indexer(gen.split(<span class="st">'|'</span>))</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    dummies.iloc[i, indices] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>movies_windic <span class="op">=</span> movies.join(dummies.add_prefix(<span class="st">'Genre_'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="string-manipulation" class="level3" data-number="4.2.4">
@@ -1033,15 +1031,15 @@ Name: food, dtype: object</code></pre>
 <div id="exm-" class="theorem example">
 <div class="cell" data-execution_count="20">
 <span class="theorem-title"><strong>Example 4.8 </strong></span>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="st">"A "</span>, <span class="st">" B "</span>, <span class="st">"C"</span>, <span class="st">"Aaba"</span>, <span class="st">" Baca "</span>, np.nan, <span class="st">"CABA"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>])</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.lower()</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.split(<span class="st">'a'</span>)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.<span class="bu">len</span>()</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.strip()</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.replace(<span class="st">"A"</span>, <span class="st">'1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="st">"A "</span>, <span class="st">" B "</span>, <span class="st">"C"</span>, <span class="st">"Aaba"</span>, <span class="st">" Baca "</span>, np.nan, <span class="st">"CABA"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>])</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.lower()</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.split(<span class="st">'a'</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.<span class="bu">len</span>()</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.strip()</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>.replace(<span class="st">"A"</span>, <span class="st">'1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>0        1 
 1        B 
@@ -1059,13 +1057,13 @@ dtype: object</code></pre>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.9 </strong></span>We could also use <code>.str</code> to play with column names and row indexes.</p>
 <div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.randn(<span class="dv">3</span>, <span class="dv">2</span>),</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                  columns<span class="op">=</span>[<span class="st">" Column A "</span>, <span class="st">" Column B "</span>], index<span class="op">=</span><span class="bu">range</span>(<span class="dv">3</span>))</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.strip().<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.randn(<span class="dv">3</span>, <span class="dv">2</span>),</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                  columns<span class="op">=</span>[<span class="st">" Column A "</span>, <span class="st">" Column B "</span>], index<span class="op">=</span><span class="bu">range</span>(<span class="dv">3</span>))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.strip().<span class="bu">str</span>.lower().<span class="bu">str</span>.replace(<span class="st">' '</span>, <span class="st">'_'</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 
 <div>
@@ -1081,18 +1079,18 @@ dtype: object</code></pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>-2.035773</td>
-      <td>-0.752911</td>
+      <td>-0.889009</td>
+      <td>1.341524</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.875283</td>
-      <td>0.671632</td>
+      <td>0.712814</td>
+      <td>-0.699293</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.860904</td>
-      <td>0.223615</td>
+      <td>0.709606</td>
+      <td>1.679527</td>
     </tr>
   </tbody>
 </table>
@@ -1104,7 +1102,8 @@ dtype: object</code></pre>
 <section id="regular-expression" class="level3" data-number="4.2.5">
 <h3 data-number="4.2.5" class="anchored" data-anchor-id="regular-expression"><span class="header-section-number">4.2.5</span> Regular expression</h3>
 <p><em>Regular expressions</em> provide a flexible way to search or match string patterns in text. A single expression, commonly called a <em>regex</em>, is a string formed according to the regular expression language. Python’s built-in <code>re</code> module is responsible for applying regular expressions to strings.</p>
-<p>For details of the regular expression language in Python, please read the official documents from <a href="https://docs.python.org/3/library/re.html">here</a>. We will briefly mentioned a few rules here.</p>
+<p>For details of the regular expression language in Python, please read the official documents from <a href="https://docs.python.org/3/library/re.html">here</a>. There are also many great websites for learning regex. <a href="https://regex101.com/">This</a> is one example.</p>
+<p>We will briefly mentioned a few rules here.</p>
 <ul>
 <li><code>.</code>: matches any character except a newline.</li>
 <li><code>\d</code>: matches any digit. It is the same as <code>[0-9]</code>.</li>
@@ -1123,11 +1122,11 @@ dtype: object</code></pre>
 <div id="exm-" class="theorem example">
 <div class="cell" data-execution_count="22">
 <span class="theorem-title"><strong>Example 4.10 </strong></span>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"foo bar</span><span class="ch">\t</span><span class="st"> baz </span><span class="ch">\t</span><span class="st">qux"</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="st">'\s+'</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> re.<span class="bu">compile</span>(pattern)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>regex.split(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"foo bar</span><span class="ch">\t</span><span class="st"> baz </span><span class="ch">\t</span><span class="st">qux"</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="st">'\s+'</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> re.<span class="bu">compile</span>(pattern)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>regex.split(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>['foo', 'bar', 'baz', 'qux']</code></pre>
 </div>
@@ -1144,14 +1143,30 @@ dtype: object</code></pre>
 <div id="exm-" class="theorem example">
 <div class="cell" data-execution_count="23">
 <span class="theorem-title"><strong>Example 4.11 </strong></span>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r'([A-Z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z]{2,4})'</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> re.<span class="bu">compile</span>(pattern, flags<span class="op">=</span>re.IGNORECASE)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> regex.match(<span class="st">'wesm@bright.net'</span>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>m.groups()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r'([A-Z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z]{2,4})'</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> re.<span class="bu">compile</span>(pattern, flags<span class="op">=</span>re.IGNORECASE)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> regex.match(<span class="st">'wesm@bright.net'</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>m.groups()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>('wesm', 'bright', 'net')</code></pre>
 </div>
+</div>
+</div>
+<p>To use regex to DataFrame and Series, you may directly apply <code>.match</code>, <code>.findall</code>, <code>.replace</code> after <code>.str</code>, with the regex pattern as one of the arguments.</p>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="24">
+<span class="theorem-title"><strong>Example 4.12 </strong></span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>mnames <span class="op">=</span> [<span class="st">'movie_id'</span>, <span class="st">'title'</span>, <span class="st">'genres'</span>]</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> pd.read_table(<span class="st">'assests/datasets/movies.dat'</span>, sep<span class="op">=</span><span class="st">'::'</span>,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>                       header<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span>mnames, engine<span class="op">=</span><span class="st">"python"</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                       encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r'([a-zA-Z0-9_\s,.?:;\']+)\((\d</span><span class="sc">{4}</span><span class="vs">)\)'</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>movies[<span class="st">'movietitle'</span>] <span class="op">=</span> movies.title.<span class="bu">str</span>.findall(pattern).<span class="bu">str</span>[<span class="dv">0</span>].<span class="bu">str</span>[<span class="dv">0</span>].<span class="bu">str</span>.strip()</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>movies[<span class="st">'Year'</span>] <span class="op">=</span> movies.title.<span class="bu">str</span>.findall(pattern).<span class="bu">str</span>[<span class="dv">0</span>].<span class="bu">str</span>[<span class="dv">1</span>].<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1176,15 +1191,15 @@ dtype: object</code></pre>
 <li>Finally the results of all those function applications are combined into a result object. We may apply groupby functions directly as methods to groupby objects.The result is the combined result object.</li>
 </ul>
 <div id="exm-" class="theorem example">
-<div class="cell" data-execution_count="24">
-<span class="theorem-title"><strong>Example 4.12 </strong></span>
+<div class="cell" data-execution_count="25">
+<span class="theorem-title"><strong>Example 4.13 </strong></span>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'key1'</span> : [<span class="st">'a'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'b'</span>, <span class="st">'a'</span>],</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'key2'</span> : [<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'one'</span>],</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'data1'</span> : np.random.randn(<span class="dv">5</span>),</span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'data2'</span> : np.random.randn(<span class="dv">5</span>)})</span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="24">
 
 <div>
 
@@ -1203,36 +1218,36 @@ dtype: object</code></pre>
       <th>0</th>
       <td>a</td>
       <td>one</td>
-      <td>0.744681</td>
-      <td>-1.365667</td>
+      <td>-1.252512</td>
+      <td>-0.136362</td>
     </tr>
     <tr>
       <th>1</th>
       <td>a</td>
       <td>two</td>
-      <td>-0.107767</td>
-      <td>1.937902</td>
+      <td>0.742981</td>
+      <td>1.555438</td>
     </tr>
     <tr>
       <th>2</th>
       <td>b</td>
       <td>one</td>
-      <td>1.059181</td>
-      <td>-0.291754</td>
+      <td>0.772681</td>
+      <td>0.519243</td>
     </tr>
     <tr>
       <th>3</th>
       <td>b</td>
       <td>two</td>
-      <td>-1.209915</td>
-      <td>0.280146</td>
+      <td>1.190451</td>
+      <td>0.574724</td>
     </tr>
     <tr>
       <th>4</th>
       <td>a</td>
       <td>one</td>
-      <td>-0.161768</td>
-      <td>-0.397415</td>
+      <td>-0.661613</td>
+      <td>0.491370</td>
     </tr>
   </tbody>
 </table>
@@ -1240,22 +1255,22 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>Now we want to group <code>data1</code> in <code>df</code> by <code>key1</code>.</p>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> df[<span class="st">'data1'</span>].groupby(df[<span class="st">'key1'</span>])</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>grouped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x00000242134CFB80&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x000001B57F01F0D0&gt;</code></pre>
 </div>
 </div>
 <p>What we get is a groupby object and we could apply group functions to it.</p>
-<div class="cell" data-execution_count="26">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped.mean())</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped.size())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>key1
-a    0.158382
-b   -0.075367
+a   -0.390381
+b    0.981566
 Name: data1, dtype: float64
 key1
 a    3
@@ -1264,39 +1279,39 @@ Name: data1, dtype: int64</code></pre>
 </div>
 </div>
 <p>We could iterate over groups.</p>
-<div class="cell" data-execution_count="27">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, group <span class="kw">in</span> grouped:</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'name'</span>, name)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'group'</span>, group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>name a
-group 0    0.744681
-1   -0.107767
-4   -0.161768
+group 0   -1.252512
+1    0.742981
+4   -0.661613
 Name: data1, dtype: float64
 name b
-group 2    1.059181
-3   -1.209915
+group 2    0.772681
+3    1.190451
 Name: data1, dtype: float64</code></pre>
 </div>
 </div>
 <p>We could convert the group object into list and dictionary.</p>
-<div class="cell" data-execution_count="28">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(grouped))</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dict</span>(<span class="bu">list</span>(grouped)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[('a', 0    0.744681
-1   -0.107767
-4   -0.161768
-Name: data1, dtype: float64), ('b', 2    1.059181
-3   -1.209915
+<pre><code>[('a', 0   -1.252512
+1    0.742981
+4   -0.661613
+Name: data1, dtype: float64), ('b', 2    0.772681
+3    1.190451
 Name: data1, dtype: float64)]
-{'a': 0    0.744681
-1   -0.107767
-4   -0.161768
-Name: data1, dtype: float64, 'b': 2    1.059181
-3   -1.209915
+{'a': 0   -1.252512
+1    0.742981
+4   -0.661613
+Name: data1, dtype: float64, 'b': 2    0.772681
+3    1.190451
 Name: data1, dtype: float64}</code></pre>
 </div>
 </div>
@@ -1323,7 +1338,7 @@ Name: data1, dtype: float64}</code></pre>
 <p>Most problems are based on <span class="citation" data-cites="Pra2018a">[<a href="../references.html#ref-Pra2018a" role="doc-biblioref">1</a>]</span>.</p>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.1 </strong></span>Please use the following code to generate a series <code>ser</code>, and then finish the following tasks.</p>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1346,7 +1361,7 @@ Name: data1, dtype: float64}</code></pre>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.intersect1d.html"><code>np.intersect1d()</code></a></li>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.isin.html"><code>np.isin()</code></a></li>
 </ul>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>ser1 <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
@@ -1367,14 +1382,14 @@ Name: data1, dtype: float64}</code></pre>
 <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html"><code>np.percentile()</code></a></li>
 </ul>
 <p>How to get the minimum, 25th percentile, median, 75th, and max of a numeric series? You may use the following Series as an example.</p>
-<div class="cell" data-execution_count="31">
+<div class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> pd.Series(np.random.normal(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.4 </strong></span>Please use <code>pd.Series.value_counts()</code> to calculte the frequency counts of each unique value of the following Series.</p>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> pd.Series(np.take(<span class="bu">list</span>(<span class="st">'abcdefgh'</span>), np.random.randint(<span class="dv">8</span>, size<span class="op">=</span><span class="dv">30</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1382,7 +1397,7 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.5 </strong></span>Please keep the top 2 most frequent items of <code>ser</code> as it is and replace everything else as <code>Other</code>.</p>
-<div class="cell" data-execution_count="33">
+<div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> pd.Series(np.take(<span class="bu">list</span>(<span class="st">'abcdefgh'</span>), np.random.randint(<span class="dv">8</span>, size<span class="op">=</span><span class="dv">30</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1390,14 +1405,14 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.6 </strong></span>Please use <code>pd.cut</code> or <code>pd.qcut</code> to bin the Series <code>ser</code> into 10 equal deciles. You may use the following <code>ser</code> as an example.</p>
-<div class="cell" data-execution_count="34">
+<div class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> pd.Series(np.random.random(<span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.7 </strong></span>Consider the Series `ser:</p>
-<div class="cell" data-execution_count="35">
+<div class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>ser <span class="op">=</span> pd.Series(np.random.randint(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1405,7 +1420,7 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.8 </strong></span>Given the following DataFrame.</p>
-<div class="cell" data-execution_count="36">
+<div class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: [<span class="st">'James'</span>, <span class="st">'Jane'</span>, <span class="st">'Melissa'</span>, <span class="st">'Ed'</span>, <span class="st">'Neil'</span>],</span>
@@ -1425,7 +1440,7 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.10 </strong></span>Compute the mean of <code>weights</code> of each <code>fruit</code>.</p>
-<div class="cell" data-execution_count="37">
+<div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>fruit <span class="op">=</span> pd.Series(np.random.choice([<span class="st">'apple'</span>, <span class="st">'banana'</span>, <span class="st">'carrot'</span>], <span class="dv">10</span>))</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> pd.Series(np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -1434,7 +1449,7 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.11 </strong></span>Consider the following DataFrame.</p>
-<div class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1450,52 +1465,11 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.13 </strong></span>Suppress scientific notations like <code>e-03</code> in <code>df</code> and print up to 4 numbers after decimal.</p>
-<div class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.random(<span class="dv">4</span>)<span class="op">**</span><span class="dv">10</span>, columns<span class="op">=</span>[<span class="st">'random'</span>])</span>
 <span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>random</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5.081675e-01</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>3.788663e-06</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2.446868e-08</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.149080e-09</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.14 </strong></span>Format the values in column <code>random</code> of <code>df</code> as percentages.</p>
-<div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.random(<span class="dv">4</span>), columns<span class="op">=</span>[<span class="st">'random'</span>])</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 
 <div>
@@ -1510,19 +1484,19 @@ Name: data1, dtype: float64}</code></pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.178343</td>
+      <td>0.000004</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.092641</td>
+      <td>0.000512</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.421293</td>
+      <td>0.000838</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.609134</td>
+      <td>0.688991</td>
     </tr>
   </tbody>
 </table>
@@ -1530,26 +1504,82 @@ Name: data1, dtype: float64}</code></pre>
 </div>
 </div>
 </div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.14 </strong></span>Format the values in column <code>random</code> of <code>df</code> as percentages.</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.random(<span class="dv">4</span>), columns<span class="op">=</span>[<span class="st">'random'</span>])</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>random</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.299910</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.883096</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.025947</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.346103</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.15 (Regular expressions) </strong></span>Please use regular expressions to finish the following tasks.</p>
+<ol type="1">
+<li>Match a string that has an <code>a</code> followed by zero or more <code>b</code>’s.</li>
+<li>Match a string that has an <code>a</code> followed by one or more <code>b</code>’s.</li>
+<li>Match a string that has an <code>a</code> followed by zero or one <code>b</code>.</li>
+<li>Match a string that has an <code>a</code> followed by three <code>b</code>’s.</li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.16 (More regex) </strong></span>Find all words starting with <code>a</code> or <code>e</code> in a given string:</p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"The following example creates an ArrayList with a capacity of 50 elements. Four elements are then added to the ArrayList and the ArrayList is trimmed accordingly."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </section>
 <section id="projects" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">4.6</span> Projects</h2>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.15 </strong></span>Extract the valid emails from the series <code>emails</code>. The regex <code>pattern</code> for valid emails is provided as reference.</p>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>emails <span class="op">=</span> pd.Series([<span class="st">'buying books at amazom.com'</span>,</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'rameses@egypt.com'</span>,</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'matt@t.co'</span>,</span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'narendra@modi.com'</span>])</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="st">'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+</span><span class="ch">\\</span><span class="st">.[A-Za-z]{2,4}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="theorem-title"><strong>Exercise 4.17 </strong></span>Extract the valid emails from the series <code>emails</code>. The regex <code>pattern</code> for valid emails is provided as reference.</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>emails <span class="op">=</span> pd.Series([<span class="st">'buying books at amazom.com'</span>,</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'rameses@egypt.com'</span>,</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'matt@t.co'</span>,</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'narendra@modi.com'</span>])</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="st">'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+</span><span class="ch">\\</span><span class="st">.[A-Za-z]{2,4}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.16 </strong></span>Consider the following DataFrame.</p>
-<div class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="theorem-title"><strong>Exercise 4.18 </strong></span>Consider the following DataFrame.</p>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/selva86/datasets/master/Cars93_miss.csv'</span>, usecols<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
 <li>Replace <code>NaN</code> with string <code>missing</code> in columns <code>Manufacturer</code>, <code>Model</code> and <code>Type</code>.</li>
