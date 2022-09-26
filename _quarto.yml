@@ -18,6 +18,8 @@ format:
   html:
     theme: 
       - cosmo
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
   pdf:
     documentclass: scrreprt
 
