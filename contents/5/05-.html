@@ -270,7 +270,8 @@ div.csl-indent {
   <li><a href="#plt.boxplot" id="toc-plt.boxplot" class="nav-link" data-scroll-target="#plt.boxplot"><span class="toc-section-number">5.1.4</span>  <code>plt.boxplot()</code></a></li>
   <li><a href="#titles-labels-and-legends" id="toc-titles-labels-and-legends" class="nav-link" data-scroll-target="#titles-labels-and-legends"><span class="toc-section-number">5.1.5</span>  Titles, labels and legends</a></li>
   <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="toc-section-number">5.1.6</span>  Annotations</a></li>
-  <li><a href="#configurations" id="toc-configurations" class="nav-link" data-scroll-target="#configurations"><span class="toc-section-number">5.1.7</span>  Configurations</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="toc-section-number">5.1.7</span>  Example</a></li>
+  <li><a href="#configurations" id="toc-configurations" class="nav-link" data-scroll-target="#configurations"><span class="toc-section-number">5.1.8</span>  Configurations</a></li>
   </ul></li>
   <li><a href="#seaborn" id="toc-seaborn" class="nav-link" data-scroll-target="#seaborn"><span class="toc-section-number">5.2</span>  <code>seaborn</code></a></li>
   </ul>
@@ -442,7 +443,7 @@ Note
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-12-output-2.png" width="582" height="404"></p>
+<p><img src="05-_files/figure-html/cell-12-output-2.png" width="569" height="404"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="12">
@@ -496,7 +497,7 @@ Note
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randn</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.plot(randn(<span class="dv">30</span>).cumsum(), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-14-output-1.png" width="570" height="404"></p>
+<p><img src="05-_files/figure-html/cell-14-output-1.png" width="572" height="404"></p>
 </div>
 </div>
 </div>
@@ -556,45 +557,45 @@ Note
   <tbody>
     <tr>
       <th>one</th>
-      <td>0.322152</td>
-      <td>0.253184</td>
-      <td>0.592631</td>
-      <td>0.661351</td>
+      <td>0.818947</td>
+      <td>0.319304</td>
+      <td>0.190566</td>
+      <td>0.818276</td>
     </tr>
     <tr>
       <th>two</th>
-      <td>0.271424</td>
-      <td>0.581918</td>
-      <td>0.145184</td>
-      <td>0.978443</td>
+      <td>0.381898</td>
+      <td>0.322793</td>
+      <td>0.648783</td>
+      <td>0.974878</td>
     </tr>
     <tr>
       <th>three</th>
-      <td>0.252195</td>
-      <td>0.067586</td>
-      <td>0.279678</td>
-      <td>0.710922</td>
+      <td>0.925612</td>
+      <td>0.143968</td>
+      <td>0.006489</td>
+      <td>0.586997</td>
     </tr>
     <tr>
       <th>four</th>
-      <td>0.019392</td>
-      <td>0.864917</td>
-      <td>0.820287</td>
-      <td>0.577325</td>
+      <td>0.617118</td>
+      <td>0.557707</td>
+      <td>0.117390</td>
+      <td>0.186101</td>
     </tr>
     <tr>
       <th>five</th>
-      <td>0.334084</td>
-      <td>0.061098</td>
-      <td>0.332856</td>
-      <td>0.103706</td>
+      <td>0.859427</td>
+      <td>0.404666</td>
+      <td>0.375428</td>
+      <td>0.519509</td>
     </tr>
     <tr>
       <th>six</th>
-      <td>0.035120</td>
-      <td>0.058327</td>
-      <td>0.284048</td>
-      <td>0.351034</td>
+      <td>0.534247</td>
+      <td>0.485540</td>
+      <td>0.337197</td>
+      <td>0.343977</td>
     </tr>
   </tbody>
 </table>
@@ -634,7 +635,7 @@ Note
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.sqrt(area)</span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>], s<span class="op">=</span>area, marker<span class="op">=</span><span class="st">'^'</span>, c<span class="op">=</span>c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x216b3b458b0&gt;</code></pre>
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x2973da58910&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-20-output-2.png" width="571" height="404"></p>
@@ -652,7 +653,7 @@ Note
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plt.hist(x, <span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, facecolor<span class="op">=</span><span class="st">'g'</span>, alpha<span class="op">=</span><span class="fl">0.75</span>)</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plt.hist(y, <span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, facecolor<span class="op">=</span><span class="st">'r'</span>, alpha<span class="op">=</span><span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-21-output-1.png" width="591" height="404"></p>
+<p><img src="05-_files/figure-html/cell-21-output-1.png" width="588" height="404"></p>
 </div>
 </div>
 <p>:::</p>
@@ -679,6 +680,13 @@ Note
 <section id="titles-labels-and-legends" class="level3" data-number="5.1.5">
 <h3 data-number="5.1.5" class="anchored" data-anchor-id="titles-labels-and-legends"><span class="header-section-number">5.1.5</span> Titles, labels and legends</h3>
 <ul>
+<li>Titles
+<ul>
+<li><code>plt.title(label)</code>, <code>plt.xlabel(label)</code>, <code>plt.ylabel(label)</code> will set the title/xlabel/ylabel.</li>
+<li><code>ax.set_title(label)</code>, <code>ax.set_xlabel(label)</code>, <code>ax.set_ylabel(label)</code> will do the same thing.</li>
+</ul></li>
+<li>Labels
+<ul>
 <li><code>plt</code> methods
 <ul>
 <li><code>xlim()</code>, <code>ylim()</code>, <code>xticks()</code>, <code>yticks()</code>, <code>xticklabels()</code>, <code>yticklabels()</code></li>
@@ -689,15 +697,91 @@ Note
 <li><code>get_xlim()</code>, <code>get_ylim()</code>, etc..</li>
 <li><code>set_xlim()</code>, <code>set_ylim()</code>, etc..</li>
 </ul></li>
-<li><code>plt.title(label)</code>, <code>plt.xlabel(label)</code>, <code>plt.ylabel(label)</code> will set the title/xlabel/ylabel.</li>
-<li><code>ax.set_title(label)</code>, <code>ax.set_xlabel(label)</code>, <code>ax.set_ylabel(label)</code> will do the same thing.</li>
+</ul></li>
+<li>Legneds
+<ul>
+<li>First add <code>label</code> option to each piece when plotting, and then add <code>ax.legends()</code> or <code>plt.legends()</code> at the end to display the legends.</li>
+<li>You may use <code>handles, labels = ax.get_legend_handles_labels()</code> to get the handles and labels of the legends, and modify them if necessary.</li>
+</ul></li>
 </ul>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="22">
+<span class="theorem-title"><strong>Example 5.11 </strong></span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randn</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>ax.plot(randn(<span class="dv">1000</span>).cumsum(), <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'one'</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>ax.plot(randn(<span class="dv">1000</span>).cumsum(), <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'two'</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>ax.plot(randn(<span class="dv">1000</span>).cumsum(), <span class="st">'b.'</span>, label<span class="op">=</span><span class="st">'three'</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Example'</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'x'</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'y'</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>ax.set_yticks([<span class="op">-</span><span class="dv">40</span>, <span class="dv">0</span>, <span class="dv">40</span>])</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'good'</span>, <span class="st">'bad'</span>, <span class="st">'ugly'</span>])</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>&lt;matplotlib.legend.Legend at 0x2973de7c6d0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="05-_files/figure-html/cell-23-output-2.png" width="601" height="442"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="annotations" class="level3" data-number="5.1.6">
 <h3 data-number="5.1.6" class="anchored" data-anchor-id="annotations"><span class="header-section-number">5.1.6</span> Annotations</h3>
+<p>The command to add annotations is <code>ax.text()</code>. The required auguments are the coordinates of the text and the text itself. You may add several options to modify the style.</p>
+<div id="exm-" class="theorem example">
+<div class="cell" data-execution_count="23">
+<span class="theorem-title"><strong>Example 5.12 </strong></span>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>ax.plot(randn(<span class="dv">1000</span>).cumsum(), <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'one'</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>ax.text(<span class="dv">500</span>, <span class="dv">0</span>, <span class="st">'Hello world!'</span>, family<span class="op">=</span><span class="st">'monospace'</span>, fontsize<span class="op">=</span><span class="dv">15</span>, c<span class="op">=</span><span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>Text(500, 0, 'Hello world!')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="05-_files/figure-html/cell-24-output-2.png" width="578" height="404"></p>
+</div>
+</div>
+</div>
 </section>
-<section id="configurations" class="level3" data-number="5.1.7">
-<h3 data-number="5.1.7" class="anchored" data-anchor-id="configurations"><span class="header-section-number">5.1.7</span> Configurations</h3>
+<section id="example" class="level3" data-number="5.1.7">
+<h3 data-number="5.1.7" class="anchored" data-anchor-id="example"><span class="header-section-number">5.1.7</span> Example</h3>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.13 </strong></span>The stock data can be downloaded from <a href="assests/datasets/spx.csv">here</a>.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'assests/datasets/spx.csv'</span>, index_col<span class="op">=</span><span class="dv">0</span>, parse_dates<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>spx <span class="op">=</span> data[<span class="st">'SPX'</span>]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>spx.plot(ax<span class="op">=</span>ax, style<span class="op">=</span><span class="st">'k-'</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>crisis_data <span class="op">=</span> [(datetime(<span class="dv">2007</span>, <span class="dv">10</span>, <span class="dv">11</span>), <span class="st">'Peak of bull market'</span>),</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>               (datetime(<span class="dv">2008</span>, <span class="dv">3</span>, <span class="dv">12</span>), <span class="st">'Bear Stearns Fails'</span>),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>               (datetime(<span class="dv">2008</span>, <span class="dv">9</span>, <span class="dv">15</span>), <span class="st">'Lehman Bankruptcy'</span>)]</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> date, label <span class="kw">in</span> crisis_data:</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    ax.annotate(label, xy<span class="op">=</span>(date, spx.asof(date) <span class="op">+</span> <span class="dv">75</span>),</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(date, spx.asof(date) <span class="op">+</span> <span class="dv">225</span>),</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, headwidth<span class="op">=</span><span class="dv">4</span>, width<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>                                headlength<span class="op">=</span><span class="dv">4</span>),</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>                horizontalalignment<span class="op">=</span><span class="st">'left'</span>, verticalalignment<span class="op">=</span><span class="st">'top'</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Zoom in on 2007-2010</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="st">'1/1/2007'</span>, <span class="st">'1/1/2011'</span>])</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">600</span>, <span class="dv">1800</span>])</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.set_title(<span class="st">'Important dates in the 2008-2009 financial crisis'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="05-_files/figure-html/cell-25-output-1.png" width="595" height="432"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="configurations" class="level3" data-number="5.1.8">
+<h3 data-number="5.1.8" class="anchored" data-anchor-id="configurations"><span class="header-section-number">5.1.8</span> Configurations</h3>
 </section>
 </section>
 <section id="seaborn" class="level2" data-number="5.2">
