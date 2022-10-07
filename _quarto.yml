@@ -39,7 +39,7 @@ book:
         - contents/2/02-.qmd
         - contents/3/03-.qmd
         - contents/4/04-.qmd
-        # - contents/5/05-.qmd
+        - contents/5/05-.qmd
         # - contents/6/06-.qmd
     # - part: "Part II: R"
     #   chapters:
