@@ -106,7 +106,6 @@ div.csl-indent {
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -217,6 +216,11 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/5/05-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/6/06-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes/Packages for Python</span></a>
   </div>
 </li>
       </ul>
@@ -720,10 +724,10 @@ The base of b is None</code></pre>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    plt.plot(row)</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;matplotlib.legend.Legend at 0x179aed7bdc0&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x2562a314160&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="03-_files/figure-html/cell-17-output-2.png" width="569" height="404"></p>
+<p><img src="03-_files/figure-html/cell-17-output-2.png" width="578" height="404"></p>
 </div>
 </div>
 </div>
@@ -735,7 +739,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>positions.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>7.0</code></pre>
+<pre><code>11.0</code></pre>
 </div>
 </div>
 <ul>
@@ -744,7 +748,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>array([0., 6., 7.])</code></pre>
+<pre><code>array([ 1., 11.,  0.])</code></pre>
 </div>
 </div>
 <ul>
@@ -753,8 +757,9 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>array([0., 1., 2., 1., 2., 3., 2., 3., 2., 1., 2., 1., 2., 3., 4., 5., 4.,
-       5., 6., 7., 6., 7., 6., 5., 6., 5., 4., 5., 4., 5., 6.])</code></pre>
+<pre><code>array([ 0.,  1.,  2.,  3.,  4.,  3.,  4.,  5.,  6.,  5.,  4.,  5.,  6.,
+        7.,  8.,  9., 10.,  9.,  8.,  9.,  8.,  9., 10.,  9.,  8.,  7.,
+        8.,  9., 10., 11., 10.])</code></pre>
 </div>
 </div>
 <ul>
@@ -763,7 +768,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>array([False,  True,  True])</code></pre>
+<pre><code>array([False,  True, False])</code></pre>
 </div>
 </div>
 <ul>
@@ -772,7 +777,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>2</code></pre>
+<pre><code>1</code></pre>
 </div>
 </div>
 <ul>
@@ -781,7 +786,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>positions.argmax(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>array([ 0, 20, 19], dtype=int64)</code></pre>
+<pre><code>array([ 1, 29,  0], dtype=int64)</code></pre>
 </div>
 </div>
 </div>
