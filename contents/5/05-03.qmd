@@ -225,8 +225,8 @@ sns.relplot(data=babyending[babyending.ending.isin(['d', 'n', 'y'])],
 
 
 
-<!-- 
-### Example 3: USDA Food Database
+
+<!-- ### Example 3: USDA Food Database -->
 
 
-### Example 4: 2012 Federal Election Commission Database -->
+<!-- ### Example 4: 2012 Federal Election Commission Database -->

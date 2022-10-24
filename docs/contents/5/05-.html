@@ -106,13 +106,12 @@ div.csl-indent {
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/references.html" rel="next">
+<link href="../../contents/6/06-.html" rel="next">
 <link href="../../contents/4/04-.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -219,6 +218,11 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/5/05-.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/6/06-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes/Packages for Python</span></a>
   </div>
 </li>
       </ul>
@@ -456,7 +460,7 @@ Note
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-12-output-2.png" width="571" height="404"></p>
+<p><img src="05-_files/figure-html/cell-12-output-2.png" width="582" height="404"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="12">
@@ -570,45 +574,45 @@ Note
   <tbody>
     <tr>
       <th>one</th>
-      <td>0.180611</td>
-      <td>0.772648</td>
-      <td>0.813618</td>
-      <td>0.345848</td>
+      <td>0.625810</td>
+      <td>0.813692</td>
+      <td>0.471065</td>
+      <td>0.138594</td>
     </tr>
     <tr>
       <th>two</th>
-      <td>0.983861</td>
-      <td>0.704560</td>
-      <td>0.747402</td>
-      <td>0.923571</td>
+      <td>0.522719</td>
+      <td>0.160696</td>
+      <td>0.867007</td>
+      <td>0.115585</td>
     </tr>
     <tr>
       <th>three</th>
-      <td>0.217433</td>
-      <td>0.142929</td>
-      <td>0.475230</td>
-      <td>0.544665</td>
+      <td>0.186779</td>
+      <td>0.360741</td>
+      <td>0.689680</td>
+      <td>0.175955</td>
     </tr>
     <tr>
       <th>four</th>
-      <td>0.584322</td>
-      <td>0.382634</td>
-      <td>0.781562</td>
-      <td>0.907722</td>
+      <td>0.888726</td>
+      <td>0.911432</td>
+      <td>0.025254</td>
+      <td>0.377499</td>
     </tr>
     <tr>
       <th>five</th>
-      <td>0.139072</td>
-      <td>0.139867</td>
-      <td>0.372720</td>
-      <td>0.617704</td>
+      <td>0.638874</td>
+      <td>0.160207</td>
+      <td>0.107553</td>
+      <td>0.634935</td>
     </tr>
     <tr>
       <th>six</th>
-      <td>0.941622</td>
-      <td>0.780969</td>
-      <td>0.884912</td>
-      <td>0.610164</td>
+      <td>0.504779</td>
+      <td>0.675295</td>
+      <td>0.525180</td>
+      <td>0.806456</td>
     </tr>
   </tbody>
 </table>
@@ -630,7 +634,7 @@ Note
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-19-output-2.png" width="591" height="404"></p>
+<p><img src="05-_files/figure-html/cell-19-output-2.png" width="585" height="404"></p>
 </div>
 </div>
 </div>
@@ -648,7 +652,7 @@ Note
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.sqrt(area)</span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>], s<span class="op">=</span>area, marker<span class="op">=</span><span class="st">'^'</span>, c<span class="op">=</span>c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x1d63d9620d0&gt;</code></pre>
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x24180ecbf40&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-20-output-2.png" width="571" height="404"></p>
@@ -735,7 +739,7 @@ Note
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>&lt;matplotlib.legend.Legend at 0x1d63f4a9ca0&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x24180f3d370&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-23-output-2.png" width="601" height="442"></p>
@@ -762,7 +766,7 @@ Note
 <pre><code>Text(400, -10, 'test')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-24-output-2.png" width="429" height="404"></p>
+<p><img src="05-_files/figure-html/cell-24-output-2.png" width="418" height="413"></p>
 </div>
 </div>
 </div>
@@ -838,7 +842,7 @@ Note
 <span class="theorem-title"><strong>Example 5.15 </strong></span>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.plot(np.random.randn(<span class="dv">30</span>).cumsum(), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-30-output-1.png" width="570" height="408"></p>
+<p><img src="05-_files/figure-html/cell-30-output-1.png" width="562" height="408"></p>
 </div>
 </div>
 <p>Please compare the output of the same code with <a href="#exm-plot1">the previous example</a></p>
@@ -998,7 +1002,7 @@ Note
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">"total_bill"</span>, y<span class="op">=</span><span class="st">"tip"</span>, col<span class="op">=</span><span class="st">"time"</span>,</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">"smoker"</span>, style<span class="op">=</span><span class="st">"smoker"</span>, size<span class="op">=</span><span class="st">"size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1d6432ecfd0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x24184d56760&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-32-output-2.png" width="1026" height="464"></p>
@@ -1015,7 +1019,7 @@ Note
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">"choice"</span>, size<span class="op">=</span><span class="st">"coherence"</span>, style<span class="op">=</span><span class="st">"choice"</span>,</span>
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>            facet_kws<span class="op">=</span><span class="bu">dict</span>(sharex<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1d642ecf2b0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x24184e1a9d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-33-output-2.png" width="1046" height="464"></p>
@@ -1047,7 +1051,7 @@ Note
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(tips, diag_kind<span class="op">=</span><span class="st">'kde'</span>, plot_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1d63f725f10&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x241850926a0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-35-output-2.png" width="708" height="708"></p>
@@ -1260,8 +1264,7 @@ Name: a, dtype: int64</code></pre>
 <span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(filename, names<span class="op">=</span>[<span class="st">'name'</span>, <span class="st">'gender'</span>, <span class="st">'counts'</span>])</span>
 <span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'year'</span>] <span class="op">=</span> year</span>
 <span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a>    dflist.append(df)</span>
-<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat(dflist, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat(dflist, ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can plot the total births by sex and year.</p>
 <div class="cell" data-execution_count="48">
@@ -1272,7 +1275,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="49">
 <div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1d6431ea1f0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x24187017dc0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-50-output-2.png" width="530" height="464"></p>
@@ -1431,7 +1434,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="55">
 <div class="cell-output cell-output-display" data-execution_count="50">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1d64773ba60&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x241883f5550&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-56-output-2.png" width="546" height="464"></p>
@@ -1465,17 +1468,14 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="60">
 <div class="cell-output cell-output-display" data-execution_count="52">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1d64716fbe0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x241884551c0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-61-output-2.png" width="525" height="464"></p>
 </div>
 </div>
-<!-- 
-### Example 3: USDA Food Database
-
-
-### Example 4: 2012 Federal Election Commission Database -->
+<!-- ### Example 3: USDA Food Database -->
+<!-- ### Example 4: 2012 Federal Election Commission Database -->
 </section>
 </section>
 <section id="exercises" class="level2" data-number="5.4">
@@ -1618,8 +1618,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/6/06-.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes/Packages for Python</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

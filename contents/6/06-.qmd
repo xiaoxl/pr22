@@ -3,6 +3,12 @@
 # Classes/Packages for Python
 
 
+```{python}
+#| echo: false
+import os
+CURRENT_PATH = os.getcwd()
+```
+
 
 {{< include 06-01.qmd >}}
 

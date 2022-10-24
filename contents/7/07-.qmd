@@ -10,26 +10,17 @@ A few advantages about R:
 
 
 
-```{r}
-#| label: fig-airquality
-#| fig-cap: Temperature and ozone level.
-#| warning: false
-
-library(ggplot2)
-
-ggplot(airquality, aes(Temp, Ozone)) + 
-  geom_point() + 
-  geom_smooth(method = "loess"
-)
-
-print(R.version)
-```
-
-
-
 
 {{< include 07-01.qmd >}}
 
 
 
 {{< include 07-02.qmd >}}
+
+
+
+{{< include 07-ex.qmd >}}
+
+
+
+{{< include 07-proj.qmd >}}

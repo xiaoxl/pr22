@@ -1,2 +1,166 @@
-## R Markdown
 
+
+
+## R Basics
+Main reference here is @Gro2014 and @Wic2017.
+
+### Data structures
+
+#### Vectors
+Vector is one of the basic data structure in R. It is created by `c()` function. You may store any data types in it. The data type can be checked by `typeof` function.
+
+You may compare it with the `list` in Python.
+
+```{r}
+vec1 <- c(1, 2, 3, 5)
+typeof(vec1)
+```
+
+Note that vector index starts from 1 in R, while list index starts from 0 in Python.
+
+```{r}
+vec1[1]
+```
+When slicing with vectors, don't forget to use `c()`.
+
+```{r}
+vec1[c(2, 3)]
+```
+
+You may use `length()` function to get its length.
+
+```{r}
+length(vec1)
+```
+
+#### matrices
+
+
+```{r}
+m <- matrix(c(1,2,3,4,5,6), nrow=2)
+m[1, ]
+```
+
+#### `data.frame`
+
+
+```{r}
+df <- data.frame(face = c("ace", "two", "six"),
+                 suit = c("clubs", "clubs", "clubs"),
+                 value = c(1, 2, 3))
+df
+```
+
+
+### Load data
+
+#### build-in datasets
+R has many build-in datasets. You may use `data()` to see all of them. Here are a few common datasets.
+
+- `mtcars`: Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models)
+
+```{r}
+data(mtcars)
+```
+
+- `iris`: iris data set gives the measurements in centimeters of the variables sepal length, sepal width, petal length and petal width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.
+
+```{r}
+data(iris)
+```
+
+- `ToothGrowth`: ToothGrowth data set contains the result from an experiment studying the effect of vitamin C on tooth growth in 60 Guinea pigs. 
+
+```{r}
+data(ToothGrowth)
+```
+
+- `PlantGrowth`: Results obtained from an experiment to compare yields (as measured by dried weight of plants) obtained under a control and two different treatment condition.
+
+```{r}
+data(PlantGrowth)
+```
+
+- `USArrests`: This data set contains statistics about violent crime rates by us state.
+
+```{r}
+data(USArrests)
+```
+
+#### Read from files
+The build-in `read.csv()` function can directly read `.csv` file into a data.frame.
+
+
+::: {#exm-}
+We use the file `yob1880.txt` from Chapter 5 here. Put the file in the working folder and run the following code.
+
+```{r}
+#| eval: false
+df <- read.csv('yob1880.txt', header = FALSE)
+head(df)
+```
+
+```{r}
+#| echo: false
+df <- read.csv('assests/datasets/yob1880.txt', header = FALSE) 
+```
+We may also manually assign columns names.
+
+```{r}
+names(df) <- c('name', 'sex', 'counts')
+head(df)
+```
+:::
+
+### Flow control
+
+#### `for` loop
+
+
+::: {#exm-}
+
+```{r}
+for (x in 1:10){
+    print(x)
+}
+```
+
+:::
+
+
+#### `if-else` 
+
+
+::: {#exm-}
+
+```{r}
+a <- 200
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print("a and b are equal")
+} else {
+  print("a is greater than b")
+}
+```
+
+:::
+
+
+#### Functions
+
+
+::: {#exm-}
+
+```{r}
+myfunction <- function() {
+    die <- 1:6
+    sum(die)
+}
+
+myfunction()
+```
+
+:::

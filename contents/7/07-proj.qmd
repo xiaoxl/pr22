@@ -1,0 +1,6 @@
+## Projects
+
+
+::: {#exr-}
+Start a R Markdown / Quarto file. In the first section write a R code block to print `Hello world!`.
+:::

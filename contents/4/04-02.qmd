@@ -253,3 +253,19 @@ pattern = r'([a-zA-Z0-9_\s,.?:;\']+)\((\d{4})\)'
 movies = movies.join(movies.title.str.extract(pattern).rename(columns={0: 'movie title', 1: 'year'}))
 ```
 :::
+
+
+
+```{python}
+#| eval: false
+#| echo: false
+from functools import reduce
+genresdummylist = df.genres.str.extractall(r"'(\w+)'").unstack()
+dummylist = list()
+for i in genresdummylist.columns:
+    dummylist.append(pd.get_dummies(genresdummylist[i]))
+
+dummy = reduce(lambda x, y: x.add(y, fill_value=0), dummylist).astype(int)
+df = pd.merge(df, dummy, left_index=True, right_index=True)
+
+```

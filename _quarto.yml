@@ -40,10 +40,10 @@ book:
         - contents/3/03-.qmd
         - contents/4/04-.qmd
         - contents/5/05-.qmd
-        # - contents/6/06-.qmd
-    # - part: "Part II: R"
-    #   chapters:
-    #     - contents/7/07-.qmd
+        - contents/6/06-.qmd
+    - part: "Part II: R"
+      chapters:
+        - contents/7/07-.qmd
     #     - contents/8/08-.qmd
     - contents/references.qmd
   appendices:
@@ -52,10 +52,11 @@ book:
     - contents/app/virtenv.qmd
   sidebar:
     style: floating
+    pinned: true
+    align: center
     border: true
     search: true
     collapse-level: 1
-    pinned: false
   navbar:
     subtitle: "2022 Fall"
   page-navigation: true
