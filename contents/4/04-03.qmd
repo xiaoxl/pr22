@@ -216,7 +216,7 @@ pd.merge(df1, df2, on='Key', how='right')
 
 
 ::: {.callout-note}
-If a key combination appears more than once in both tables, the resulting table will have the Cartesian product of the associated data. Here is a very basic example with one unique key combination
+If a key combination appears more than once in both tables, the resulting table will have the Cartesian product of the associated data. Here is a very basic example with one unique key combination.
 
 ```{python}
 df1 = pd.DataFrame({'key': ['b', 'b', 'a', 'c', 'a', 'b'],
@@ -231,6 +231,19 @@ pd.merge(df1, df2, on='key', how='left')
 ::: {.callout-note} 
 If the merge keys in a DataFrame is in its index instead of column(s), we could pass `left_index=True` or `right_index=True` or both instead of setting `left_on`/`right_on`/`on`.
 :::
+
+
+::: {#exm-crossexample-deck}
+If we want to really create a Cartesian product, we may use the option `how='cross'`. For example, we would like to generate a deck of cards, we may use the following codes.
+
+```{python}
+suit = pd.DataFrame({'suit': ['spades', 'hearts', 'clubs', 'diamonds']})
+face = pd.DataFrame({'face': list(range(1, 14))})
+deck = pd.merge(suit, face, how='cross')
+```
+:::
+
+
 
 #### `concat()`
 The `concat()` function (in the main pandas namespace) performs concatenation operations along an axis while performing optional set logic (union or intersection) of the indexes (if any) on the other axes.  
@@ -272,13 +285,27 @@ df3 = pd.DataFrame(
 pd.concat([df1, df2, df3], keys=['x', 'y', 'z'])
 ```
 
+The default way of `pd.concat()` is vertically. Note that it will check the column names. If the column names don't match, new columns will be created and `nan` values will be assigned. 
+
+If you want to concatenate the DataFrame horizontally you need to add `axis=1` option.
+Similarly, row index will be checked before concatenating. See the following example.
+
+::: {#exm-}
 ```{python}
 pd.concat([df1, df2, df3], axis=1)
 ```
+:::
 
 
 
+::: {#exm-}
+Consider the deck example from @exm-crossexample-deck. This time we would like to use `pd.concat()` to get the result.
 
-- `pd.concat`
+```{python}
+suitlist = ['spades', 'hearts', 'clubs', 'diamonds']
+facelist = list(range(1, 14))
+decklist = [pd.DataFrame({'suit': suit, 'face': facelist}) for suit in suitlist]
+deck = pd.concat(decklist, ignore_index=True)
+```
 
-
+:::

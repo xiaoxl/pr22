@@ -14,16 +14,16 @@ import pandas as pd
 ```
 ```{python}
 obj = pd.Series([3, 1, 2, 4])
-print(obj)
+obj
 ```
 ```{python}
 obj2 = pd.Series([3, 1, 2, 4], index=['a', 'b', 'c', 'd'])
-print(obj2)
+obj2
 ```
 ```{python}
 data3 = {'a': 3, 'b': 1, 'c': 2, 'd': 4}
 obj3 = pd.Series(data3)
-print(obj3)
+obj3
 ```
 
 A *DataFrame* represents a rectangular table of data and contains an ordered collection of columns, each of which can be a different value type. The DataFrame has both a row and column index; it can be thought of as a dict of Series all sharing the same index. When displaying a DataFrame, we may use `.head()` to just display the first few rows for efficicy. 

@@ -6,32 +6,69 @@ Main reference here is @Gro2014 and @Wic2017.
 
 ### Data structures
 
-#### Vectors
-Vector is one of the basic data structure in R. It is created by `c()` function. You may store any data types in it. The data type can be checked by `typeof` function.
-
-You may compare it with the `list` in Python.
+#### Vectors {#sec-r-rb-ds-vectors}
+Vector is one of the basic data structure in R. It is created by `c()` function. You may store any data types in it. The data type inside a vector can be checked by `typeof` function.
 
 ```{r}
-vec1 <- c(1, 2, 3, 5)
-typeof(vec1)
+die <- c(1, 2, 3, 4, 5, 6)
+typeof(die)
+```
+For consecutive numbers, an easier way to create vector is to use `:`.
+
+```{r}
+die <- 1:6
 ```
 
+
+::: {.callout-note}
+
 Note that vector index starts from 1 in R, while list index starts from 0 in Python.
+:::
 
 ```{r}
-vec1[1]
+die[1]
 ```
 When slicing with vectors, don't forget to use `c()`.
 
 ```{r}
-vec1[c(2, 3)]
+die[c(2, 3)]
+```
+
+```{r}
+die[2:3]
 ```
 
 You may use `length()` function to get its length.
 
 ```{r}
-length(vec1)
+length(die)
 ```
+
+#### Attributes
+
+R objects may have attributes. Attributes won't be shown by default when you show the object. You may find the attributes of a R object by calling the `attributes()` function.
+
+The following example show that the vector `die` defined in @sec-r-rb-ds-vectors doesn't have attributes.
+
+```{r}
+attributes(die)
+```
+The most common attributes of R objects are `names`. We could manually input the attributes. 
+
+```{r}
+names(die) <- c('one', 'two', 'three', 'four', 'five', 'six')
+die
+```
+After the assignment, each value is assigned a name. Now `die` has an attribute `names`. It is still a vector despite the fact that it now has names.
+
+```{r}
+attributes(die)
+names(die)
+is.vector(die)
+```
+
+
+
 
 #### matrices
 
@@ -40,9 +77,53 @@ length(vec1)
 m <- matrix(c(1,2,3,4,5,6), nrow=2)
 m[1, ]
 ```
+A matrix has `dim` attribute.
+
+```{r}
+dim(m)
+```
+
+Note that by assigning and removing `dim` attribute, you may change the object between vectors and matrices.
+
+
+::: {#exm-}
+
+```{r}
+m
+is.matrix(m)
+is.vector(m)
+dim(m)
+dim(m) <- NULL
+m
+is.matrix(m)
+is.vector(m)
+```
+:::
+
+
+::: {.callout-note}
+The `dim` of a matrix/vector can be a length 3 vector. In this case, it will become an array. For simplicity we won't talk about array here.
+:::
+
+
+
+#### Lists
+List is very similar to a vector. The main difference is that vector can only store values, while list can store objects. The most typical example of objects is another vector. Please see the following example.
+
+::: {#exm-}
+
+```{r}
+c(1:2, 3:4)
+list(1:2, 3:4)
+```
+
+:::
+
+
+
 
 #### `data.frame`
-
+Data Frame is a 2d version of a list. You may think about it in terms of tables.
 
 ```{r}
 df <- data.frame(face = c("ace", "two", "six"),
@@ -50,6 +131,35 @@ df <- data.frame(face = c("ace", "two", "six"),
                  value = c(1, 2, 3))
 df
 ```
+
+
+#### Examples
+
+
+::: {#exm-}
+Consider a date.frame representing a deck of cards. Here we use `expand.grid()` to perform the Cartesian product.
+
+```{r}
+suit <- c('spades', 'hearts', 'clubs', 'diamonds')
+face <- 1:13
+deck <- expand.grid(suit, face)
+head(deck)
+```
+We may assign names to change the column names.
+
+```{r}
+names(deck) <- c('suit', 'face')
+head(deck)
+```
+
+Note that since `suit` and `face` are two vectors, `merge()` can also do the Cartesian product. `expand.grid()` is good for both vectors and data.frame.
+
+
+```{r}
+merge(suit, face)
+```
+
+:::
 
 
 ### Load data
