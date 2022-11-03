@@ -5,7 +5,9 @@
 Main reference here is @Gro2014 and @Wic2017.
 
 ### Vectors {#sec-r-rb-ds-vectors}
-Vector is one of the basic data structure in R. It is created by `c()` function. Somet You may store any data types in it. The data type inside a vector can be checked by `typeof` function.
+Vector is one of the basic data structure in R. It is created by `c()` function. Sometimes it is called `atomic vector`. You may store any data types in it. R recognizes six basic types: *double*, *integers*, *characters*, *logicals*, *complex* and *raw*.
+
+The data type inside a vector can be checked by `typeof` function.
 
 ```{r}
 die <- c(1, 2, 3, 4, 5, 6)
@@ -52,19 +54,52 @@ The following example show that the vector `die` defined in @sec-r-rb-ds-vectors
 ```{r}
 attributes(die)
 ```
-The most common attributes of R objects are `names`. We could manually input the attributes. 
 
+Attributes can be read and write using `attr` function. See the following example.
+
+::: {#exm-}
+```{r}
+attr(die, 'date') <- '2022-01-01'
+die
+attr(die, 'date') <- NULL
+die
+```
+:::
+
+You may think attributes as metadata attached to a R object. They are used to tell some useful infomation of the object. Some functions will interact with certain attributes. R itself treat attributes `class`, `comment`, `dim`, `dimnames`, `names`, `row.names` and `tsp` specially. We will only talk about `class` and `names` here. `dim` will be discussed in the next section. Others will be discussed when we use them.
+
+1. `class`: This is different from the class in Python. `class` in R is an attribute which talks about the class of an object. If the attribute `class` is not assigned to an object, the object will have an implicit class: `matrix`, `array`, `function`, `numeric` or the result of `typeof`. 
+
+`attr(x, 'class')` will show the "external" class of an object. You may also use `class(x)` to read and write attribute `class`. If the `class` is not assigned, `class(x)` will show the implicit class, while `attr(x, 'class')` will show `NULL`. 
+
+
+::: {#exm-}
+
+```{r}
+attr(die, 'class')
+class(die)
+class(die) <- 'a die'
+attr(die, 'class')
+class(die)
+```
+:::
+```{r}
+#| echo: false
+class(die) <- NULL
+```
+
+2. `names`: This attribute is used to name each element in a vector. After the names are assigned, it won't be displayed below the data like other attributes. It will be displayed above the data with correct alignment. Similar to `class`, you may use `names()` to read and write the attribute.
+
+
+::: {#exm-}
 ```{r}
 names(die) <- c('one', 'two', 'three', 'four', 'five', 'six')
 die
-```
-After the assignment, each value is assigned a name. Now `die` has an attribute `names`. It is still a vector despite the fact that it now has names.
-
-```{r}
 attributes(die)
 names(die)
 is.vector(die)
 ```
+:::
 
 
 
@@ -101,7 +136,7 @@ is.vector(m)
 
 
 ::: {.callout-note}
-The `dim` of a matrix/vector can be a length 3 vector. In this case, it will become an array. For simplicity we won't talk about array here.
+The `dim` of a matrix/vector can be a long vector. In this case, it will become an array. For simplicity we won't talk about array here.
 :::
 
 
