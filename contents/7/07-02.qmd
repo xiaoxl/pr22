@@ -1,13 +1,11 @@
 
 
 
-## R Basics
+## Data structures
 Main reference here is @Gro2014 and @Wic2017.
 
-### Data structures
-
-#### Vectors {#sec-r-rb-ds-vectors}
-Vector is one of the basic data structure in R. It is created by `c()` function. You may store any data types in it. The data type inside a vector can be checked by `typeof` function.
+### Vectors {#sec-r-rb-ds-vectors}
+Vector is one of the basic data structure in R. It is created by `c()` function. Somet You may store any data types in it. The data type inside a vector can be checked by `typeof` function.
 
 ```{r}
 die <- c(1, 2, 3, 4, 5, 6)
@@ -20,8 +18,7 @@ die <- 1:6
 ```
 
 
-::: {.callout-note}
-
+::: {.callout-caution}
 Note that vector index starts from 1 in R, while list index starts from 0 in Python.
 :::
 
@@ -44,7 +41,9 @@ You may use `length()` function to get its length.
 length(die)
 ```
 
-#### Attributes
+
+
+### Attributes
 
 R objects may have attributes. Attributes won't be shown by default when you show the object. You may find the attributes of a R object by calling the `attributes()` function.
 
@@ -70,7 +69,7 @@ is.vector(die)
 
 
 
-#### matrices
+### matrices
 
 
 ```{r}
@@ -122,7 +121,7 @@ list(1:2, 3:4)
 
 
 
-#### `data.frame`
+### `data.frame`
 Data Frame is a 2d version of a list. You may think about it in terms of tables.
 
 ```{r}
@@ -133,7 +132,7 @@ df
 ```
 
 
-#### Examples
+### Examples
 
 
 ::: {#exm-}

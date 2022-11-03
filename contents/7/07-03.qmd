@@ -1,2 +1,7 @@
 ## R notations
 
+### Selecting Values
+Let us start from a data.frame `df`. The basic usage is `df[ , ]`, where the first index is to subset the rows and the second index is to subset the columns. There are six ways to writing indexes.
+
+1. Positive integers: the regular way. `df[i, j]` means the data in the ith row and jth column. If `i` or `j` are a vector, a data.frame will be returned.
+2. 
