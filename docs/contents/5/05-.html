@@ -328,7 +328,7 @@ div.csl-indent {
 
 </header>
 
-<p>The main reference for this Chapter is <span class="citation" data-cites="McK2017">[<a href="../references.html#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
+<p>The main reference for this Chapter is <span class="citation" data-cites="McK2017">[<a href="#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
 <section id="matplotlib.pyplot" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="matplotlib.pyplot"><span class="header-section-number">5.1</span> <code>matplotlib.pyplot</code></h2>
 <p><code>matplotlib</code> is a modern and classic plot library. Its main features are inspired by <code>MATLAB</code>. In this book we mostly use <code>pyplot</code> package from <code>matplotlib</code>. We use the following import convention:</p>
@@ -528,7 +528,7 @@ Note
 <span class="theorem-title"><strong>Example 5.7 </strong></span>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(np.random.randn(<span class="dv">30</span>).cumsum(), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-14-output-1.png" width="570" height="404"></p>
+<p><img src="05-_files/figure-html/cell-14-output-1.png" width="583" height="404"></p>
 </div>
 </div>
 <p>You may compare it with this <a href="#exm-plotwithsns">Example</a> for the purpose of <code>seaborn</code> from next Section.</p>
@@ -548,7 +548,7 @@ Note
 <pre><code>&lt;BarContainer object of 16 artists&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-15-output-2.png" width="575" height="407"></p>
+<p><img src="05-_files/figure-html/cell-15-output-2.png" width="571" height="404"></p>
 </div>
 </div>
 <p>We may also directly plot the bar plot from the Series.</p>
@@ -560,7 +560,7 @@ Note
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-16-output-2.png" width="575" height="407"></p>
+<p><img src="05-_files/figure-html/cell-16-output-2.png" width="571" height="404"></p>
 </div>
 </div>
 <p>:::</p>
@@ -589,45 +589,45 @@ Note
   <tbody>
     <tr>
       <th>one</th>
-      <td>0.272025</td>
-      <td>0.314454</td>
-      <td>0.753665</td>
-      <td>0.288195</td>
+      <td>0.268025</td>
+      <td>0.485530</td>
+      <td>0.398488</td>
+      <td>0.652136</td>
     </tr>
     <tr>
       <th>two</th>
-      <td>0.441883</td>
-      <td>0.877874</td>
-      <td>0.835235</td>
-      <td>0.212551</td>
+      <td>0.017200</td>
+      <td>0.368818</td>
+      <td>0.332909</td>
+      <td>0.688050</td>
     </tr>
     <tr>
       <th>three</th>
-      <td>0.884009</td>
-      <td>0.704838</td>
-      <td>0.109006</td>
-      <td>0.633080</td>
+      <td>0.787347</td>
+      <td>0.863378</td>
+      <td>0.323820</td>
+      <td>0.715752</td>
     </tr>
     <tr>
       <th>four</th>
-      <td>0.786000</td>
-      <td>0.686214</td>
-      <td>0.100009</td>
-      <td>0.698132</td>
+      <td>0.406169</td>
+      <td>0.423606</td>
+      <td>0.340755</td>
+      <td>0.298033</td>
     </tr>
     <tr>
       <th>five</th>
-      <td>0.671923</td>
-      <td>0.618422</td>
-      <td>0.625942</td>
-      <td>0.347484</td>
+      <td>0.666841</td>
+      <td>0.047128</td>
+      <td>0.561923</td>
+      <td>0.076109</td>
     </tr>
     <tr>
       <th>six</th>
-      <td>0.346770</td>
-      <td>0.396988</td>
-      <td>0.154393</td>
-      <td>0.676942</td>
+      <td>0.892376</td>
+      <td>0.431945</td>
+      <td>0.298051</td>
+      <td>0.762146</td>
     </tr>
   </tbody>
 </table>
@@ -667,7 +667,7 @@ Note
 <span id="cb25-6"><a href="#cb25-6"></a>c <span class="op">=</span> np.sqrt(area)</span>
 <span id="cb25-7"><a href="#cb25-7"></a>plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>], s<span class="op">=</span>area, marker<span class="op">=</span><span class="st">'^'</span>, c<span class="op">=</span>c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x186b8195c70&gt;</code></pre>
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x2183375e1f0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-20-output-2.png" width="571" height="404"></p>
@@ -754,7 +754,7 @@ Note
 <span id="cb29-13"><a href="#cb29-13"></a></span>
 <span id="cb29-14"><a href="#cb29-14"></a>ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>&lt;matplotlib.legend.Legend at 0x186b791e730&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x218340084c0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-23-output-2.png" width="601" height="442"></p>
@@ -1017,7 +1017,7 @@ Note
 <span id="cb40-2"><a href="#cb40-2"></a>            x<span class="op">=</span><span class="st">"total_bill"</span>, y<span class="op">=</span><span class="st">"tip"</span>, col<span class="op">=</span><span class="st">"time"</span>,</span>
 <span id="cb40-3"><a href="#cb40-3"></a>            hue<span class="op">=</span><span class="st">"smoker"</span>, style<span class="op">=</span><span class="st">"smoker"</span>, size<span class="op">=</span><span class="st">"size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x186b8a8da90&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x21837507a60&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-32-output-2.png" width="1026" height="464"></p>
@@ -1034,7 +1034,7 @@ Note
 <span id="cb42-4"><a href="#cb42-4"></a>            hue<span class="op">=</span><span class="st">"choice"</span>, size<span class="op">=</span><span class="st">"coherence"</span>, style<span class="op">=</span><span class="st">"choice"</span>,</span>
 <span id="cb42-5"><a href="#cb42-5"></a>            facet_kws<span class="op">=</span><span class="bu">dict</span>(sharex<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x186bc2587c0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x218377b8550&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-33-output-2.png" width="1046" height="464"></p>
@@ -1066,7 +1066,7 @@ Note
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>sns.pairplot(tips, diag_kind<span class="op">=</span><span class="st">'kde'</span>, plot_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x186b8b08eb0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x21837398790&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-35-output-2.png" width="708" height="708"></p>
@@ -1125,7 +1125,7 @@ Note
 <h2 data-number="5.3" class="anchored" data-anchor-id="examples"><span class="header-section-number">5.3</span> Examples</h2>
 <section id="example-1-usa.gov-data-from-bitly" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="example-1-usa.gov-data-from-bitly"><span class="header-section-number">5.3.1</span> Example 1: <code>USA.gov</code> Data From <code>Bitly</code></h3>
-<p>In 2011, URL shortening service <code>Bitly</code> partnered with the US government website <code>USA.gov</code> to provide a feed of anonymous data gathered from users who shorten links ending with <code>.gov</code> or <code>.mil</code>. The data is gotten from <span class="citation" data-cites="McK2017">[<a href="../references.html#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
+<p>In 2011, URL shortening service <code>Bitly</code> partnered with the US government website <code>USA.gov</code> to provide a feed of anonymous data gathered from users who shorten links ending with <code>.gov</code> or <code>.mil</code>. The data is gotten from <span class="citation" data-cites="McK2017">[<a href="#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
 <p>The data file can be downloaded from <a href="assests/datasets/example.txt">here</a>. The file is mostly in JSON. It can be converted into a DataFrame by the following code.</p>
 <div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1290,7 +1290,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="49">
 <div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x186bec56b50&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2183ae87160&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-50-output-2.png" width="530" height="464"></p>
@@ -1449,7 +1449,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="55">
 <div class="cell-output cell-output-display" data-execution_count="50">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x186bec63e80&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x218390be160&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-56-output-2.png" width="546" height="464"></p>
@@ -1483,7 +1483,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="60">
 <div class="cell-output cell-output-display" data-execution_count="52">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x186c0c01d00&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2183adfa070&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-61-output-2.png" width="525" height="464"></p>
@@ -1520,7 +1520,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 
 
-<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-McK2017" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">McKinney</span>, W. (2017). <em>Python for data analysis: Data wrangling with pandas, NumPy, and IPython</em>. O’Reilly Media.</div>
 </div>
