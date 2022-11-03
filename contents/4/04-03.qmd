@@ -1,7 +1,0 @@
-
-## Data Wrangling
-
-- Hierarchical indexing
-- Join
-- Combine
-- Reshape

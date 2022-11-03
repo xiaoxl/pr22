@@ -1,4 +1,0 @@
-<!-- 
-## Exercises
-Most problems are based on @Sha2017, @You2020 and @Swe2020.
- -->
