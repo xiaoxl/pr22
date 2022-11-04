@@ -729,61 +729,16 @@ Note
 </div>
 <p>Note that since <code>suit</code> and <code>face</code> are two vectors, <code>merge()</code> can also do the Cartesian product. <code>expand.grid()</code> is good for both vectors and data.frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">merge</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>deck <span class="ot">&lt;-</span> <span class="fu">merge</span>(suit, face)</span>
+<span id="cb72-2"><a href="#cb72-2"></a><span class="fu">head</span>(deck)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          x  y
-1    spades  1
-2    hearts  1
-3     clubs  1
-4  diamonds  1
-5    spades  2
-6    hearts  2
-7     clubs  2
-8  diamonds  2
-9    spades  3
-10   hearts  3
-11    clubs  3
-12 diamonds  3
-13   spades  4
-14   hearts  4
-15    clubs  4
-16 diamonds  4
-17   spades  5
-18   hearts  5
-19    clubs  5
-20 diamonds  5
-21   spades  6
-22   hearts  6
-23    clubs  6
-24 diamonds  6
-25   spades  7
-26   hearts  7
-27    clubs  7
-28 diamonds  7
-29   spades  8
-30   hearts  8
-31    clubs  8
-32 diamonds  8
-33   spades  9
-34   hearts  9
-35    clubs  9
-36 diamonds  9
-37   spades 10
-38   hearts 10
-39    clubs 10
-40 diamonds 10
-41   spades 11
-42   hearts 11
-43    clubs 11
-44 diamonds 11
-45   spades 12
-46   hearts 12
-47    clubs 12
-48 diamonds 12
-49   spades 13
-50   hearts 13
-51    clubs 13
-52 diamonds 13</code></pre>
+<pre><code>         x y
+1   spades 1
+2   hearts 1
+3    clubs 1
+4 diamonds 1
+5   spades 2
+6   hearts 2</code></pre>
 </div>
 </div>
 </div>
