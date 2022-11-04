@@ -301,8 +301,14 @@ div.csl-indent {
   <li><a href="#selecting-values" id="toc-selecting-values" class="nav-link" data-scroll-target="#selecting-values"><span class="toc-section-number">7.4.1</span>  Selecting Values</a></li>
   <li><a href="#dollar-signs-and-double-brackets" id="toc-dollar-signs-and-double-brackets" class="nav-link" data-scroll-target="#dollar-signs-and-double-brackets"><span class="toc-section-number">7.4.2</span>  Dollar signs and double brackets</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">7.5</span>  Exercises</a></li>
-  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">7.6</span>  Projects</a></li>
+  <li><a href="#modifying-values" id="toc-modifying-values" class="nav-link" data-scroll-target="#modifying-values"><span class="toc-section-number">7.5</span>  Modifying values</a>
+  <ul class="collapse">
+  <li><a href="#changing-values-in-place" id="toc-changing-values-in-place" class="nav-link" data-scroll-target="#changing-values-in-place"><span class="toc-section-number">7.5.1</span>  Changing values in place</a></li>
+  <li><a href="#logical-subsetting" id="toc-logical-subsetting" class="nav-link" data-scroll-target="#logical-subsetting"><span class="toc-section-number">7.5.2</span>  Logical subsetting</a></li>
+  <li><a href="#missing-values-na" id="toc-missing-values-na" class="nav-link" data-scroll-target="#missing-values-na"><span class="toc-section-number">7.5.3</span>  Missing values <code>NA</code></a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">7.6</span>  Exercises</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">7.7</span>  Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -558,6 +564,19 @@ Tip
 <pre><code>[1] "1"    "1"    "TRUE"</code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can apply regular operators to vectors. The defaul way is to apply the operators element-wise.</p>
 </div>
 </div>
 </section>
@@ -1149,8 +1168,188 @@ Warning
 </div>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
+<section id="modifying-values" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="modifying-values"><span class="header-section-number">7.5</span> Modifying values</h2>
+<section id="changing-values-in-place" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="changing-values-in-place"><span class="header-section-number">7.5.1</span> Changing values in place</h3>
+<p>You can use R’s notation system to modify values within an R object.</p>
+<ul>
+<li>In general when working with vectors, the two vectors should have the same length.</li>
+<li>If the lengths are different, R will repeat the shorter one to make it match with the longer one. This is called the <em>vector recycling</em> rule. R will throw a warning if the two lengths are not proposional.</li>
+</ul>
+<div id="exm-" class="theorem example">
+<div class="cell">
+<span class="theorem-title"><strong>Example 7.14 </strong></span>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 4 4 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in 1:4 + 1:3: longer object length is not a multiple of shorter object
+length</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 4 6 5</code></pre>
+</div>
+</div>
+</div>
+<ul>
+<li>We may create values that do not yet exist in the object. R will expand the object to accommodate the new values.</li>
+</ul>
+<div id="exm-" class="theorem example">
+<div class="cell">
+<span class="theorem-title"><strong>Example 7.15 </strong></span>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a>vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb128-2"><a href="#cb128-2"></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a>vec[<span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb130-2"><a href="#cb130-2"></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5 6 0</code></pre>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<div class="cell">
+<span class="theorem-title"><strong>Example 7.16 </strong></span>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">'a'</span>, <span class="st">'b'</span>))</span>
+<span id="cb132-2"><a href="#cb132-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  a b
+1 1 a
+2 2 b</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a>df<span class="sc">$</span>c <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb134-2"><a href="#cb134-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  a b c
+1 1 a 3
+2 2 b 4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="logical-subsetting" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="logical-subsetting"><span class="header-section-number">7.5.2</span> Logical subsetting</h3>
+<p>We could compare two vectors element-wise, and the result is a logical vector. Then we could use this result to subset the vector / data.frame.</p>
+<div id="exm-" class="theorem example">
+<div class="cell">
+<span class="theorem-title"><strong>Example 7.17 </strong></span>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a>suit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>)</span>
+<span id="cb136-2"><a href="#cb136-2"></a>face <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb136-3"><a href="#cb136-3"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a>deck<span class="sc">$</span>Var1 <span class="sc">==</span> <span class="st">'hearts'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE
+[13] FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a>deck<span class="sc">$</span>Var2[deck<span class="sc">$</span>Var1 <span class="sc">==</span> <span class="st">'hearts'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a>deck[deck<span class="sc">$</span>Var1 <span class="sc">==</span> <span class="st">'hearts'</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Var1 Var2
+2  hearts    1
+6  hearts    2
+10 hearts    3
+14 hearts    4
+18 hearts    5</code></pre>
+</div>
+</div>
+<p>We could directly assign values to the subset. Note that the following assignment create a new column with <code>NA</code> values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a>deck<span class="sc">$</span>Var3[deck<span class="sc">$</span>Var1 <span class="sc">==</span> <span class="st">'hearts'</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb143-2"><a href="#cb143-2"></a>deck</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Var1 Var2 Var3
+1    spades    1   NA
+2    hearts    1    1
+3     clubs    1   NA
+4  diamonds    1   NA
+5    spades    2   NA
+6    hearts    2    1
+7     clubs    2   NA
+8  diamonds    2   NA
+9    spades    3   NA
+10   hearts    3    1
+11    clubs    3   NA
+12 diamonds    3   NA
+13   spades    4   NA
+14   hearts    4    1
+15    clubs    4   NA
+16 diamonds    4   NA
+17   spades    5   NA
+18   hearts    5    1
+19    clubs    5   NA
+20 diamonds    5   NA</code></pre>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Other than the regualr logical operators, R provides a speical one: <code>%in%</code>.</p>
+<p><code>x %in% y</code>: Is <code>x</code> in the vector <code>y</code>?</p>
+<p>If <code>x</code> is a vector, the output is a vector with the same length as <code>x</code>, telling whether each element of <code>x</code> is in <code>y</code> or not.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Other than the regular Boolean operators, R provides two special ones: <code>any</code> and <code>all</code>.</p>
+<ul>
+<li><code>any(cond1, cond2, ...)</code>: Are any of these conditions true?</li>
+<li><code>all(cond1, cond2, ...)</code>: Are all of these conditions true?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="missing-values-na" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="missing-values-na"><span class="header-section-number">7.5.3</span> Missing values <code>NA</code></h3>
+<p>In R, missing values are <code>NA</code>, and you can directly work with <code>NA</code>. Any computations related to <code>NA</code> will return <code>NA</code>.</p>
+<ol type="1">
+<li><code>na.rm</code>: Most R functions come with the optional argument <code>na.rm</code>. If you set it to be <code>TRUE</code>, the function will ignore <code>NA</code> when evaluating the function.</li>
+</ol>
+<div id="exm-" class="theorem example">
+<div class="cell">
+<span class="theorem-title"><strong>Example 7.18 </strong></span>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25.5</code></pre>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><code>is.na()</code>: This is a function testing whether an object is <code>NA</code>.</li>
+</ol>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.6</span> Exercises</h2>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7.1 </strong></span>Which of these are character strings and which are numbers? <code>1</code>, <code>"1"</code>, <code>"one"</code>.</p>
 </div>
@@ -1178,18 +1377,30 @@ Warning
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7.5 </strong></span>Use a list to store a single playing card, like the ace of hearts, which has a point value of one. The list should save the face of the card, the suit, and the point value in separate elements.</p>
 </div>
-</section>
-<section id="projects" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">7.6</span> Projects</h2>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.6 </strong></span>Start a R Markdown / Quarto file. In the first section write a R code block to print <code>Hello world!</code>.</p>
+<p><span class="theorem-title"><strong>Exercise 7.6 </strong></span>Consider the following data.frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1"></a>suit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>)</span>
+<span id="cb150-2"><a href="#cb150-2"></a>face <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb150-3"><a href="#cb150-3"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Please write some codes to count how many rows whose <code>Var1</code> are equal to <code>hearts</code>.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.7 </strong></span>Please write a function to shuffle the row of a data.frame. You may use the following data.frame <code>deck</code> for test.</p>
+<p><span class="theorem-title"><strong>Exercise 7.7 </strong></span>Converte the following sentences into tests written with R code. - <code>w &lt;- c(-1, 0, 1)</code>. Is <code>w</code> positive? - <code>x &lt;- c(5, 15)</code>. Is <code>x</code> greater than <code>10</code> and less than <code>20</code>? - <code>y &lt;- 'February'</code>. Is object <code>y</code> the word <code>February</code>? - <code>z &lt;- c("Monday", "Tuesday", "Friday")</code>. Is every value in <code>z</code> a day of the week?</p>
+</div>
+</section>
+<section id="projects" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="projects"><span class="header-section-number">7.7</span> Projects</h2>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7.8 </strong></span>Start a R Markdown / Quarto file. In the first section write a R code block to print <code>Hello world!</code>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7.9 </strong></span>Please write a function to shuffle the row of a data.frame. You may use the following data.frame <code>deck</code> for test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a>suit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>)</span>
-<span id="cb124-2"><a href="#cb124-2"></a>face <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
-<span id="cb124-3"><a href="#cb124-3"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a>suit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>)</span>
+<span id="cb151-2"><a href="#cb151-2"></a>face <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
+<span id="cb151-3"><a href="#cb151-3"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 
