@@ -102,9 +102,21 @@ is.vector(die)
 :::
 
 
+::: {.callout-tip}
+When you store different types of data into a single vector in R, R will convert them into a single type. The default way to do so is
+
+- if there are only logicals and numbers, logicals will be converted to numbers by `TRUE->1` and `FALSE->0`.
+- if characters are presented, all are converted to characters by what it is.
 
 
-### matrices
+```{r}
+c(1, TRUE)
+c('1', 1, TRUE)
+```
+:::
+
+
+### matrices and arrays
 
 
 ```{r}
@@ -136,12 +148,15 @@ is.vector(m)
 
 
 ::: {.callout-note}
-The `dim` of a matrix/vector can be a long vector. In this case, it will become an array. For simplicity we won't talk about array here.
+The `dim` of a matrix/vector can be a long vector. In this case, it will become an array. 
 :::
 
+### factors
 
 
-#### Lists
+
+
+### Lists
 List is very similar to a vector. The main difference is that vector can only store values, while list can store objects. The most typical example of objects is another vector. Please see the following example.
 
 ::: {#exm-}
@@ -153,6 +168,16 @@ list(1:2, 3:4)
 
 :::
 
+::: {.callout-note}
+The attributes of an object is stored in an array.
+
+```{r}
+m <- matrix(c(1,2,3,4,5,6), nrow=2)
+a <- attributes(m)
+class(a)
+```
+
+:::
 
 
 
@@ -165,6 +190,12 @@ df <- data.frame(face = c("ace", "two", "six"),
                  value = c(1, 2, 3))
 df
 ```
+
+- Data Frame group vectors. Each vector represents a column.
+- Different column can contain a different type of data, but every cell within one column must be the same type of data.
+- `data.frame()` can be used to create a data.frame. 
+- The type of a data.frame is a list. Similar to matrix comparing to vector, a `data.frame` is a `list` with `class` `data.frame`, as well as a few other attributes.
+
 
 
 ### Examples
@@ -255,6 +286,19 @@ names(df) <- c('name', 'sex', 'counts')
 head(df)
 ```
 :::
+
+
+::: {.callout-notes}
+To save data is straightforward. 
+
+```{r}
+write.csv(df, file='df.csv', row.names=FALSE)
+```
+:::
+
+
+
+
 
 ### Flow control
 
