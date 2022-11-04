@@ -116,6 +116,12 @@ c('1', 1, TRUE)
 :::
 
 
+
+::: {.callout-note}
+We can apply regular operators to vectors. The defaul way is to apply the operators element-wise.
+:::
+
+
 ### matrices and arrays
 
 
@@ -182,7 +188,7 @@ class(a)
 
 
 ### `data.frame`
-Data Frame is a 2d version of a list. You may think about it in terms of tables.
+Data.Frame is a list with the `class` attribute `data.frame`, together with some restriction on the shape of each columns. You may think about it in terms of tables.
 
 ```{r}
 df <- data.frame(face = c("ace", "two", "six"),
@@ -340,7 +346,7 @@ if (b > a) {
 
 
 #### Functions
-
+The standard format to define a function is `my_function <- function(input) {}` where the function name is on the left side of `<-`, the input arguments are in the `()`, and the function body is in `{}`. The output of the last line of the function body is the return value of the function.
 
 ::: {#exm-}
 
@@ -352,5 +358,23 @@ myfunction <- function() {
 
 myfunction()
 ```
+If you just type the function name without `()`, R will return the definition of the function.
 
+```{r}
+myfunction
+```
+
+:::
+
+
+
+::: {.callout-tip}
+The function `sample(x)`: `sample` takes a sample of the specified size from the elements of `x` using either with or without replacement. 
+
+`sample(x, size, replace = FALSE, prob = NULL)`: 
+
+- `x`: either a vector of one or more elements from which to choose, or a positive integer.
+- `size`: a non-negative integer giving the number of items to choose.
+- `replace`: should sampling be with replacement?
+- `prob`: a vector of probability weights for obtaining the elements of the vector being sampled.
 :::

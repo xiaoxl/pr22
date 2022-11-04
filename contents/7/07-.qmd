@@ -1,6 +1,5 @@
 # R Fundamentals
 
-@Wic2017
 
 A few advantages about R:
 
@@ -20,6 +19,9 @@ A few advantages about R:
 
 
 {{< include 07-03.qmd >}}
+
+
+{{< include 07-04.qmd >}}
 
 
 
