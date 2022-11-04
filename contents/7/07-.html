@@ -299,6 +299,7 @@ div.csl-indent {
   <li><a href="#r-notations" id="toc-r-notations" class="nav-link" data-scroll-target="#r-notations"><span class="toc-section-number">7.4</span>  R notations</a>
   <ul class="collapse">
   <li><a href="#selecting-values" id="toc-selecting-values" class="nav-link" data-scroll-target="#selecting-values"><span class="toc-section-number">7.4.1</span>  Selecting Values</a></li>
+  <li><a href="#dollar-signs-and-double-brackets" id="toc-dollar-signs-and-double-brackets" class="nav-link" data-scroll-target="#dollar-signs-and-double-brackets"><span class="toc-section-number">7.4.2</span>  Dollar signs and double brackets</a></li>
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">7.5</span>  Exercises</a></li>
   <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">7.6</span>  Projects</a></li>
@@ -674,7 +675,7 @@ Note
 </section>
 <section id="data.frame" class="level3" data-number="7.3.6">
 <h3 data-number="7.3.6" class="anchored" data-anchor-id="data.frame"><span class="header-section-number">7.3.6</span> <code>data.frame</code></h3>
-<p>Data Frame is a 2d version of a list. You may think about it in terms of tables.</p>
+<p>Data.Frame is a list with the <code>class</code> attribute <code>data.frame</code>, together with some restriction on the shape of each columns. You may think about it in terms of tables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">face =</span> <span class="fu">c</span>(<span class="st">"ace"</span>, <span class="st">"two"</span>, <span class="st">"six"</span>),</span>
 <span id="cb66-2"><a href="#cb66-2"></a>                 <span class="at">suit =</span> <span class="fu">c</span>(<span class="st">"clubs"</span>, <span class="st">"clubs"</span>, <span class="st">"clubs"</span>),</span>
@@ -872,6 +873,7 @@ Note
 </section>
 <section id="functions" class="level4" data-number="7.3.9.3">
 <h4 data-number="7.3.9.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">7.3.9.3</span> Functions</h4>
+<p>The standard format to define a function is <code>my_function &lt;- function(input) {}</code> where the function name is on the left side of <code>&lt;-</code>, the input arguments are in the <code>()</code>, and the function body is in <code>{}</code>. The output of the last line of the function body is the return value of the function.</p>
 <div id="exm-" class="theorem example">
 <div class="cell">
 <span class="theorem-title"><strong>Example 7.10 </strong></span>
@@ -885,6 +887,36 @@ Note
 <pre><code>[1] 21</code></pre>
 </div>
 </div>
+<p>If you just type the function name without <code>()</code>, R will return the definition of the function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a>myfunction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function() {
+    die &lt;- 1:6
+    sum(die)
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The function <code>sample(x)</code>: <code>sample</code> takes a sample of the specified size from the elements of <code>x</code> using either with or without replacement.</p>
+<p><code>sample(x, size, replace = FALSE, prob = NULL)</code>:</p>
+<ul>
+<li><code>x</code>: either a vector of one or more elements from which to choose, or a positive integer.</li>
+<li><code>size</code>: a non-negative integer giving the number of items to choose.</li>
+<li><code>replace</code>: should sampling be with replacement?</li>
+<li><code>prob</code>: a vector of probability weights for obtaining the elements of the vector being sampled.</li>
+</ul>
+</div>
 </div>
 </section>
 </section>
@@ -895,9 +927,226 @@ Note
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="selecting-values"><span class="header-section-number">7.4.1</span> Selecting Values</h3>
 <p>Let us start from a data.frame <code>df</code>. The basic usage is <code>df[ , ]</code>, where the first index is to subset the rows and the second index is to subset the columns. There are six ways to writing indexes.</p>
 <ol type="1">
-<li>Positive integers: the regular way. <code>df[i, j]</code> means the data in the ith row and jth column. If <code>i</code> or <code>j</code> are a vector, a data.frame will be returned.</li>
-<li></li>
+<li>Positive integers: the regular way.</li>
 </ol>
+<ul>
+<li><code>df[i, j]</code> means the data in the ith row and jth column.</li>
+<li>If both <code>i</code> and <code>j</code> are vectors, a data.frame will be returned.</li>
+<li>If <code>i</code> or <code>j</code> are a vector, a vector will be returned. If you still want a data.frame, you may add the option <code>drop=FALSE</code>.</li>
+<li>If only one index is provided, it refers to the column.</li>
+</ul>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.11 </strong></span>We consider the simplified version of a deck. The deck only contains face values from 1 to 5. ::: {.cell}</p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a>deck[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Var1 Var2
+1 spades    1
+2 hearts    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a>deck[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] spades hearts
+Levels: spades hearts clubs diamonds</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a>deck[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span>, drop<span class="ot">=</span><span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Var1
+1 spades
+2 hearts</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a>deck[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Var1
+1    spades
+2    hearts
+3     clubs
+4  diamonds
+5    spades
+6    hearts
+7     clubs
+8  diamonds
+9    spades
+10   hearts
+11    clubs
+12 diamonds
+13   spades
+14   hearts
+15    clubs
+16 diamonds
+17   spades
+18   hearts
+19    clubs
+20 diamonds</code></pre>
+</div>
+</div>
+<p>:::</p>
+<ol start="2" type="1">
+<li>Negative integers: remove the related index.</li>
+</ol>
+<p>For example,</p>
+<ul>
+<li><code>deck[-1, 1:3]</code> means it wants all rows except row 1, and column 1 to 3.</li>
+<li><code>deck[-(2:20), 1:2]</code> means it wants all rows ecepte row 2 to row 20, and column 1 to 2.</li>
+<li>Negative index and positive index cannot be used together in the same index.</li>
+</ul>
+<ol start="3" type="1">
+<li>Blank Spaces: want every value in the dimension.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a>deck[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] spades   hearts   clubs    diamonds spades   hearts   clubs    diamonds
+ [9] spades   hearts   clubs    diamonds spades   hearts   clubs    diamonds
+[17] spades   hearts   clubs    diamonds
+Levels: spades hearts clubs diamonds</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a>deck[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Var1 Var2
+1 spades    1</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Logical values: select the rows or columns according to the value. The dimension should have exactly the same number of elements as the logical vector.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb103-2"><a href="#cb103-2"></a>deck[rows,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Var1 Var2
+1    spades    1
+3     clubs    1
+5    spades    2
+6    hearts    2
+8  diamonds    2
+10   hearts    3
+11    clubs    3
+13   spades    4
+15    clubs    4
+16 diamonds    4
+18   hearts    5
+20 diamonds    5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a>deck[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] spades hearts
+Levels: spades hearts clubs diamonds</code></pre>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Names: select columns based on <code>names</code> attribute.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a>deck[, <span class="st">'Var2'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5</code></pre>
+</div>
+</div>
+</section>
+<section id="dollar-signs-and-double-brackets" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="dollar-signs-and-double-brackets"><span class="header-section-number">7.4.2</span> Dollar signs and double brackets</h3>
+<p>List and data.frame obey an optional second system of notation. You can extract values using <code>$</code> syntax: the data.frame’s name and the column name separated by a <code>$</code> will select a column and return a vector (since the data in each column is actually a vector).</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.12 </strong></span>Here is an exmaple about data.frames.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a>deck[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] spades   hearts   clubs    diamonds spades   hearts   clubs    diamonds
+ [9] spades   hearts   clubs    diamonds spades   hearts   clubs    diamonds
+[17] spades   hearts   clubs    diamonds
+Levels: spades hearts clubs diamonds</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a>deck<span class="sc">$</span>Var1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] spades   hearts   clubs    diamonds spades   hearts   clubs    diamonds
+ [9] spades   hearts   clubs    diamonds spades   hearts   clubs    diamonds
+[17] spades   hearts   clubs    diamonds
+Levels: spades hearts clubs diamonds</code></pre>
+</div>
+</div>
+<p>Note that if we select from the data.frame using index, we will get a data.frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a>deck[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Var1
+1    spades
+2    hearts
+3     clubs
+4  diamonds
+5    spades
+6    hearts
+7     clubs
+8  diamonds
+9    spades
+10   hearts
+11    clubs
+12 diamonds
+13   spades
+14   hearts
+15    clubs
+16 diamonds
+17   spades
+18   hearts
+19    clubs
+20 diamonds</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="fu">class</span>(deck[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.13 </strong></span>Here is an example about lists.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a>lst <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">logical =</span> <span class="cn">TRUE</span>, <span class="at">strings =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb117-2"><a href="#cb117-2"></a>lst<span class="sc">$</span>numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2</code></pre>
+</div>
+</div>
+<p>Note that if we select from the list using index, we will get a list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a>lst[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$numbers
+[1] 1 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="fu">class</span>(lst[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+</div>
+</div>
+<p>Please think through these two examples and figure out the similarity between them.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Understanding the return value type is very important. Many of the R function work with vectors, but they don’t work with lists. So using the correct way to get values is very important.</p>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is a command called <code>attach()</code> which let you get access to <code>deck$face</code> by just typing <code>face</code>. It is highly recommanded NOT to do this. It is much better to make everything explicit, especially when using IDE, typing is much easier.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="exercises" class="level2" data-number="7.5">
@@ -934,6 +1183,14 @@ Note
 <h2 data-number="7.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">7.6</span> Projects</h2>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7.6 </strong></span>Start a R Markdown / Quarto file. In the first section write a R code block to print <code>Hello world!</code>.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 7.7 </strong></span>Please write a function to shuffle the row of a data.frame. You may use the following data.frame <code>deck</code> for test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a>suit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>)</span>
+<span id="cb124-2"><a href="#cb124-2"></a>face <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
+<span id="cb124-3"><a href="#cb124-3"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 
 
