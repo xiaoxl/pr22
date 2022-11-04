@@ -158,7 +158,34 @@ The `dim` of a matrix/vector can be a long vector. In this case, it will become 
 :::
 
 ### factors
+Factor is speical vector. It is a way to handle categorical data. The idea is the limit the possible values. In a factor all possible values are called `level`, which is an attribute. 
 
+
+::: {#exm-}
+We would like to talk about all months. We first define a vector of the valid levels:
+
+```{r}
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+```
+Then we could start to transform some month vector into factors, by the function `factor()`.
+
+```{r}
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+y1 <- factor(x1, level=month_levels)
+sort(x1)
+sort(y1)
+```
+Note that sorting `y1` is based on the levels.
+
+```{r}
+x2 <- c("Dec", "Apr", "Jam", "Mar")
+y2 <- factor(x2, level=month_levels)
+y2
+```
+Note that `y2` contains `NA` value since there is an entry in `x2` that is not valid.
+:::
 
 
 
