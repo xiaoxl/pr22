@@ -221,7 +221,8 @@ Note that since `suit` and `face` are two vectors, `merge()` can also do the Car
 
 
 ```{r}
-merge(suit, face)
+deck <- merge(suit, face)
+head(deck)
 ```
 
 :::
@@ -288,10 +289,11 @@ head(df)
 :::
 
 
-::: {.callout-notes}
+::: {.callout-note}
 To save data is straightforward. 
 
 ```{r}
+#| eval: false
 write.csv(df, file='df.csv', row.names=FALSE)
 ```
 :::
