@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.262">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -238,6 +238,11 @@ div.csl-indent {
   <a href="../../contents/7/07-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R Fundamentals</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/8/08-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R for Data Sciences</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -310,6 +315,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -320,8 +326,8 @@ div.csl-indent {
 <h2 data-number="6.1" class="anchored" data-anchor-id="functions"><span class="header-section-number">6.1</span> Functions</h2>
 <p>Functions are declared with the <code>def</code> keyword and returned from the <code>return</code> keyword.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.1 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="2">
-<span class="theorem-title"><strong>Example 6.1 </strong></span>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> my_function(x, y, z<span class="op">=</span><span class="fl">1.5</span>):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">if</span> z <span class="op">&gt;</span> <span class="dv">1</span>:</span>
 <span id="cb1-3"><a href="#cb1-3"></a>        <span class="cf">return</span> z <span class="op">*</span> (x <span class="op">+</span> y)</span>
@@ -618,7 +624,7 @@ Note
 </section>
 <section id="packages-modules" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="packages-modules"><span class="header-section-number">6.4</span> packages / modules</h2>
-<p>Main reference is <a href="https://realpython.com/python-modules-packages/">RealPython</a> and <span class="citation" data-cites="Beu2022">[<a href="../references.html#ref-Beu2022" role="doc-biblioref">1</a>]</span>.</p>
+<p>Main reference is <a href="https://realpython.com/python-modules-packages/">RealPython</a> and <span class="citation" data-cites="Beu2022">[<a href="#ref-Beu2022" role="doc-biblioref">1</a>]</span>.</p>
 <section id="import" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="import"><span class="header-section-number">6.4.1</span> <code>import</code></h3>
 <p>In most cases we won’t only write one single Python file. If we want to use codes from other files, we need to <code>import</code>.</p>
@@ -665,7 +671,7 @@ Note
 <div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>file1.Foo()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
-<pre><code>&lt;file1.Foo at 0x2cee6b4aa90&gt;</code></pre>
+<pre><code>&lt;file1.Foo at 0x2549470bd00&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -684,8 +690,8 @@ Note
 </div>
 <p>Please see the following Example to get a feel about how namespace works.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.4 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="29">
-<span class="theorem-title"><strong>Example 6.4 </strong></span>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>s <span class="op">=</span> <span class="st">'foo'</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>a <span class="op">=</span> [<span class="st">'foo'</span>, <span class="st">'bar'</span>, <span class="st">'baz'</span>]</span>
 <span id="cb46-3"><a href="#cb46-3"></a></span>
@@ -720,8 +726,8 @@ Note
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="name__"><span class="header-section-number">6.4.2</span> <code>__name__</code></h3>
 <p><code>__name__</code> is a variable to tell you want is the current active namespace. See the following example.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.5 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="33">
-<span class="theorem-title"><strong>Example 6.5 </strong></span>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="im">import</span> file1</span>
 <span id="cb54-2"><a href="#cb54-2"></a>file1.<span class="va">__name__</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
@@ -789,7 +795,7 @@ Note
 </section>
 <section id="projects" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">6.6</span> Projects</h2>
-<p>Problems are based on <span class="citation" data-cites="Swe2020">[<a href="../references.html#ref-Swe2020" role="doc-biblioref">2</a>]</span>.</p>
+<p>Problems are based on <span class="citation" data-cites="Swe2020">[<a href="#ref-Swe2020" role="doc-biblioref">2</a>]</span>.</p>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.4 (Comma Code) </strong></span>Say you have a list value like this: <code>spam = ['apples', 'bananas', 'tofu', 'cats']</code>.</p>
 <p>Write a function that takes a list value as an argument and returns a string with all the items separated by a comma and a space, with <code>and</code> inserted before the last item. For example, passing the previous <code>spam</code> list to the function would return ‘apples, bananas, tofu, and cats’. But your function should be able to work with any list value passed to it. Be sure to test the case where an empty list <code>[]</code> is passed to your function.</p>
@@ -806,7 +812,7 @@ Note
 <span id="cb61-6"><a href="#cb61-6"></a><span class="dv">1</span> dagger</span>
 <span id="cb61-7"><a href="#cb61-7"></a>Total number of items: <span class="dv">62</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that this is the function version of <a href="../2/02-.html#exr-fantasyinventorycode">Exercise&nbsp;<span>2.17</span></a>.</p>
+<p>Note that this is the function version of <a href="#exr-fantasyinventorycode">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-fantasyinventorycode</span></a>.</p>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.6 </strong></span>Create a Car class with two instance attributes:</p>
@@ -846,7 +852,7 @@ A red car with 30000 mileage.</code></pre>
 </div>
 
 
-<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-Beu2022" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Beuzen</span>, T. and <span class="smallcaps">Timbers</span>, T. (2022). <em>Python packages</em>. Taylor &amp; Francis Group.</div>
 </div>
@@ -898,7 +904,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -934,24 +957,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

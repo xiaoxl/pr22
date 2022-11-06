@@ -1,5 +1,55 @@
 
+## `tibble`
 
-## `tidyverse`
+`tidyverse` mainly deals with `tibble` instead of `data.frame`. Therefore this is where we start.
 
-## `ggplot`
+`tibble` is a `data.frame` with different attributes and requirements. The package `tibble` provides support for `tibble`. It is included in `tidyverse`. To load it, you just use the code:
+
+```{r}
+library(tidyverse)
+```
+
+
+### Create tibbles
+Here is an example of creating tibbles.
+
+::: {#exm-}
+
+```{r}
+tbl <- tibble(x=1:5, y=1, z=x^2+y)
+tbl
+attributes(tbl)
+```
+Note that it is more flexible to create a tibble since `tibble()` will automatically recycle inputs and allows you to refer to variables that you just created.
+:::
+
+
+::: {.callout-note}
+In the past (for a very long time), when using `data.frame()` to create a `data.frame`, it will automatically convert strings to factors. This is changed recently that the default setting is not to convert. 
+
+When using `tibble()` to create a `tibble`, the type of the inputs will never be changed.
+:::
+
+
+::: {.callout-note}
+In `tibble` you may use *nonsyntactic* names as column names, which are invalid R variable names. To refer to these variables, you need to surround them with backticks `.
+
+```{r}
+tb <- tibble(
+    `:)` = "smile",
+    ` ` = "space",
+    `2000` = "number"
+)
+tb
+```
+
+:::
+
+### Differences between tibble and data.frame.
+
+#### Printing
+
+#### Subsetting
+
+#### Interacting with Older Code
+
