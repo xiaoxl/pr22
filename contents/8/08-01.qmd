@@ -47,9 +47,44 @@ tb
 
 ### Differences between tibble and data.frame.
 
+
 #### Printing
+Tibbles have a refined print method that shows only the first 10 rows and all the columns that fit on screen.
+
+```{r}
+deck <- tibble(suit=rep(c('spades', 'hearts', 'clubs', 'diamonds'), 13), face=rep(1:13, 4))
+deck
+```
+
 
 #### Subsetting
 
-#### Interacting with Older Code
+To get a single value, `[[]]` or `$` should be used, just like for `data.frame`. These two are almost the same. The only difference is that `[[]]` accepts positions, but `$` only accepts names.
+
+To be used in a pipe, the special placeholder `.` will be used. 
+
+```{r}
+deck %>% .$face
+```
+We will talk about pipes later.
+
+
+### `%>%` symbol
+`%>%` is the pipeline symbol, which is another way to connect several functions. Most functions in tidyverse have the first argument `data`, and both the input `data` and the output are tibbles. The syntax here is that `data %>% function(arguments)` is the same as `function(data, arguments)`. The benefit is that it is easier to have many functions consecutively applied to the data. Please see the following example.
+
+```{r}
+#| eval: false
+data %>% function1(arguments1)
+    %>% function2(arguments2)
+    %>% function3(arguments3)
+    %>% function4(arguments4)
+
+function4(function3(function2(function1(data, arguments1), arguments2), arguments3), arguments4)
+
+data2 <- function1(data, arguments1)
+data3 <- function2(data2, arguments2)
+data4 <- function3(data3, arguments3)
+function4(data4, arguments4)
+```
+The readability of the first one is much better than the second one. Comparing to the third one, we don't need to create a lot of intermedia temporary variables.
 

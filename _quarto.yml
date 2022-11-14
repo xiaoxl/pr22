@@ -14,6 +14,9 @@ crossref:
   labels: arabic        # (default is arabic)
   subref-labels: roman i # (default is alpha a)
 
+execute:
+  freeze: auto
+
 format:
   html:
     theme: 

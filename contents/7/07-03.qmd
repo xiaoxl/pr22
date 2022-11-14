@@ -12,6 +12,7 @@ Let us start from a data.frame `df`. The basic usage is `df[ , ]`, where the fir
 
 ::: {#exm-}
 We consider the simplified version of a deck. The deck only contains face values from 1 to 5.
+
 ```{r}
 #| echo: false
 suit <- c('spades', 'hearts', 'clubs', 'diamonds')
@@ -97,6 +98,7 @@ class(lst[1])
 
 
 Please think through these two examples and figure out the similarity between them.
+
 
 
 

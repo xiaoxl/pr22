@@ -287,9 +287,16 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#create-tibbles" id="toc-create-tibbles" class="nav-link" data-scroll-target="#create-tibbles"><span class="toc-section-number">8.1.1</span>  Create tibbles</a></li>
   <li><a href="#differences-between-tibble-and-data.frame." id="toc-differences-between-tibble-and-data.frame." class="nav-link" data-scroll-target="#differences-between-tibble-and-data.frame."><span class="toc-section-number">8.1.2</span>  Differences between tibble and data.frame.</a></li>
+  <li><a href="#symbol" id="toc-symbol" class="nav-link" data-scroll-target="#symbol"><span class="toc-section-number">8.1.3</span>  <code>%&gt;%</code> symbol</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.2</span>  Exercises</a></li>
-  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">8.3</span>  Projects</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="toc-section-number">8.2</span>  Tidy Data</a>
+  <ul class="collapse">
+  <li><a href="#tidying-datasets" id="toc-tidying-datasets" class="nav-link" data-scroll-target="#tidying-datasets"><span class="toc-section-number">8.2.1</span>  Tidying datasets</a></li>
+  </ul></li>
+  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="toc-section-number">8.3</span>  <code>dplyr</code></a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">8.4</span>  <code>ggplot2</code></a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.5</span>  Exercises</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">8.6</span>  Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -313,7 +320,7 @@ div.csl-indent {
 
 </header>
 
-<p>The main reference for this Chapter is <span class="citation" data-cites="Wic2017">[<a href="#ref-Wic2017" role="doc-biblioref">1</a>]</span>.</p>
+<p>The main reference for this Chapter is <span class="citation" data-cites="Wic2017">[<a href="../references.html#ref-Wic2017" role="doc-biblioref">1</a>]</span>.</p>
 <section id="tibble" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="tibble"><span class="header-section-number">8.1</span> <code>tibble</code></h2>
 <p><code>tidyverse</code> mainly deals with <code>tibble</code> instead of <code>data.frame</code>. Therefore this is where we start.</p>
@@ -413,23 +420,403 @@ Note
 <h3 data-number="8.1.2" class="anchored" data-anchor-id="differences-between-tibble-and-data.frame."><span class="header-section-number">8.1.2</span> Differences between tibble and data.frame.</h3>
 <section id="printing" class="level4" data-number="8.1.2.1">
 <h4 data-number="8.1.2.1" class="anchored" data-anchor-id="printing"><span class="header-section-number">8.1.2.1</span> Printing</h4>
+<p>Tibbles have a refined print method that shows only the first 10 rows and all the columns that fit on screen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>deck <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">suit=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>), <span class="dv">13</span>), <span class="at">face=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>, <span class="dv">4</span>))</span>
+<span id="cb11-2"><a href="#cb11-2"></a>deck</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 52 × 2
+   suit      face
+   &lt;chr&gt;    &lt;int&gt;
+ 1 spades       1
+ 2 hearts       2
+ 3 clubs        3
+ 4 diamonds     4
+ 5 spades       5
+ 6 hearts       6
+ 7 clubs        7
+ 8 diamonds     8
+ 9 spades       9
+10 hearts      10
+# … with 42 more rows</code></pre>
+</div>
+</div>
 </section>
 <section id="subsetting" class="level4" data-number="8.1.2.2">
 <h4 data-number="8.1.2.2" class="anchored" data-anchor-id="subsetting"><span class="header-section-number">8.1.2.2</span> Subsetting</h4>
+<p>To get a single value, <code>[[]]</code> or <code>$</code> should be used, just like for <code>data.frame</code>. These two are almost the same. The only difference is that <code>[[]]</code> accepts positions, but <code>$</code> only accepts names.</p>
+<p>To be used in a pipe, the special placeholder <code>.</code> will be used.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>deck <span class="sc">%&gt;%</span> .<span class="sc">$</span>face</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13  1  2  3  4  5  6  7  8  9 10 11 12
+[26] 13  1  2  3  4  5  6  7  8  9 10 11 12 13  1  2  3  4  5  6  7  8  9 10 11
+[51] 12 13</code></pre>
+</div>
+</div>
+<p>We will talk about pipes later.</p>
 </section>
-<section id="interacting-with-older-code" class="level4" data-number="8.1.2.3">
-<h4 data-number="8.1.2.3" class="anchored" data-anchor-id="interacting-with-older-code"><span class="header-section-number">8.1.2.3</span> Interacting with Older Code</h4>
+</section>
+<section id="symbol" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="symbol"><span class="header-section-number">8.1.3</span> <code>%&gt;%</code> symbol</h3>
+<p><code>%&gt;%</code> is the pipeline symbol, which is another way to connect several functions. Most functions in tidyverse have the first argument <code>data</code>, and both the input <code>data</code> and the output are tibbles. The syntax here is that <code>data %&gt;% function(arguments)</code> is the same as <code>function(data, arguments)</code>. The benefit is that it is easier to have many functions consecutively applied to the data. Please see the following example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">function1</span>(arguments1)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    <span class="sc">%&gt;%</span> <span class="fu">function2</span>(arguments2)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="sc">%&gt;%</span> <span class="fu">function3</span>(arguments3)</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="sc">%&gt;%</span> <span class="fu">function4</span>(arguments4)</span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="fu">function4</span>(<span class="fu">function3</span>(<span class="fu">function2</span>(<span class="fu">function1</span>(data, arguments1), arguments2), arguments3), arguments4)</span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a>data2 <span class="ot">&lt;-</span> <span class="fu">function1</span>(data, arguments1)</span>
+<span id="cb15-9"><a href="#cb15-9"></a>data3 <span class="ot">&lt;-</span> <span class="fu">function2</span>(data2, arguments2)</span>
+<span id="cb15-10"><a href="#cb15-10"></a>data4 <span class="ot">&lt;-</span> <span class="fu">function3</span>(data3, arguments3)</span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="fu">function4</span>(data4, arguments4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The readability of the first one is much better than the second one. Comparing to the third one, we don’t need to create a lot of intermedia temporary variables.</p>
+</section>
+</section>
+<section id="tidy-data" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">8.2</span> Tidy Data</h2>
+<p>The same underlying data can be represented in multiple ways. The following example shows the same data organized in four different ways.</p>
+<div id="exm-tidydatasets" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.2 </strong></span>&nbsp;</p>
+<div class="cell">
+
+</div>
+<ol type="1">
+<li><code>table1</code></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>table1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><code>table2</code></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li><code>table3</code></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Spread across two tibbles.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>table4b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country         `1999`     `2000`
+  &lt;chr&gt;            &lt;int&gt;      &lt;int&gt;
+1 Afghanistan   19987071   20595360
+2 Brazil       172006362  174504898
+3 China       1272915272 1280428583</code></pre>
+</div>
+</div>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8.1 </strong></span>A dataset is <em>tidy</em> if</p>
+<ol type="1">
+<li>Each variable have its own column.</li>
+<li>Each observation have its own row.</li>
+<li>Each value have its oven cell.</li>
+</ol>
+</div>
+<p>These three conditions are interrelated because it is impossible to only satisfy two of the three. In pratical, we need to follow the instructions:</p>
+<ol type="1">
+<li>Put each dataset in a tibble.</li>
+<li>Put each variable in a column.</li>
+</ol>
+<p><em>Tidy</em> data is a consistent way to organize your data in R. The main advantages are:</p>
+<ol type="1">
+<li>It is one consistent way of storing data. In other words, this is a consistent data structure that can be used in many cases.</li>
+<li>To placing variables in columns allows R’s vectorized nature to shine.</li>
+</ol>
+<p>All packages in the tidyverse are designed to work with tidy data.</p>
+<section id="tidying-datasets" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="tidying-datasets"><span class="header-section-number">8.2.1</span> Tidying datasets</h3>
+<p>Most datasets are untidy:</p>
+<ul>
+<li>One variable might be spread across multiple columns.</li>
+<li>One observation might be scattered across multiple rows.</li>
+</ul>
+<section id="gather-and-pivot_longer" class="level4" data-number="8.2.1.1">
+<h4 data-number="8.2.1.1" class="anchored" data-anchor-id="gather-and-pivot_longer"><span class="header-section-number">8.2.1.1</span> <code>gather()</code> and <code>pivot_longer()</code></h4>
+<p>A common problem is that the column names are not names of variables, but values of a variable. For example, <code>table4a</code> above has columns <code>1999</code> and <code>2000</code>. These two names are actually the values of a variable <code>year</code>. In addition, each row represents two observations, not one.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+<p>To tidy this type of dataset, we need to <code>gather</code> those columns into a new pair of variables. We need three parameters:</p>
+<ul>
+<li>The set of columns that represent values. In this case, those are <code>1999</code> and <code>2000</code>.</li>
+<li>The name of the variable. In this case, it is <code>year</code>. We also name it a <code>key</code>. -The name of the variable whose values are spread over the cells. In this case, it is the number of <code>cases</code>. We also name it a <code>value</code>.</li>
+</ul>
+<p>Then we apply <code>gather</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>table4a <span class="sc">%&gt;%</span> <span class="fu">gather</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="at">key=</span><span class="st">'year'</span>, <span class="at">value=</span><span class="st">'cases'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+1 Afghanistan 1999     745
+2 Brazil      1999   37737
+3 China       1999  212258
+4 Afghanistan 2000    2666
+5 Brazil      2000   80488
+6 China       2000  213766</code></pre>
+</div>
+</div>
+<p>We can do the similar thing to <code>table4b</code>. Then we could combine the two tibbles together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>tidy4a <span class="ot">&lt;-</span> table4a <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="fu">gather</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="at">key=</span><span class="st">'year'</span>, <span class="at">value=</span><span class="st">'cases'</span>)</span>
+<span id="cb30-3"><a href="#cb30-3"></a>tidy4b <span class="ot">&lt;-</span> table4b <span class="sc">%&gt;%</span> </span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="fu">gather</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="at">key=</span><span class="st">'year'</span>, <span class="at">value=</span><span class="st">'population'</span>)</span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="fu">left_join</span>(tidy4a, tidy4b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining, by = c("country", "year")</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     year   cases population
+  &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan 1999     745   19987071
+2 Brazil      1999   37737  172006362
+3 China       1999  212258 1272915272
+4 Afghanistan 2000    2666   20595360
+5 Brazil      2000   80488  174504898
+6 China       2000  213766 1280428583</code></pre>
+</div>
+</div>
+<p><code>pivot_longer()</code> is an updated approach to <code>gather()</code>, designed to be both simpler to use and to handle more use cases. We recommend you use <code>pivot_longer()</code> for new code; <code>gather()</code> isn’t going away but is no longer under active development.</p>
+<p>The main arguments of <code>pivot_longer()</code> is <code>data</code>, <code>cols</code>, <code>names_to</code> and <code>values_to</code>. The <code>cols</code> in <code>data</code> will be longer. A column with the name set by <code>names_to</code> will be added. The values of the column is the column names of the <code>cols</code>. A column with the name set by <code>values_to</code> will be added. The values of this column is the cell value of the original data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>table4a <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), <span class="at">names_to=</span><span class="st">'year'</span>, <span class="at">values_to=</span><span class="st">'cases'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div>
+</section>
+<section id="spread" class="level4" data-number="8.2.1.2">
+<h4 data-number="8.2.1.2" class="anchored" data-anchor-id="spread"><span class="header-section-number">8.2.1.2</span> <code>spread()</code></h4>
+<p>Another issuse is that an observation is scattered across multiple rows. Take <code>table2</code> as an example. An observation is a country in a year, but each observation is spread across two rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+<p>We could also apply <code>spread()</code>.</p>
+<ul>
+<li>The column that contains variable names, the <code>key</code> column. Here, it’s <code>type</code>.</li>
+<li>The column that contains values forms multiple variables, the <code>value</code> column. Here, it’s <code>count</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">spread</span>(table2, <span class="at">key=</span>type, <span class="at">value=</span>count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>gather()</code> makes wide tables narrower and longer. <code>spread()</code> makes long tables shorter and wider.</p>
+</div>
+</div>
+<p><code>pivot_wider()</code> is an updated approach to <code>spread()</code>, designed to be both simpler to use and to handle more use cases. We recommend you use <code>pivot_wider()</code> for new code; <code>spread()</code> isn’t going away but is no longer under active development.</p>
+</section>
+<section id="separate" class="level4" data-number="8.2.1.3">
+<h4 data-number="8.2.1.3" class="anchored" data-anchor-id="separate"><span class="header-section-number">8.2.1.3</span> <code>separate()</code></h4>
+</section>
+<section id="unite" class="level4" data-number="8.2.1.4">
+<h4 data-number="8.2.1.4" class="anchored" data-anchor-id="unite"><span class="header-section-number">8.2.1.4</span> <code>unite()</code></h4>
 </section>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.2</span> Exercises</h2>
+<section id="dplyr" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="dplyr"><span class="header-section-number">8.3</span> <code>dplyr</code></h2>
 </section>
-<section id="projects" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="projects"><span class="header-section-number">8.3</span> Projects</h2>
+<section id="ggplot2" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">8.4</span> <code>ggplot2</code></h2>
+</section>
+<section id="exercises" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.5</span> Exercises</h2>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.1 </strong></span>How can you tell if an object is a tibble?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.2 </strong></span>Compare and contrast the following operations on a <code>data.frame</code> and equivalent <code>tibble</code>. What is different? Why might the default data frame behaviors cause you frustration?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">xyz =</span> <span class="st">"a"</span>)</span>
+<span id="cb39-2"><a href="#cb39-2"></a>df<span class="sc">$</span>x</span>
+<span id="cb39-3"><a href="#cb39-3"></a>df[, <span class="st">"xyz"</span>]</span>
+<span id="cb39-4"><a href="#cb39-4"></a>df[, <span class="fu">c</span>(<span class="st">"abc"</span>, <span class="st">"xyz"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.3 </strong></span>If you have the name of a variable stored in an object, e.g., <code>var &lt;- "xyz"</code>, how can you extract the reference variable from a tibble? You may use the following codes to get a tibble.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">xyz =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.4 </strong></span>Practice referring to nonsyntactic names in the following data.frame by:</p>
+<ol type="a">
+<li>Extracting the variable called 1.</li>
+<li>Creating a new column called 3, which is 2 divided by 1.</li>
+<li>Renaming the columns to one, two, and three:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>annoying <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span>))</span>
+<span id="cb41-4"><a href="#cb41-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="projects" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">8.6</span> Projects</h2>
+<div class="cell">
+
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.5 </strong></span>This is a Python question. Please download the datasets from here. It is the same datasets as in <a href="#exm-tidydatasets">Example&nbsp;<span>8.2</span></a>. Please use Python to finish the following tasks.</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.6 </strong></span>Why are <code>gather()</code> and <code>spread()</code> not perfectly symmetrical? Carefully consider the following example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb42-2"><a href="#cb42-2"></a>    <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
+<span id="cb42-3"><a href="#cb42-3"></a>    <span class="at">half =</span> <span class="fu">c</span>( <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb42-4"><a href="#cb42-4"></a>    <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
+<span id="cb42-5"><a href="#cb42-5"></a>)</span>
+<span id="cb42-6"><a href="#cb42-6"></a>stocks <span class="sc">%&gt;%</span></span>
+<span id="cb42-7"><a href="#cb42-7"></a>    <span class="fu">spread</span>(year, return) <span class="sc">%&gt;%</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a>    <span class="fu">gather</span>(<span class="st">"year"</span>, <span class="st">"return"</span>, <span class="st">`</span><span class="at">2015</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2016</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+   half year  return
+  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+1     1 2015    1.88
+2     2 2015    0.59
+3     1 2016    0.92
+4     2 2016    0.17</code></pre>
+</div>
+</div>
+<p>(Hint: look at the variable types and think about column <code>names</code>.)</p>
+<p>Both <code>spread()</code> and <code>gather()</code> have a <code>convert</code> argument. What does it do?</p>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.7 </strong></span>Why does this code fail? ::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>table4a <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>    <span class="fu">gather</span>(<span class="dv">1999</span>, <span class="dv">2000</span>, <span class="at">key =</span> <span class="st">"year"</span>, <span class="at">value =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `loc_validate()`:
+! Can't subset columns past the end.
+ℹ Locations 1999 and 2000 don't exist.
+ℹ There are only 3 columns.</code></pre>
+</div>
+</div>
+<p>:::</p>
 
 
-<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
 <div id="ref-Wic2017" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Wickham</span>, H. and <span class="smallcaps">Grolemund</span>, G. (2017). <em><a href="https://r4ds.had.co.nz/">R for data science: Import, tidy, transform, visualize, and model data</a></em>. O’Reilly Media.</div>
 </div>
