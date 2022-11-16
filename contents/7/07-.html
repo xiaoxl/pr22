@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.262">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -111,7 +111,7 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contents/references.html" rel="next">
+<link href="../../contents/8/08-.html" rel="next">
 <link href="../../contents/6/06-.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -237,6 +237,11 @@ div.csl-indent {
   <a href="../../contents/7/07-.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R Fundamentals</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/8/08-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R for Data Sciences</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -325,6 +330,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -397,7 +403,7 @@ Note
 </section>
 <section id="data-structures" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">7.3</span> Data structures</h2>
-<p>Main reference here is <span class="citation" data-cites="Gro2014">[<a href="../references.html#ref-Gro2014" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="Wic2017">[<a href="../references.html#ref-Wic2017" role="doc-biblioref">2</a>]</span>.</p>
+<p>Main reference here is <span class="citation" data-cites="Gro2014">[<a href="#ref-Gro2014" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="Wic2017">[<a href="#ref-Wic2017" role="doc-biblioref">2</a>]</span>.</p>
 <section id="sec-r-rb-ds-vectors" class="level3" data-number="7.3.1">
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="sec-r-rb-ds-vectors"><span class="header-section-number">7.3.1</span> Vectors</h3>
 <p>Vector is one of the basic data structure in R. It is created by <code>c()</code> function. Sometimes it is called <code>atomic vector</code>. You may store any data types in it. R recognizes six basic types: <em>double</em>, <em>integers</em>, <em>characters</em>, <em>logicals</em>, <em>complex</em> and <em>raw</em>.</p>
@@ -456,7 +462,7 @@ Danger
 <section id="attributes" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="attributes"><span class="header-section-number">7.3.2</span> Attributes</h3>
 <p>R objects may have attributes. Attributes won’t be shown by default when you show the object. You may find the attributes of a R object by calling the <code>attributes()</code> function.</p>
-<p>The following example show that the vector <code>die</code> defined in <a href="#sec-r-rb-ds-vectors"><span>Section&nbsp;7.3.1</span></a> doesn’t have attributes.</p>
+<p>The following example show that the vector <code>die</code> defined in <a href="#sec-r-rb-ds-vectors"><span class="quarto-unresolved-ref">sec-r-rb-ds-vectors</span></a> doesn’t have attributes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">attributes</span>(die)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -465,8 +471,8 @@ Danger
 </div>
 <p>Attributes can be read and write using <code>attr</code> function. See the following example.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.1 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.1 </strong></span>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">attr</span>(die, <span class="st">'date'</span>) <span class="ot">&lt;-</span> <span class="st">'2022-01-01'</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>die</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -487,8 +493,8 @@ attr(,"date")
 </ol>
 <p><code>attr(x, 'class')</code> will show the “external” class of an object. You may also use <code>class(x)</code> to read and write attribute <code>class</code>. If the <code>class</code> is not assigned, <code>class(x)</code> will show the implicit class, while <code>attr(x, 'class')</code> will show <code>NULL</code>.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.2 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.2 </strong></span>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">attr</span>(die, <span class="st">'class'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
@@ -515,8 +521,8 @@ attr(,"date")
 <li><code>names</code>: This attribute is used to name each element in a vector. After the names are assigned, it won’t be displayed below the data like other attributes. It will be displayed above the data with correct alignment. Similar to <code>class</code>, you may use <code>names()</code> to read and write the attribute.</li>
 </ol>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.3 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.3 </strong></span>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">names</span>(die) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>, <span class="st">'five'</span>, <span class="st">'six'</span>)</span>
 <span id="cb30-2"><a href="#cb30-2"></a>die</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -597,8 +603,8 @@ Note
 </div>
 <p>Note that by assigning and removing <code>dim</code> attribute, you may change the object between vectors and matrices.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.4 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.4 </strong></span>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
@@ -687,8 +693,8 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <h3 data-number="7.3.5" class="anchored" data-anchor-id="lists"><span class="header-section-number">7.3.5</span> Lists</h3>
 <p>List is very similar to a vector. The main difference is that vector can only store values, while list can store objects. The most typical example of objects is another vector. Please see the following example.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.6 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.6 </strong></span>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4</code></pre>
@@ -882,8 +888,8 @@ Note
 <section id="for-loop" class="level4" data-number="7.3.9.1">
 <h4 data-number="7.3.9.1" class="anchored" data-anchor-id="for-loop"><span class="header-section-number">7.3.9.1</span> <code>for</code> loop</h4>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.9 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.9 </strong></span>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
 <span id="cb90-2"><a href="#cb90-2"></a>    <span class="fu">print</span>(x)</span>
 <span id="cb90-3"><a href="#cb90-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -905,8 +911,8 @@ Note
 <section id="if-else" class="level4" data-number="7.3.9.2">
 <h4 data-number="7.3.9.2" class="anchored" data-anchor-id="if-else"><span class="header-section-number">7.3.9.2</span> <code>if-else</code></h4>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.10 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.10 </strong></span>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>a <span class="ot">&lt;-</span> <span class="dv">200</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a>b <span class="ot">&lt;-</span> <span class="dv">33</span></span>
 <span id="cb92-3"><a href="#cb92-3"></a></span>
@@ -927,8 +933,8 @@ Note
 <h4 data-number="7.3.9.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">7.3.9.3</span> Functions</h4>
 <p>The standard format to define a function is <code>my_function &lt;- function(input) {}</code> where the function name is on the left side of <code>&lt;-</code>, the input arguments are in the <code>()</code>, and the function body is in <code>{}</code>. The output of the last line of the function body is the return value of the function.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.11 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.11 </strong></span>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>myfunction <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
 <span id="cb94-2"><a href="#cb94-2"></a>    die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
 <span id="cb94-3"><a href="#cb94-3"></a>    <span class="fu">sum</span>(die)</span>
@@ -988,7 +994,9 @@ Tip
 <li>If only one index is provided, it refers to the column.</li>
 </ul>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.12 </strong></span>We consider the simplified version of a deck. The deck only contains face values from 1 to 5. ::: {.cell}</p>
+<p><span class="theorem-title"><strong>Example 7.12 </strong></span>We consider the simplified version of a deck. The deck only contains face values from 1 to 5.</p>
+<div class="cell">
+
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a>deck[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1033,7 +1041,7 @@ Levels: spades hearts clubs diamonds</code></pre>
 20 diamonds</code></pre>
 </div>
 </div>
-<p>:::</p>
+</div>
 <ol start="2" type="1">
 <li>Negative integers: remove the related index.</li>
 </ol>
@@ -1211,8 +1219,8 @@ Warning
 <li>If the lengths are different, R will repeat the shorter one to make it match with the longer one. This is called the <em>vector recycling</em> rule. R will throw a warning if the two lengths are not proposional.</li>
 </ul>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.15 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.15 </strong></span>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 4 4 6</code></pre>
@@ -1231,8 +1239,8 @@ length</code></pre>
 <li>We may create values that do not yet exist in the object. R will expand the object to accommodate the new values.</li>
 </ul>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.16 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.16 </strong></span>
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a>vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
 <span id="cb135-2"><a href="#cb135-2"></a>vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1246,8 +1254,8 @@ length</code></pre>
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.17 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.17 </strong></span>
 <div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">'a'</span>, <span class="st">'b'</span>))</span>
 <span id="cb139-2"><a href="#cb139-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1269,8 +1277,8 @@ length</code></pre>
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="logical-subsetting"><span class="header-section-number">7.5.2</span> Logical subsetting</h3>
 <p>We could compare two vectors element-wise, and the result is a logical vector. Then we could use this result to subset the vector / data.frame.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.18 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.18 </strong></span>
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a>suit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'spades'</span>, <span class="st">'hearts'</span>, <span class="st">'clubs'</span>, <span class="st">'diamonds'</span>)</span>
 <span id="cb143-2"><a href="#cb143-2"></a>face <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb143-3"><a href="#cb143-3"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(suit, face)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1364,8 +1372,8 @@ Tip
 <li><code>na.rm</code>: Most R functions come with the optional argument <code>na.rm</code>. If you set it to be <code>TRUE</code>, the function will ignore <code>NA</code> when evaluating the function.</li>
 </ol>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.19 </strong></span>&nbsp;</p>
 <div class="cell">
-<span class="theorem-title"><strong>Example 7.19 </strong></span>
 <div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
@@ -1438,7 +1446,7 @@ Tip
 </div>
 
 
-<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-Gro2014" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Grolemund</span>, G. (2014). <em>Hands-on programming with r: Write your own functions and simulations</em>. O’Reilly Media.</div>
 </div>
@@ -1490,7 +1498,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1526,24 +1551,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -1554,8 +1597,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/8/08-.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R for Data Sciences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

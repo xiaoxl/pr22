@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.262">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -238,6 +238,11 @@ div.csl-indent {
   <a href="../../contents/7/07-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R Fundamentals</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/8/08-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R for Data Sciences</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -308,13 +313,14 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
-<p>The main reference for this chapter is <span class="citation" data-cites="McK2017">[<a href="../references.html#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
+<p>The main reference for this chapter is <span class="citation" data-cites="McK2017">[<a href="#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
 <section id="basics" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="basics"><span class="header-section-number">3.1</span> Basics</h2>
 <p>The basic data structure for <code>numpy</code> is <code>numpy.ndarray</code>. You may treat it as a generalized version of lists. However it can do so much more than the build-in <code>list</code>.</p>
@@ -416,8 +422,8 @@ Note
 <h2 data-number="3.5" class="anchored" data-anchor-id="basic-indexing-and-slicing"><span class="header-section-number">3.5</span> Basic indexing and slicing</h2>
 <p>First see the following example.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.3 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="4">
-<span class="theorem-title"><strong>Example 3.3 </strong></span>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2"></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -442,8 +448,8 @@ Note
 </div>
 <p>To do slicing in higher dimensional case, you may either treat a <code>numpy</code> array as a nested list, or you may directly work with it with multiindexes.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.4 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="5">
-<span class="theorem-title"><strong>Example 3.4 </strong></span>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2"></a>arr3d <span class="op">=</span> np.arange(<span class="dv">12</span>).reshape(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb6-3"><a href="#cb6-3"></a></span>
@@ -477,8 +483,8 @@ case 4:
 <h2 data-number="3.6" class="anchored" data-anchor-id="boolean-indexing"><span class="header-section-number">3.6</span> Boolean Indexing</h2>
 <p><code>numpy</code> array can accept index in terms of numpy arries with boolean indexing.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.5 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="6">
-<span class="theorem-title"><strong>Example 3.5 </strong></span>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2"></a>a <span class="op">=</span> np.arange(<span class="dv">4</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a>b <span class="op">=</span> np.array([<span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>])</span>
@@ -512,8 +518,8 @@ case 4:
 <h2 data-number="3.7" class="anchored" data-anchor-id="fancy-indexing"><span class="header-section-number">3.7</span> Fancy indexing</h2>
 <p>Fancy indexing is a term adopted by NumPy to describe indexing using integer arrays.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.7 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="8">
-<span class="theorem-title"><strong>Example 3.7 </strong></span>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a>arr <span class="op">=</span> np.zeros((<span class="dv">8</span>, <span class="dv">4</span>))</span>
@@ -530,8 +536,8 @@ case 4:
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.8 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="9">
-<span class="theorem-title"><strong>Example 3.8 </strong></span>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a>arr <span class="op">=</span> np.arange(<span class="dv">32</span>).reshape((<span class="dv">8</span>, <span class="dv">4</span>))</span>
@@ -591,8 +597,8 @@ The base of b is [ 0  1  2  3  4 -1 -2  7  8  9]</code></pre>
 <p>:::</p>
 <p>The way to make explicit copy is <code>.copy()</code>.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.9 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="11">
-<span class="theorem-title"><strong>Example 3.9 </strong></span>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb18-2"><a href="#cb18-2"></a>arr <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a>b <span class="op">=</span> arr[<span class="dv">5</span>:<span class="dv">8</span>].copy()</span>
@@ -652,8 +658,8 @@ The base of b is None</code></pre>
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.11 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="13">
-<span class="theorem-title"><strong>Example 3.11 </strong></span>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
 <span id="cb22-2"><a href="#cb22-2"></a>b <span class="op">=</span> np.array([<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">8</span>])</span>
 <span id="cb22-3"><a href="#cb22-3"></a></span>
@@ -664,8 +670,8 @@ The base of b is None</code></pre>
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.12 (Playing with axis) </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="14">
-<span class="theorem-title"><strong>Example 3.12 (Playing with axis) </strong></span>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb24-2"><a href="#cb24-2"></a>a <span class="op">=</span> np.array([[[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]],[[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]]])</span>
 <span id="cb24-3"><a href="#cb24-3"></a></span>
@@ -739,10 +745,10 @@ The base of b is None</code></pre>
 <span id="cb27-12"><a href="#cb27-12"></a>    plt.plot(row)</span>
 <span id="cb27-13"><a href="#cb27-13"></a>plt.legend([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;matplotlib.legend.Legend at 0x2d700cce130&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1fc2c4f5940&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="03-_files/figure-html/cell-17-output-2.png" width="578" height="404"></p>
+<p><img src="03-_files/figure-html/cell-17-output-2.png" width="569" height="404"></p>
 </div>
 </div>
 </div>
@@ -754,7 +760,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>positions.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>1.0</code></pre>
+<pre><code>6.0</code></pre>
 </div>
 </div>
 <ul>
@@ -763,7 +769,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>array([1., 1., 0.])</code></pre>
+<pre><code>array([6., 2., 1.])</code></pre>
 </div>
 </div>
 <ul>
@@ -772,9 +778,9 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>array([ 0.,  1.,  0., -1.,  0.,  1.,  0.,  1.,  0.,  1.,  0., -1., -2.,
-       -3., -4., -5., -4., -3., -2., -3., -4., -3., -2., -3., -2., -1.,
-        0.,  1.,  0., -1.,  0.])</code></pre>
+<pre><code>array([ 0.,  1.,  0., -1.,  0.,  1.,  0.,  1.,  2.,  3.,  2.,  3.,  4.,
+        5.,  4.,  3.,  2.,  1.,  2.,  3.,  4.,  5.,  6.,  5.,  4.,  3.,
+        4.,  5.,  6.,  5.,  6.])</code></pre>
 </div>
 </div>
 <ul>
@@ -783,7 +789,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>array([False, False, False])</code></pre>
+<pre><code>array([ True, False, False])</code></pre>
 </div>
 </div>
 <ul>
@@ -792,7 +798,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>0</code></pre>
+<pre><code>1</code></pre>
 </div>
 </div>
 <ul>
@@ -801,14 +807,14 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>positions.argmax(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>array([1, 1, 0], dtype=int64)</code></pre>
+<pre><code>array([22, 26,  1], dtype=int64)</code></pre>
 </div>
 </div>
 </div>
 </section>
 <section id="exercises" class="level2" data-number="3.12">
 <h2 data-number="3.12" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.12</span> Exercises</h2>
-<p>Many exercises are from <span class="citation" data-cites="Pra2018">[<a href="../references.html#ref-Pra2018" role="doc-biblioref">2</a>]</span>.</p>
+<p>Many exercises are from <span class="citation" data-cites="Pra2018">[<a href="#ref-Pra2018" role="doc-biblioref">2</a>]</span>.</p>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.1 (array) </strong></span>Write a NumPy program to create a <span class="math inline">\(3\times3\)</span> matrix with values ranging from 2 to 10.</p>
 </div>
@@ -998,7 +1004,7 @@ Click for Hint.
 </div>
 
 
-<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-McK2017" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">McKinney</span>, W. (2017). <em>Python for data analysis: Data wrangling with pandas, NumPy, and IPython</em>. O’Reilly Media.</div>
 </div>
@@ -1050,7 +1056,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1086,24 +1109,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

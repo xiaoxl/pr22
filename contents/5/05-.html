@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.262">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -240,6 +240,11 @@ div.csl-indent {
   <a href="../../contents/7/07-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R Fundamentals</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/8/08-.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">R for Data Sciences</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -322,13 +327,14 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
-<p>The main reference for this Chapter is <span class="citation" data-cites="McK2017">[<a href="../references.html#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
+<p>The main reference for this Chapter is <span class="citation" data-cites="McK2017">[<a href="#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
 <section id="matplotlib.pyplot" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="matplotlib.pyplot"><span class="header-section-number">5.1</span> <code>matplotlib.pyplot</code></h2>
 <p><code>matplotlib</code> is a modern and classic plot library. Its main features are inspired by <code>MATLAB</code>. In this book we mostly use <code>pyplot</code> package from <code>matplotlib</code>. We use the following import convention:</p>
@@ -379,8 +385,8 @@ Note
 </ul>
 <p>Please see the following examples.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.1 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="4">
-<span class="theorem-title"><strong>Example 5.1 </strong></span>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -389,8 +395,8 @@ Note
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.2 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="5">
-<span class="theorem-title"><strong>Example 5.2 </strong></span>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>])</span>
 <span id="cb5-3"><a href="#cb5-3"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
@@ -401,8 +407,8 @@ Note
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.3 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="6">
-<span class="theorem-title"><strong>Example 5.3 </strong></span>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>axs[<span class="dv">0</span>].plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>])</span>
 <span id="cb6-3"><a href="#cb6-3"></a>axs[<span class="dv">1</span>].plot([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -412,8 +418,8 @@ Note
 </div>
 </div>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.4 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="7">
-<span class="theorem-title"><strong>Example 5.4 </strong></span>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb7-3"><a href="#cb7-3"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
@@ -465,8 +471,8 @@ Note
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="downstream-packages"><span class="header-section-number">5.1.2</span> Downstream packages</h3>
 <p>There are multiple packages depending on <code>matplotlib</code> to provide plotting. For example, you may directly plot from a Pandas DataFrame or a Pandas Series.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.6 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="11">
-<span class="theorem-title"><strong>Example 5.6 </strong></span>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb11-3"><a href="#cb11-3"></a>s <span class="op">=</span> pd.Series(np.random.randn(<span class="dv">10</span>).cumsum(), index<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">10</span>))</span>
@@ -475,7 +481,7 @@ Note
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-12-output-2.png" width="582" height="404"></p>
+<p><img src="05-_files/figure-html/cell-12-output-2.png" width="571" height="404"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="12">
@@ -524,8 +530,8 @@ Note
 </ul>
 <p>The input of <code>plt.plot()</code> is two lists <code>x</code> and <code>y</code>. If there is only one list inputed, that one will be recognized as <code>y</code> and the index of elements of <code>y</code> will be used as the dafault <code>x</code>.</p>
 <div id="exm-plot1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.7 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="13">
-<span class="theorem-title"><strong>Example 5.7 </strong></span>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(np.random.randn(<span class="dv">30</span>).cumsum(), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-14-output-1.png" width="570" height="404"></p>
@@ -566,8 +572,8 @@ Note
 <p>:::</p>
 <p>With a DataFrame, bar plots group the values in each row together in a group in bars. This is easier if we directly plot from the DataFrame.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.8 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="16">
-<span class="theorem-title"><strong>Example 5.8 </strong></span>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.rand(<span class="dv">6</span>, <span class="dv">4</span>),</span>
 <span id="cb20-2"><a href="#cb20-2"></a>                  index<span class="op">=</span>[<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>, <span class="st">'four'</span>, <span class="st">'five'</span>, <span class="st">'six'</span>],</span>
 <span id="cb20-3"><a href="#cb20-3"></a>                  columns<span class="op">=</span>pd.Index([<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>], name<span class="op">=</span><span class="st">'Genus'</span>))</span>
@@ -589,45 +595,45 @@ Note
   <tbody>
     <tr>
       <th>one</th>
-      <td>0.567510</td>
-      <td>0.325200</td>
-      <td>0.894765</td>
-      <td>0.604747</td>
+      <td>0.164489</td>
+      <td>0.152957</td>
+      <td>0.204993</td>
+      <td>0.484466</td>
     </tr>
     <tr>
       <th>two</th>
-      <td>0.221577</td>
-      <td>0.271110</td>
-      <td>0.050578</td>
-      <td>0.706701</td>
+      <td>0.208928</td>
+      <td>0.763101</td>
+      <td>0.706756</td>
+      <td>0.454433</td>
     </tr>
     <tr>
       <th>three</th>
-      <td>0.645981</td>
-      <td>0.013974</td>
-      <td>0.712380</td>
-      <td>0.665214</td>
+      <td>0.823657</td>
+      <td>0.639983</td>
+      <td>0.765202</td>
+      <td>0.863337</td>
     </tr>
     <tr>
       <th>four</th>
-      <td>0.951308</td>
-      <td>0.610438</td>
-      <td>0.682647</td>
-      <td>0.595708</td>
+      <td>0.692975</td>
+      <td>0.743479</td>
+      <td>0.884414</td>
+      <td>0.730369</td>
     </tr>
     <tr>
       <th>five</th>
-      <td>0.021769</td>
-      <td>0.157346</td>
-      <td>0.893726</td>
-      <td>0.554695</td>
+      <td>0.358668</td>
+      <td>0.678043</td>
+      <td>0.032361</td>
+      <td>0.184725</td>
     </tr>
     <tr>
       <th>six</th>
-      <td>0.291958</td>
-      <td>0.608744</td>
-      <td>0.166046</td>
-      <td>0.319448</td>
+      <td>0.513549</td>
+      <td>0.087593</td>
+      <td>0.188056</td>
+      <td>0.062423</td>
     </tr>
   </tbody>
 </table>
@@ -657,8 +663,8 @@ Note
 <section id="plt.scatter" class="level4" data-number="5.1.3.3">
 <h4 data-number="5.1.3.3" class="anchored" data-anchor-id="plt.scatter"><span class="header-section-number">5.1.3.3</span> <code>plt.scatter()</code></h4>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.9 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="19">
-<span class="theorem-title"><strong>Example 5.9 </strong></span>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb25-2"><a href="#cb25-2"></a></span>
 <span id="cb25-3"><a href="#cb25-3"></a>N <span class="op">=</span> <span class="dv">100</span></span>
@@ -667,7 +673,7 @@ Note
 <span id="cb25-6"><a href="#cb25-6"></a>c <span class="op">=</span> np.sqrt(area)</span>
 <span id="cb25-7"><a href="#cb25-7"></a>plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>], s<span class="op">=</span>area, marker<span class="op">=</span><span class="st">'^'</span>, c<span class="op">=</span>c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x1b799bf6f70&gt;</code></pre>
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x10a4fbd3640&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-20-output-2.png" width="571" height="404"></p>
@@ -694,8 +700,8 @@ Note
 <section id="plt.boxplot" class="level3" data-number="5.1.4">
 <h3 data-number="5.1.4" class="anchored" data-anchor-id="plt.boxplot"><span class="header-section-number">5.1.4</span> <code>plt.boxplot()</code></h3>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.10 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="21">
-<span class="theorem-title"><strong>Example 5.10 </strong></span>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>spread <span class="op">=</span> np.random.rand(<span class="dv">50</span>) <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>center <span class="op">=</span> np.ones(<span class="dv">30</span>) <span class="op">*</span> <span class="dv">50</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a>flier_high <span class="op">=</span> np.random.rand(<span class="dv">10</span>) <span class="op">*</span> <span class="dv">100</span> <span class="op">+</span> <span class="dv">100</span></span>
@@ -704,7 +710,7 @@ Note
 <span id="cb28-6"><a href="#cb28-6"></a></span>
 <span id="cb28-7"><a href="#cb28-7"></a>_ <span class="op">=</span> plt.boxplot(data, flierprops<span class="op">=</span>{<span class="st">'markerfacecolor'</span>: <span class="st">'g'</span>, <span class="st">'marker'</span>: <span class="st">'D'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-22-output-1.png" width="586" height="409"></p>
+<p><img src="05-_files/figure-html/cell-22-output-1.png" width="586" height="404"></p>
 </div>
 </div>
 </div>
@@ -737,8 +743,8 @@ Note
 </ul></li>
 </ul>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.11 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="22">
-<span class="theorem-title"><strong>Example 5.11 </strong></span>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb29-2"><a href="#cb29-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb29-3"><a href="#cb29-3"></a>ax.plot(np.random.randn(<span class="dv">1000</span>).cumsum(), <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'one'</span>)</span>
@@ -754,7 +760,7 @@ Note
 <span id="cb29-13"><a href="#cb29-13"></a></span>
 <span id="cb29-14"><a href="#cb29-14"></a>ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>&lt;matplotlib.legend.Legend at 0x1b799bb8c10&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x10a50482a90&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-23-output-2.png" width="601" height="442"></p>
@@ -769,8 +775,8 @@ Note
 <li>If arrows are needed, we may use <code>ax.annotation()</code>. Here an arrow will be shown from <code>xytext</code> to <code>xy</code>. The style of the arrow is controlled by the option <code>arrowprops</code>.</li>
 </ul>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.12 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="23">
-<span class="theorem-title"><strong>Example 5.12 </strong></span>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb31-2"><a href="#cb31-2"></a>ax.plot(np.random.randn(<span class="dv">1000</span>).cumsum(), <span class="st">'k'</span>, label<span class="op">=</span><span class="st">'one'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3"></a>ax.text(<span class="dv">500</span>, <span class="dv">0</span>, <span class="st">'Hello world!'</span>, family<span class="op">=</span><span class="st">'monospace'</span>, fontsize<span class="op">=</span><span class="dv">15</span>, c<span class="op">=</span><span class="st">'r'</span>)</span>
@@ -853,11 +859,11 @@ Note
 </div>
 <p>Let us directly run a few codes from the last section and compare the differences between them.</p>
 <div id="exm-plotwithsns" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.15 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="29">
-<span class="theorem-title"><strong>Example 5.15 </strong></span>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>plt.plot(np.random.randn(<span class="dv">30</span>).cumsum(), color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="05-_files/figure-html/cell-30-output-1.png" width="570" height="408"></p>
+<p><img src="05-_files/figure-html/cell-30-output-1.png" width="562" height="408"></p>
 </div>
 </div>
 <p>Please compare the output of the same code with <a href="#exm-plot1">the previous example</a></p>
@@ -1017,7 +1023,7 @@ Note
 <span id="cb40-2"><a href="#cb40-2"></a>            x<span class="op">=</span><span class="st">"total_bill"</span>, y<span class="op">=</span><span class="st">"tip"</span>, col<span class="op">=</span><span class="st">"time"</span>,</span>
 <span id="cb40-3"><a href="#cb40-3"></a>            hue<span class="op">=</span><span class="st">"smoker"</span>, style<span class="op">=</span><span class="st">"smoker"</span>, size<span class="op">=</span><span class="st">"size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1b79b52dca0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x10a539cfd00&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-32-output-2.png" width="1026" height="464"></p>
@@ -1026,15 +1032,15 @@ Note
 </div>
 <p>The default type of plots for <code>relplot()</code> is scatter plots. However you may change it to line plot by setting <code>kind='line'</code>.</p>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.17 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="32">
-<span class="theorem-title"><strong>Example 5.17 </strong></span>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>dots <span class="op">=</span> sns.load_dataset(<span class="st">"dots"</span>)</span>
 <span id="cb42-2"><a href="#cb42-2"></a>sns.relplot(data<span class="op">=</span>dots, kind<span class="op">=</span><span class="st">"line"</span>,</span>
 <span id="cb42-3"><a href="#cb42-3"></a>            x<span class="op">=</span><span class="st">"time"</span>, y<span class="op">=</span><span class="st">"firing_rate"</span>, col<span class="op">=</span><span class="st">"align"</span>,</span>
 <span id="cb42-4"><a href="#cb42-4"></a>            hue<span class="op">=</span><span class="st">"choice"</span>, size<span class="op">=</span><span class="st">"coherence"</span>, style<span class="op">=</span><span class="st">"choice"</span>,</span>
 <span id="cb42-5"><a href="#cb42-5"></a>            facet_kws<span class="op">=</span><span class="bu">dict</span>(sharex<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1b79a9752b0&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x10a53931e50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-33-output-2.png" width="1046" height="464"></p>
@@ -1066,7 +1072,7 @@ Note
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>sns.pairplot(tips, diag_kind<span class="op">=</span><span class="st">'kde'</span>, plot_kws<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1b79a889340&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x10a53c58820&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-35-output-2.png" width="708" height="708"></p>
@@ -1077,8 +1083,8 @@ Note
 <section id="barplot" class="level3" data-number="5.2.4">
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="barplot"><span class="header-section-number">5.2.4</span> <code>barplot</code></h3>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.20 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="35">
-<span class="theorem-title"><strong>Example 5.20 </strong></span>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'total_bill'</span>, y<span class="op">=</span><span class="st">'day'</span>, data<span class="op">=</span>tips, orient<span class="op">=</span><span class="st">'h'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>&lt;AxesSubplot:xlabel='total_bill', ylabel='day'&gt;</code></pre>
@@ -1103,8 +1109,8 @@ Note
 <section id="histogram" class="level3" data-number="5.2.5">
 <h3 data-number="5.2.5" class="anchored" data-anchor-id="histogram"><span class="header-section-number">5.2.5</span> Histogram</h3>
 <div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5.21 </strong></span>&nbsp;</p>
 <div class="cell" data-execution_count="37">
-<span class="theorem-title"><strong>Example 5.21 </strong></span>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>mu, sigma <span class="op">=</span> <span class="dv">100</span>, <span class="dv">15</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>x <span class="op">=</span> mu <span class="op">+</span> sigma <span class="op">*</span> np.random.randn(<span class="dv">10000</span>)</span>
 <span id="cb52-3"><a href="#cb52-3"></a>y <span class="op">=</span> mu<span class="op">-</span><span class="dv">30</span> <span class="op">+</span> sigma<span class="op">*</span><span class="dv">2</span> <span class="op">*</span> np.random.randn(<span class="dv">10000</span>)</span>
@@ -1125,7 +1131,7 @@ Note
 <h2 data-number="5.3" class="anchored" data-anchor-id="examples"><span class="header-section-number">5.3</span> Examples</h2>
 <section id="example-1-usa.gov-data-from-bitly" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="example-1-usa.gov-data-from-bitly"><span class="header-section-number">5.3.1</span> Example 1: <code>USA.gov</code> Data From <code>Bitly</code></h3>
-<p>In 2011, URL shortening service <code>Bitly</code> partnered with the US government website <code>USA.gov</code> to provide a feed of anonymous data gathered from users who shorten links ending with <code>.gov</code> or <code>.mil</code>. The data is gotten from <span class="citation" data-cites="McK2017">[<a href="../references.html#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
+<p>In 2011, URL shortening service <code>Bitly</code> partnered with the US government website <code>USA.gov</code> to provide a feed of anonymous data gathered from users who shorten links ending with <code>.gov</code> or <code>.mil</code>. The data is gotten from <span class="citation" data-cites="McK2017">[<a href="#ref-McK2017" role="doc-biblioref">1</a>]</span>.</p>
 <p>The data file can be downloaded from <a href="assests/datasets/example.txt">here</a>. The file is mostly in JSON. It can be converted into a DataFrame by the following code.</p>
 <div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1290,7 +1296,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="49">
 <div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1b79fc81250&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x10a58790dc0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-50-output-2.png" width="530" height="464"></p>
@@ -1449,7 +1455,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="55">
 <div class="cell-output cell-output-display" data-execution_count="50">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1b7a02e9a60&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x10a587905e0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-56-output-2.png" width="546" height="464"></p>
@@ -1483,14 +1489,12 @@ Name: a, dtype: int64</code></pre>
 </div>
 <div class="cell" data-execution_count="60">
 <div class="cell-output cell-output-display" data-execution_count="52">
-<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x1b7a4634d30&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x10a59be0df0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="05-_files/figure-html/cell-61-output-2.png" width="525" height="464"></p>
 </div>
 </div>
-<!-- ### Example 3: USDA Food Database -->
-<!-- ### Example 4: 2012 Federal Election Commission Database -->
 </section>
 </section>
 <section id="exercises" class="level2" data-number="5.4">
@@ -1520,7 +1524,7 @@ Name: a, dtype: int64</code></pre>
 </div>
 
 
-<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-McK2017" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">McKinney</span>, W. (2017). <em>Python for data analysis: Data wrangling with pandas, NumPy, and IPython</em>. O’Reilly Media.</div>
 </div>
@@ -1569,7 +1573,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1605,24 +1626,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
