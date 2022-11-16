@@ -5,43 +5,15 @@ The same underlying data can be represented in multiple ways. The following exam
 
 ::: {#exm-tidydatasets}
 
+These tibbles are provided by `tidyr`. You could directly load it from `tidyverse`.
+
 ```{r}
-#| echo: false
 library(tidyverse)
-table1 <- tibble(
-    country=c('Afghanistan', 'Afghanistan', 'Brazil', 'Brazil', 'China', 'China'),
-    year=as.integer(c(1999, 2000, 1999, 2000, 1999, 2000)),
-    cases=as.integer(c(745, 2666, 37737, 80488, 212258, 213766)),
-    population=as.integer(c(19987071, 20595360, 172006362, 174504898, 1272915272, 1280428583))
-)
-table2 <- tibble(
-    country=c(rep('Afghanistan', 4), rep('Brazil', 4), rep('China', 4)),
-    year=as.integer(rep(c(1999, 1999, 2000, 2000), 3)),
-    type=rep(c('cases', 'population'), 6),
-    count=as.integer(c(
-        745, 19987071, 2666, 20595360,
-        37737, 172006362, 80488, 174504898,
-        212258, 1272915272, 213766, 1280428583
-    ))
-)
-table3 <- tibble(
-    country=c('Afghanistan', 'Afghanistan', 'Brazil', 'Brazil', 'China', 'China'),
-    year=as.integer(c(1999, 2000, 1999, 2000, 1999, 2000)),
-    rate=c(
-        '745/19987071', '2666/20595360', '37737/172006362',
-        '80488/174504898', '212258/1272915272', '213766/1280428583'
-    )
-)
-table4a <- tibble(
-    country=c('Afghanistan', 'Brazil', 'China'),
-    `1999`=as.integer(c(745, 37737, 212258)),
-    `2000`=as.integer(c(2666, 80488, 213766))
-)
-table4b <- tibble(
-    country=c('Afghanistan', 'Brazil', 'China'),
-    `1999`=as.integer(c(19987071, 172006362, 1272915272)),
-    `2000`=as.integer(c(20595360, 174504898, 1280428583))
-)
+data(table1, package='tidyr')
+data(table2, package='tidyr')
+data(table3, package='tidyr')
+data(table4a, package='tidyr')
+data(table4b, package='tidyr')
 ```
 
 
@@ -101,38 +73,24 @@ Most datasets are untidy:
 - One variable might be spread across multiple columns.
 - One observation might be scattered across multiple rows.
 
-#### `gather()` and `pivot_longer()`
+#### `pivot_longer()`
 A common problem is that the column names are not names of variables, but values of a variable. For example, `table4a` above has columns `1999` and `2000`. These two names are actually the values of a variable `year`. In addition, each row represents two observations, not one.
 
 ```{r}
 table4a
 ```
-To tidy this type of dataset, we need to `gather` those columns into a new pair of variables. We need three parameters:
+To tidy this type of dataset, we need to gather those columns into a new pair of variables. We need three parameters:
 
 - The set of columns that represent values. In this case, those are `1999` and `2000`.
-- The name of the variable. In this case, it is `year`. We also name it a `key`.
--The name of the variable whose values are spread over the cells. In this case, it is the number of `cases`. We also name it a `value`.
+- The name of the variable. In this case, it is `year`. 
+-The name of the variable whose values are spread over the cells. In this case, it is the number of `cases`. 
 
-Then we apply `gather`.
-
-```{r}
-table4a %>% gather(`1999`, `2000`, key='year', value='cases')
-```
-
-We can do the similar thing to `table4b`. Then we could combine the two tibbles together.
+Then we apply `pivot_longer()`.
 
 ```{r}
-tidy4a <- table4a %>% 
-    gather(`1999`, `2000`, key='year', value='cases')
-tidy4b <- table4b %>% 
-    gather(`1999`, `2000`, key='year', value='population')
-left_join(tidy4a, tidy4b)
+pivot_longer(table4a, cols=c(`1999`, `2000`), names_to='year', values_to='cases')
 ```
-
-`pivot_longer()` is an updated approach to `gather()`, designed to be both simpler to use and to handle more use cases. We recommend you use `pivot_longer()` for new code; `gather()` isn't going away but is no longer under active development.
-
-The main arguments of `pivot_longer()` is `data`, `cols`, `names_to` and `values_to`. The `cols` in `data` will be longer. A column with the name set by `names_to` will be added. The values of the column is the column names of the `cols`. A column with the name set by `values_to` will be added. The values of this column is the cell value of the original data.
-
+We may also use the pipe `%>%` symbol. 
 
 ```{r}
 table4a %>% pivot_longer(cols=c(`1999`, `2000`), names_to='year', values_to='cases')
@@ -140,31 +98,91 @@ table4a %>% pivot_longer(cols=c(`1999`, `2000`), names_to='year', values_to='cas
 
 
 
-#### `spread()`
+We can do the similar thing to `table4b`. Then we could combine the two tibbles together.
+
+```{r}
+tidy4a <- table4a %>% 
+    pivot_longer(cols=c(`1999`, `2000`), names_to='year', values_to='cases')
+tidy4b <- table4b %>% 
+    pivot_longer(cols=c(`1999`, `2000`), names_to='year', values_to='population')
+left_join(tidy4a, tidy4b)
+```
+
+`pivot_longer()` is an updated approach to `gather()`, designed to be both simpler to use and to handle more use cases. We recommend you use `pivot_longer()` for new code; `gather()` isn't going away but is no longer under active development.
+
+
+
+
+#### `pivot_wider()`
 Another issuse is that an observation is scattered across multiple rows. Take `table2` as an example. 
 An observation is a country in a year, but each observation is spread across two rows.
 
 ```{r}
 table2
 ```
-We could also apply `spread()`. 
+We could apply `pivot_wider()` to make it tidy. Here we need two arguments.
 
-- The column that contains variable names, the `key` column. Here, it’s `type`.
-- The column that contains values forms multiple variables, the `value` column. Here, it’s `count`.
+- The column that contains variable names. Here, it’s `type`.
+- The column that contains values forms multiple variables. Here, it’s `count`.
 
 
 ```{r}
-spread(table2, key=type, value=count)
+pivot_wider(table2, names_from='type', values_from='count')
+```
+We can also use the pipe symbol `%>%`.
+
+
+```{r}
+table2 %>% pivot_wider(names_from='type', values_from='count')
 ```
 
 
-::: {.callout-note}
-`gather()` makes wide tables narrower and longer. `spread()` makes long tables shorter and wider.
-:::
+
 
 `pivot_wider()` is an updated approach to `spread()`, designed to be both simpler to use and to handle more use cases. We recommend you use `pivot_wider()` for new code; `spread()` isn't going away but is no longer under active development.
 
 
 #### `separate()`
 
+If we would like to split one columns into multiple columns since there are more than one values in a cell, we could use `separate()`. 
+
+
+```{r}
+separate(table3, rate, into=c('cases', 'population'))
+```
+We could also use the pipe symbol `%>%`.
+
+```{r}
+table3 %>% separate(rate, into=c('cases', 'population'))
+```
+
+Using separate, the first argument is the column to be separated. `into` is where you store the parsed data. If no arguments are given, `separate()` will split values wherever it sees a non-alphanumeric character. If you would like to specify a separator, you may use the `sep` argument. 
+
+- If `sep` is set to be a character, the column will be separated by the character.
+- If `sep` is set to be a vector of integers, the column will be separated by the positions.
+
+
+```{r}
+separate(table3, rate, into=c('cases', 'population'), sep='/')
+```
+
+```{r}
+separate(table3, rate, into=c('cases', 'population'), sep=c(2,5))
+```
+
+Note that in this example, since `into` only has two columns, the rest of the data are lost.
+
+Another useful argument is `convert`. After separation, the columns are still character columns. If we set `convert=TRUE`, the columns will be automatically converted into better types if possible.
+
+```{r}
+separate(table3, rate, into=c('cases', 'population'), convert=TRUE)
+```
+
+
 #### `unite()`
+`unite()` is the inverse of `separate()`. The syntax is straghtforward. The default separator is `_`. 
+
+```{r}
+table3 %>% unite(new, year, rate, sep='_')
+```
+

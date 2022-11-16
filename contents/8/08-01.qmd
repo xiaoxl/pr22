@@ -6,6 +6,8 @@
 `tibble` is a `data.frame` with different attributes and requirements. The package `tibble` provides support for `tibble`. It is included in `tidyverse`. To load it, you just use the code:
 
 ```{r}
+#| collapse: true
+#| comment: "#>"
 library(tidyverse)
 ```
 

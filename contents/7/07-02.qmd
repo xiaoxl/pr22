@@ -405,3 +405,5 @@ The function `sample(x)`: `sample` takes a sample of the specified size from the
 - `replace`: should sampling be with replacement?
 - `prob`: a vector of probability weights for obtaining the elements of the vector being sampled.
 :::
+
+

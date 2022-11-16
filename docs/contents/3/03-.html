@@ -745,7 +745,7 @@ The base of b is None</code></pre>
 <span id="cb27-12"><a href="#cb27-12"></a>    plt.plot(row)</span>
 <span id="cb27-13"><a href="#cb27-13"></a>plt.legend([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;matplotlib.legend.Legend at 0x128521dfb50&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1fc2c4f5940&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="03-_files/figure-html/cell-17-output-2.png" width="569" height="404"></p>
@@ -760,7 +760,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>positions.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>10.0</code></pre>
+<pre><code>6.0</code></pre>
 </div>
 </div>
 <ul>
@@ -769,7 +769,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>array([ 2.,  3., 10.])</code></pre>
+<pre><code>array([6., 2., 1.])</code></pre>
 </div>
 </div>
 <ul>
@@ -778,9 +778,9 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>positions.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>array([ 0., -1.,  0.,  1.,  0., -1.,  0.,  1.,  2.,  3.,  2.,  3.,  4.,
-        5.,  4.,  5.,  4.,  5.,  6.,  7.,  8.,  7.,  6.,  7.,  8.,  7.,
-        8.,  9., 10.,  9.,  8.])</code></pre>
+<pre><code>array([ 0.,  1.,  0., -1.,  0.,  1.,  0.,  1.,  2.,  3.,  2.,  3.,  4.,
+        5.,  4.,  3.,  2.,  1.,  2.,  3.,  4.,  5.,  6.,  5.,  4.,  3.,
+        4.,  5.,  6.,  5.,  6.])</code></pre>
 </div>
 </div>
 <ul>
@@ -789,7 +789,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>array([False,  True,  True])</code></pre>
+<pre><code>array([ True, False, False])</code></pre>
 </div>
 </div>
 <ul>
@@ -798,7 +798,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>(positions<span class="op">&gt;=</span><span class="dv">3</span>).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>2</code></pre>
+<pre><code>1</code></pre>
 </div>
 </div>
 <ul>
@@ -807,7 +807,7 @@ The base of b is None</code></pre>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>positions.argmax(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>array([20, 25, 28], dtype=int64)</code></pre>
+<pre><code>array([22, 26,  1], dtype=int64)</code></pre>
 </div>
 </div>
 </div>
