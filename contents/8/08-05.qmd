@@ -1,6 +1,6 @@
+## Examples
 
-
-## An Example
+### WHO TB dataset
 Let us explore the tuberculosis cases data. The dataset is provided by WHO and can be downloaded from [here](https://www.who.int/teams/global-tuberculosis-programme/data). `tidyr` also provides the dataset. You may directly get the dataset after you load `tidyr` from `tidyverse`. The variable description can be found from [`tidyr` documentations](https://tidyr.tidyverse.org/reference/who.html).
 
 
@@ -97,7 +97,7 @@ tidywho <- who %>%
 
 
 
-## Another example
+### US Babynames
 
 Let us use R to solve the babynames dataset again. 
 
@@ -154,7 +154,7 @@ df %>%
 ::: {#exm-}
 Please compute the proportions of each name relateive to the total number of births per year per gender. 
 
-::: {.callout-tip collpase='true'}
+::: {.callout-tip collapse='true'}
 
 ```{r}
 df %>% 
@@ -200,11 +200,12 @@ top100 %>%
 
 
 ::: {#exm-}
-Now we would like to analyze the ending of names. Please get a `tibble` that contains the counts of ending letter per year per gender.
+Now we would like to analyze the ending of names. Please get a `tibble` that contains the counts of ending letter per year per gender. We mainly focus on 1910, 1960 and 2010.
 
 ::: {.callout-tip collapse="true"}
 
 ```{r}
+#| warning: false
 df %>% 
     filter(year %in% c(1910, 1960, 2010)) %>% 
     mutate(ending=str_sub(name, -1, -1)) %>% 
@@ -215,12 +216,41 @@ df %>%
             mapping = aes(
                 x=ending, 
                 y=ending_counts, 
-                fill=year
+                fill=year,
+                group=year
                 ), 
             stat = "identity", 
             position = "dodge",
         ) +
-        facet_wrap(~gender)
+        facet_wrap(~gender, nrow=2)
+```
+
+:::
+:::
+
+
+::: {#exm-}
+Please draw the line plot to show the trending of certain letters through years. Here we choose `d`, `n` and `y`.
+
+
+
+::: {.callout-tip collapse="true"}
+
+```{r}
+#| warning: false
+df %>% 
+    mutate(ending=str_sub(name, -1, -1)) %>% 
+    group_by(year, ending) %>% 
+    summarise(ending_counts=sum(counts)) %>% 
+    filter(ending %in% c('d', 'n', 'y')) %>% 
+    ggplot() +
+        geom_line(
+            mapping = aes(
+                x=year, 
+                y=ending_counts, 
+                color=ending
+            )
+        )
 ```
 
 :::
