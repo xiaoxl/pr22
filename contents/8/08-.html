@@ -1331,7 +1331,7 @@ Tip
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>path <span class="ot">&lt;-</span> <span class="st">'assessts/datasets/babynames/yob'</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>dfs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1880</span><span class="sc">:</span><span class="dv">2010</span>, <span class="cf">function</span>(y){</span>
+<span id="cb53-2"><a href="#cb53-2"></a>dfs <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1880</span><span class="sc">:</span><span class="dv">2010</span>, <span class="cf">function</span>(y){</span>
 <span id="cb53-3"><a href="#cb53-3"></a>    filepath <span class="ot">&lt;-</span> <span class="fu">paste0</span>(path, <span class="fu">as.character</span>(y), <span class="st">'.txt'</span>)</span>
 <span id="cb53-4"><a href="#cb53-4"></a>    df_individual <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="fu">read.csv</span>(filepath, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
 <span id="cb53-5"><a href="#cb53-5"></a>    <span class="fu">names</span>(df_individual) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'name'</span>, <span class="st">'gender'</span>, <span class="st">'counts'</span>)</span>
