@@ -117,8 +117,8 @@ library(tidyverse)
 
 
 ```{r}
-path <- 'assessts/datasets/babynames/yob'
-dfs <- lapply(1880:2010, function(y){
+path <- 'contents/8/assessts/datasets/babynames/yob'
+dfs <- map(1880:2010, function(y){
     filepath <- paste0(path, as.character(y), '.txt')
     df_individual <- tibble(read.csv(filepath, header=FALSE))
     names(df_individual) <- c('name', 'gender', 'counts')
