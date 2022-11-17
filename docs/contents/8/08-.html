@@ -300,9 +300,16 @@ div.csl-indent {
   <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="toc-section-number">8.3.3</span>  <code>mutate()</code></a></li>
   <li><a href="#summarize-and-group_by" id="toc-summarize-and-group_by" class="nav-link" data-scroll-target="#summarize-and-group_by"><span class="toc-section-number">8.3.4</span>  <code>summarize()</code> and <code>group_by()</code></a></li>
   </ul></li>
-  <li><a href="#an-example" id="toc-an-example" class="nav-link" data-scroll-target="#an-example"><span class="toc-section-number">8.4</span>  An Example</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.5</span>  Exercises</a></li>
-  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">8.6</span>  Projects</a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">8.4</span>  <code>ggplot2</code></a>
+  <ul class="collapse">
+  <li><a href="#aesthetic-mappings" id="toc-aesthetic-mappings" class="nav-link" data-scroll-target="#aesthetic-mappings"><span class="toc-section-number">8.4.1</span>  Aesthetic mappings</a></li>
+  <li><a href="#facet" id="toc-facet" class="nav-link" data-scroll-target="#facet"><span class="toc-section-number">8.4.2</span>  <code>facet</code></a></li>
+  <li><a href="#geom-objects" id="toc-geom-objects" class="nav-link" data-scroll-target="#geom-objects"><span class="toc-section-number">8.4.3</span>  <code>geom</code> objects</a></li>
+  </ul></li>
+  <li><a href="#an-example" id="toc-an-example" class="nav-link" data-scroll-target="#an-example"><span class="toc-section-number">8.5</span>  An Example</a></li>
+  <li><a href="#another-example" id="toc-another-example" class="nav-link" data-scroll-target="#another-example"><span class="toc-section-number">8.6</span>  Another example</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.7</span>  Exercises</a></li>
+  <li><a href="#projects" id="toc-projects" class="nav-link" data-scroll-target="#projects"><span class="toc-section-number">8.8</span>  Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -982,35 +989,199 @@ Note
 <p>We already use it in the above examples. This is to compute the number of observations in the current group. This function is implemented specifically for each data source and can only be used from within <code>summarise()</code>, <code>mutate()</code> and <code>filter()</code>.</p>
 </div>
 </div>
-<!-- {{< include 08-04.qmd >}} -->
 </section>
 </section>
-<section id="an-example" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="an-example"><span class="header-section-number">8.4</span> An Example</h2>
+<section id="ggplot2" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">8.4</span> <code>ggplot2</code></h2>
+<p>This is the graphing package for R in <code>tidyverse</code>. <code>ggplot2</code> implements the <em>grammar of graphics</em>, a coherent system for describing and building graphs. With <code>ggplot2</code>, you can do more faster by learning one system and applying it in many places. The main function is <code>ggplot()</code>.</p>
+<p><code>ggplot2</code> will be uploaded with <code>tidyverse</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We use the dataset <code>mpg</code> as the example. This dataset comes with <code>ggplot2</code>. Once you load <code>ggplot2</code> you can directly find the dataset by typing <code>mpg</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>mpg</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="co">#&gt; # A tibble: 234 × 11</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#&gt;    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#&gt;  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a><span class="co">#&gt;  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…</span></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co">#&gt;  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a><span class="co">#&gt;  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…</span></span>
+<span id="cb33-9"><a href="#cb33-9"></a><span class="co">#&gt;  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…</span></span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="co">#&gt;  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…</span></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="co">#&gt;  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…</span></span>
+<span id="cb33-12"><a href="#cb33-12"></a><span class="co">#&gt;  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…</span></span>
+<span id="cb33-13"><a href="#cb33-13"></a><span class="co">#&gt;  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…</span></span>
+<span id="cb33-14"><a href="#cb33-14"></a><span class="co">#&gt; 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…</span></span>
+<span id="cb33-15"><a href="#cb33-15"></a><span class="co">#&gt; # … with 224 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The syntax for <code>ggplot()</code> is ::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>    <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<p><code>ggplot(data=&lt;DATA&gt;)</code> create a plot without any geometric elements. It simply creates the canvas paired with the dataset.</p>
+<p>Then you add one or more layers to <code>ggplot()</code> to complete the graph. The function <code>&lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))</code> adds a layer to the plot. You may add as many layers as you want.</p>
+<p>Each <code>geom</code> function takes a <code>mapping</code> argument. This defines how variables in the dataset are mapped to visual properties. <code>mapping</code> is always paired with <code>aes(x=, y=)</code>. This</p>
+<p>Here is a quick example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="aesthetic-mappings" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="aesthetic-mappings"><span class="header-section-number">8.4.1</span> Aesthetic mappings</h3>
+<p>An <em>aesthetic</em> is a visual property of the objects in your plot. It include things like the size, the shape or the color of the points. The variables set in <code>aes()</code> will change the aesthetic apperance of the geometric objects according to the variables. If the variables are set outside <code>aes()</code>, the apperance will be fixed. Please see the following examples.</p>
+<p>Note that the variables in <code>aes()</code> other than <code>x</code> and <code>y</code> will automatically get legends.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy), <span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-37-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="facet" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="facet"><span class="header-section-number">8.4.2</span> <code>facet</code></h3>
+<p>For categorical data, you can split the plot into <code>facets</code>. This <code>facet</code> function will be attached as a layer followed by a <code>+</code> sign.</p>
+<ul>
+<li>To facet your plot by a single variable, use <code>facet_wrap()</code>. The first argument should be a formula, which you create with <code>~</code> followed by a variable name.</li>
+<li>To facet your plot by two variables, use <code>facet_grid()</code>. The first argument is a formula which contains two variable names separated by a <code>~</code>.</li>
+</ul>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.6 </strong></span>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> class, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You may look at the variables to see the relations with the plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">unique</span>(mpg<span class="sc">$</span>class)</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="co">#&gt; [1] "compact"    "midsize"    "suv"        "2seater"    "minivan"   </span></span>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="co">#&gt; [6] "pickup"     "subcompact"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.7 </strong></span>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>    <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You may look at the variables to see the relations with the plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">unique</span>(mpg<span class="sc">$</span>drv)</span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="co">#&gt; [1] "f" "4" "r"</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="fu">unique</span>(mpg<span class="sc">$</span>cyl)</span>
+<span id="cb41-4"><a href="#cb41-4"></a><span class="co">#&gt; [1] 4 6 8 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>~</code> symbol is used to define a <code>formula</code>. The <code>formula</code> is a R object, which provide the pattern of a “formula”. Therefore <code>drv~cyl</code> means that <code>drv</code> is a function of <code>cyl</code>.</p>
+</div>
+</div>
+</section>
+<section id="geom-objects" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="geom-objects"><span class="header-section-number">8.4.3</span> <code>geom</code> objects</h3>
+<p>A <code>geom</code> is the geometrical object that a plot uses to represent data. When drawing plots, you just need to attach those geometrical objects to a <code>ggplot</code> canvas with <code>+</code> symbol. Some of the geometrical objects can automatically do statistical transformations. The statistical transformations is short for <code>stat</code>, and the <code>stat</code> argument in those <code>geom</code> will show which statistical transformations are applied.</p>
+<ul>
+<li><code>geom_point()</code> draws scatter plot.</li>
+<li><code>geom_smooth()</code> draws smooth line approximation.</li>
+<li><code>geom_bar()</code> draws bar plot.</li>
+<li><code>geom_histogram()</code> draws histogram.</li>
+</ul>
+<p>The arguments can be written in <code>ggplot()</code>. All the later <code>geom</code> will get those arguments from <code>ggplot()</code>. If the arguments are written again in <code>geom</code> object, it will override the <code>ggplot()</code> arguments.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.8 </strong></span>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>    <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy), <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-42-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>    <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">linetype =</span> drv), <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-42-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>    <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy), <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-42-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>    <span class="fu">geom_smooth</span>(</span>
+<span id="cb46-5"><a href="#cb46-5"></a>        <span class="at">data =</span> <span class="fu">filter</span>(mpg, class <span class="sc">==</span> <span class="st">"subcompact"</span>),</span>
+<span id="cb46-6"><a href="#cb46-6"></a>        <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb46-7"><a href="#cb46-7"></a>        <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"loess"</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-42-5.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="an-example" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="an-example"><span class="header-section-number">8.5</span> An Example</h2>
 <p>Let us explore the tuberculosis cases data. The dataset is provided by WHO and can be downloaded from <a href="https://www.who.int/teams/global-tuberculosis-programme/data">here</a>. <code>tidyr</code> also provides the dataset. You may directly get the dataset after you load <code>tidyr</code> from <code>tidyverse</code>. The variable description can be found from <a href="https://tidyr.tidyverse.org/reference/who.html"><code>tidyr</code> documentations</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb32-2"><a href="#cb32-2"></a>who</span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="co">#&gt; # A tibble: 7,240 × 60</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co">#&gt;    country  iso2  iso3   year new_sp_m014 new_sp_m1524 new_sp_m2534 new_sp_m3544</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;int&gt;       &lt;int&gt;        &lt;int&gt;        &lt;int&gt;        &lt;int&gt;</span></span>
-<span id="cb32-6"><a href="#cb32-6"></a><span class="co">#&gt;  1 Afghani… AF    AFG    1980          NA           NA           NA           NA</span></span>
-<span id="cb32-7"><a href="#cb32-7"></a><span class="co">#&gt;  2 Afghani… AF    AFG    1981          NA           NA           NA           NA</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a><span class="co">#&gt;  3 Afghani… AF    AFG    1982          NA           NA           NA           NA</span></span>
-<span id="cb32-9"><a href="#cb32-9"></a><span class="co">#&gt;  4 Afghani… AF    AFG    1983          NA           NA           NA           NA</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a><span class="co">#&gt;  5 Afghani… AF    AFG    1984          NA           NA           NA           NA</span></span>
-<span id="cb32-11"><a href="#cb32-11"></a><span class="co">#&gt;  6 Afghani… AF    AFG    1985          NA           NA           NA           NA</span></span>
-<span id="cb32-12"><a href="#cb32-12"></a><span class="co">#&gt;  7 Afghani… AF    AFG    1986          NA           NA           NA           NA</span></span>
-<span id="cb32-13"><a href="#cb32-13"></a><span class="co">#&gt;  8 Afghani… AF    AFG    1987          NA           NA           NA           NA</span></span>
-<span id="cb32-14"><a href="#cb32-14"></a><span class="co">#&gt;  9 Afghani… AF    AFG    1988          NA           NA           NA           NA</span></span>
-<span id="cb32-15"><a href="#cb32-15"></a><span class="co">#&gt; 10 Afghani… AF    AFG    1989          NA           NA           NA           NA</span></span>
-<span id="cb32-16"><a href="#cb32-16"></a><span class="co">#&gt; # … with 7,230 more rows, and 52 more variables: new_sp_m4554 &lt;int&gt;,</span></span>
-<span id="cb32-17"><a href="#cb32-17"></a><span class="co">#&gt; #   new_sp_m5564 &lt;int&gt;, new_sp_m65 &lt;int&gt;, new_sp_f014 &lt;int&gt;,</span></span>
-<span id="cb32-18"><a href="#cb32-18"></a><span class="co">#&gt; #   new_sp_f1524 &lt;int&gt;, new_sp_f2534 &lt;int&gt;, new_sp_f3544 &lt;int&gt;,</span></span>
-<span id="cb32-19"><a href="#cb32-19"></a><span class="co">#&gt; #   new_sp_f4554 &lt;int&gt;, new_sp_f5564 &lt;int&gt;, new_sp_f65 &lt;int&gt;,</span></span>
-<span id="cb32-20"><a href="#cb32-20"></a><span class="co">#&gt; #   new_sn_m014 &lt;int&gt;, new_sn_m1524 &lt;int&gt;, new_sn_m2534 &lt;int&gt;,</span></span>
-<span id="cb32-21"><a href="#cb32-21"></a><span class="co">#&gt; #   new_sn_m3544 &lt;int&gt;, new_sn_m4554 &lt;int&gt;, new_sn_m5564 &lt;int&gt;,</span></span>
-<span id="cb32-22"><a href="#cb32-22"></a><span class="co">#&gt; #   new_sn_m65 &lt;int&gt;, new_sn_f014 &lt;int&gt;, new_sn_f1524 &lt;int&gt;, …</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb47-2"><a href="#cb47-2"></a>who</span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="co">#&gt; # A tibble: 7,240 × 60</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="co">#&gt;    country  iso2  iso3   year new_sp_m014 new_sp_m1524 new_sp_m2534 new_sp_m3544</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;int&gt;       &lt;int&gt;        &lt;int&gt;        &lt;int&gt;        &lt;int&gt;</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="co">#&gt;  1 Afghani… AF    AFG    1980          NA           NA           NA           NA</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a><span class="co">#&gt;  2 Afghani… AF    AFG    1981          NA           NA           NA           NA</span></span>
+<span id="cb47-8"><a href="#cb47-8"></a><span class="co">#&gt;  3 Afghani… AF    AFG    1982          NA           NA           NA           NA</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a><span class="co">#&gt;  4 Afghani… AF    AFG    1983          NA           NA           NA           NA</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a><span class="co">#&gt;  5 Afghani… AF    AFG    1984          NA           NA           NA           NA</span></span>
+<span id="cb47-11"><a href="#cb47-11"></a><span class="co">#&gt;  6 Afghani… AF    AFG    1985          NA           NA           NA           NA</span></span>
+<span id="cb47-12"><a href="#cb47-12"></a><span class="co">#&gt;  7 Afghani… AF    AFG    1986          NA           NA           NA           NA</span></span>
+<span id="cb47-13"><a href="#cb47-13"></a><span class="co">#&gt;  8 Afghani… AF    AFG    1987          NA           NA           NA           NA</span></span>
+<span id="cb47-14"><a href="#cb47-14"></a><span class="co">#&gt;  9 Afghani… AF    AFG    1988          NA           NA           NA           NA</span></span>
+<span id="cb47-15"><a href="#cb47-15"></a><span class="co">#&gt; 10 Afghani… AF    AFG    1989          NA           NA           NA           NA</span></span>
+<span id="cb47-16"><a href="#cb47-16"></a><span class="co">#&gt; # … with 7,230 more rows, and 52 more variables: new_sp_m4554 &lt;int&gt;,</span></span>
+<span id="cb47-17"><a href="#cb47-17"></a><span class="co">#&gt; #   new_sp_m5564 &lt;int&gt;, new_sp_m65 &lt;int&gt;, new_sp_f014 &lt;int&gt;,</span></span>
+<span id="cb47-18"><a href="#cb47-18"></a><span class="co">#&gt; #   new_sp_f1524 &lt;int&gt;, new_sp_f2534 &lt;int&gt;, new_sp_f3544 &lt;int&gt;,</span></span>
+<span id="cb47-19"><a href="#cb47-19"></a><span class="co">#&gt; #   new_sp_f4554 &lt;int&gt;, new_sp_f5564 &lt;int&gt;, new_sp_f65 &lt;int&gt;,</span></span>
+<span id="cb47-20"><a href="#cb47-20"></a><span class="co">#&gt; #   new_sn_m014 &lt;int&gt;, new_sn_m1524 &lt;int&gt;, new_sn_m2534 &lt;int&gt;,</span></span>
+<span id="cb47-21"><a href="#cb47-21"></a><span class="co">#&gt; #   new_sn_m3544 &lt;int&gt;, new_sn_m4554 &lt;int&gt;, new_sn_m5564 &lt;int&gt;,</span></span>
+<span id="cb47-22"><a href="#cb47-22"></a><span class="co">#&gt; #   new_sn_m65 &lt;int&gt;, new_sn_f014 &lt;int&gt;, new_sn_f1524 &lt;int&gt;, …</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Based on the description of varaibles, we understand that</p>
 <ol type="1">
@@ -1039,32 +1210,7 @@ Note
 </ol>
 <p>Therefore to clean the data, we need the following steps.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8.6 </strong></span>Gather together all the columns from <code>new_sp_m014</code> to <code>newrel_f65</code>.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Tip
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>wholonger <span class="ot">&lt;-</span> who <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="dv">5</span><span class="sc">:</span><span class="dv">60</span>, <span class="at">names_to=</span><span class="st">'group'</span>, <span class="at">values_to=</span><span class="st">'counts'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Then we use <code>stringr::str_replace()</code> to replace <code>newrel</code> by <code>new_rel</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>wholonger2 <span class="ot">&lt;-</span> wholonger <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">key=</span><span class="fu">str_replace</span>(group, <span class="st">'newrel'</span>, <span class="st">'new_rel'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8.7 </strong></span>Parse the column <code>group</code> into columns.</p>
+<p><span class="theorem-title"><strong>Example 8.9 </strong></span>Gather together all the columns from <code>new_sp_m014</code> to <code>newrel_f65</code>.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1078,16 +1224,18 @@ Tip
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>wholonger3 <span class="ot">&lt;-</span> wholonger2 <span class="sc">%&gt;%</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>        <span class="fu">separate</span>(key, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'new'</span>, <span class="st">'type'</span>, <span class="st">'genderage'</span>), <span class="at">sep=</span><span class="st">'_'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3"></a>        <span class="fu">separate</span>(genderage, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'gender'</span>, <span class="st">'age'</span>), <span class="at">sep=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>wholonger <span class="ot">&lt;-</span> who <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="dv">5</span><span class="sc">:</span><span class="dv">60</span>, <span class="at">names_to=</span><span class="st">'group'</span>, <span class="at">values_to=</span><span class="st">'counts'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
+</div>
+<p>Then we use <code>stringr::str_replace()</code> to replace <code>newrel</code> by <code>new_rel</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>wholonger2 <span class="ot">&lt;-</span> wholonger <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">key=</span><span class="fu">str_replace</span>(group, <span class="st">'newrel'</span>, <span class="st">'new_rel'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8.8 </strong></span>Pick the columns that matters.</p>
+<p><span class="theorem-title"><strong>Example 8.10 </strong></span>Parse the column <code>group</code> into columns.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1101,13 +1249,16 @@ Tip
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>tidywho <span class="ot">&lt;-</span> wholonger3[<span class="fu">c</span>(<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'type'</span>, <span class="st">'gender'</span>, <span class="st">'age'</span>, <span class="st">'counts'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>wholonger3 <span class="ot">&lt;-</span> wholonger2 <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a href="#cb50-2"></a>        <span class="fu">separate</span>(key, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'new'</span>, <span class="st">'type'</span>, <span class="st">'genderage'</span>), <span class="at">sep=</span><span class="st">'_'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-3"><a href="#cb50-3"></a>        <span class="fu">separate</span>(genderage, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'gender'</span>, <span class="st">'age'</span>), <span class="at">sep=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>We could use the pipe symbol to connect all the above steps.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.11 </strong></span>Pick the columns that matters.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1121,35 +1272,249 @@ Tip
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>tidywho <span class="ot">&lt;-</span> who <span class="sc">%&gt;%</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="dv">5</span><span class="sc">:</span><span class="dv">60</span>, <span class="at">names_to=</span><span class="st">'group'</span>, <span class="at">values_to=</span><span class="st">'counts'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-3"><a href="#cb37-3"></a>    <span class="fu">mutate</span>(<span class="at">key=</span><span class="fu">str_replace</span>(group, <span class="st">'newrel'</span>, <span class="st">'new_rel'</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-4"><a href="#cb37-4"></a>    <span class="fu">separate</span>(key, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'new'</span>, <span class="st">'type'</span>, <span class="st">'genderage'</span>), <span class="at">sep=</span><span class="st">'_'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-5"><a href="#cb37-5"></a>    <span class="fu">separate</span>(genderage, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'gender'</span>, <span class="st">'age'</span>), <span class="at">sep=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-6"><a href="#cb37-6"></a>    <span class="fu">select</span>(<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'type'</span>, <span class="st">'gender'</span>, <span class="st">'age'</span>, <span class="st">'counts'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>tidywho <span class="ot">&lt;-</span> wholonger3[<span class="fu">c</span>(<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'type'</span>, <span class="st">'gender'</span>, <span class="st">'age'</span>, <span class="st">'counts'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We could use the pipe symbol to connect all the above steps.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>tidywho <span class="ot">&lt;-</span> who <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="#cb52-2"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="dv">5</span><span class="sc">:</span><span class="dv">60</span>, <span class="at">names_to=</span><span class="st">'group'</span>, <span class="at">values_to=</span><span class="st">'counts'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-3"><a href="#cb52-3"></a>    <span class="fu">mutate</span>(<span class="at">key=</span><span class="fu">str_replace</span>(group, <span class="st">'newrel'</span>, <span class="st">'new_rel'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="fu">separate</span>(key, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'new'</span>, <span class="st">'type'</span>, <span class="st">'genderage'</span>), <span class="at">sep=</span><span class="st">'_'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-5"><a href="#cb52-5"></a>    <span class="fu">separate</span>(genderage, <span class="at">into=</span><span class="fu">c</span>(<span class="st">'gender'</span>, <span class="st">'age'</span>), <span class="at">sep=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-6"><a href="#cb52-6"></a>    <span class="fu">select</span>(<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'type'</span>, <span class="st">'gender'</span>, <span class="st">'age'</span>, <span class="st">'counts'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercises" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.5</span> Exercises</h2>
+<section id="another-example" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="another-example"><span class="header-section-number">8.6</span> Another example</h2>
+<p>Let us use R to solve the babynames dataset again.</p>
+<p>The first task is to read those files.</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.12 </strong></span>Please read files and put the data into one tibble. The dataset can be downloaded from <a href="assests/datasets/babynames.zip">here</a> as a zip file.</p>
+<div class="cell">
+
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>path <span class="ot">&lt;-</span> <span class="st">'assessts/datasets/babynames/yob'</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>dfs <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1880</span><span class="sc">:</span><span class="dv">2010</span>, <span class="cf">function</span>(y){</span>
+<span id="cb53-3"><a href="#cb53-3"></a>    filepath <span class="ot">&lt;-</span> <span class="fu">paste0</span>(path, <span class="fu">as.character</span>(y), <span class="st">'.txt'</span>)</span>
+<span id="cb53-4"><a href="#cb53-4"></a>    df_individual <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="fu">read.csv</span>(filepath, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
+<span id="cb53-5"><a href="#cb53-5"></a>    <span class="fu">names</span>(df_individual) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'name'</span>, <span class="st">'gender'</span>, <span class="st">'counts'</span>)</span>
+<span id="cb53-6"><a href="#cb53-6"></a>    df_individual<span class="sc">$</span>year <span class="ot">&lt;-</span> y</span>
+<span id="cb53-7"><a href="#cb53-7"></a>    df_individual</span>
+<span id="cb53-8"><a href="#cb53-8"></a>})</span>
+<span id="cb53-9"><a href="#cb53-9"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(dfs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.13 </strong></span>Please plot the total births by gender and year.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="#cb54-2"></a>    <span class="fu">group_by</span>(gender, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="#cb54-3"></a>    <span class="fu">summarize</span>(<span class="at">total_num=</span><span class="fu">sum</span>(counts)) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-4"><a href="#cb54-4"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb54-5"><a href="#cb54-5"></a>        <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>total_num, <span class="at">color=</span>gender))</span>
+<span id="cb54-6"><a href="#cb54-6"></a><span class="co">#&gt; `summarise()` has grouped output by 'gender'. You can override using the</span></span>
+<span id="cb54-7"><a href="#cb54-7"></a><span class="co">#&gt; `.groups` argument.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.14 </strong></span>Please compute the proportions of each name relateive to the total number of births per year per gender.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body" data-collpase="true">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="#cb55-2"></a>    <span class="fu">group_by</span>(gender, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="#cb55-3"></a>    <span class="fu">mutate</span>(<span class="at">prop=</span>counts<span class="sc">/</span><span class="fu">sum</span>(counts))</span>
+<span id="cb55-4"><a href="#cb55-4"></a><span class="co">#&gt; # A tibble: 1,690,784 × 5</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a><span class="co">#&gt; # Groups:   gender, year [262]</span></span>
+<span id="cb55-6"><a href="#cb55-6"></a><span class="co">#&gt;    name      gender counts  year   prop</span></span>
+<span id="cb55-7"><a href="#cb55-7"></a><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;</span></span>
+<span id="cb55-8"><a href="#cb55-8"></a><span class="co">#&gt;  1 Mary      F        7065  1880 0.0776</span></span>
+<span id="cb55-9"><a href="#cb55-9"></a><span class="co">#&gt;  2 Anna      F        2604  1880 0.0286</span></span>
+<span id="cb55-10"><a href="#cb55-10"></a><span class="co">#&gt;  3 Emma      F        2003  1880 0.0220</span></span>
+<span id="cb55-11"><a href="#cb55-11"></a><span class="co">#&gt;  4 Elizabeth F        1939  1880 0.0213</span></span>
+<span id="cb55-12"><a href="#cb55-12"></a><span class="co">#&gt;  5 Minnie    F        1746  1880 0.0192</span></span>
+<span id="cb55-13"><a href="#cb55-13"></a><span class="co">#&gt;  6 Margaret  F        1578  1880 0.0173</span></span>
+<span id="cb55-14"><a href="#cb55-14"></a><span class="co">#&gt;  7 Ida       F        1472  1880 0.0162</span></span>
+<span id="cb55-15"><a href="#cb55-15"></a><span class="co">#&gt;  8 Alice     F        1414  1880 0.0155</span></span>
+<span id="cb55-16"><a href="#cb55-16"></a><span class="co">#&gt;  9 Bertha    F        1320  1880 0.0145</span></span>
+<span id="cb55-17"><a href="#cb55-17"></a><span class="co">#&gt; 10 Sarah     F        1288  1880 0.0142</span></span>
+<span id="cb55-18"><a href="#cb55-18"></a><span class="co">#&gt; # … with 1,690,774 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.15 </strong></span>We would like to keep the first 100 names (by counts) in each year and save it as a new tibble <code>top100</code>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>top100 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb56-2"><a href="#cb56-2"></a>        <span class="fu">group_by</span>(gender, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-3"><a href="#cb56-3"></a>        <span class="fu">top_n</span>(<span class="dv">100</span>, <span class="at">wt=</span>counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.16 </strong></span>Please draw the trend of <code>John</code>, <code>Harry</code>, <code>Mary</code> in <code>top100</code> by counts.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>namelist <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'John'</span>, <span class="st">'Harry'</span>, <span class="st">'Mary'</span>)</span>
+<span id="cb57-2"><a href="#cb57-2"></a>top100 <span class="sc">%&gt;%</span> </span>
+<span id="cb57-3"><a href="#cb57-3"></a>    <span class="fu">filter</span>(name <span class="sc">%in%</span> namelist) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-4"><a href="#cb57-4"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a>        <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>counts, <span class="at">color=</span>name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.17 </strong></span>Now we would like to analyze the ending of names. Please get a <code>tibble</code> that contains the counts of ending letter per year per gender.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a href="#cb58-2"></a>    <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1910</span>, <span class="dv">1960</span>, <span class="dv">2010</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-3"><a href="#cb58-3"></a>    <span class="fu">mutate</span>(<span class="at">ending=</span><span class="fu">str_sub</span>(name, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-4"><a href="#cb58-4"></a>    <span class="fu">group_by</span>(gender, year, ending) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-5"><a href="#cb58-5"></a>    <span class="fu">summarise</span>(<span class="at">ending_counts=</span><span class="fu">sum</span>(counts)) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-6"><a href="#cb58-6"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb58-7"><a href="#cb58-7"></a>        <span class="fu">geom_bar</span>(</span>
+<span id="cb58-8"><a href="#cb58-8"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb58-9"><a href="#cb58-9"></a>                <span class="at">x=</span>ending, </span>
+<span id="cb58-10"><a href="#cb58-10"></a>                <span class="at">y=</span>ending_counts, </span>
+<span id="cb58-11"><a href="#cb58-11"></a>                <span class="at">fill=</span>year</span>
+<span id="cb58-12"><a href="#cb58-12"></a>                ), </span>
+<span id="cb58-13"><a href="#cb58-13"></a>            <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb58-14"><a href="#cb58-14"></a>            <span class="at">position =</span> <span class="st">"dodge"</span>,</span>
+<span id="cb58-15"><a href="#cb58-15"></a>        ) <span class="sc">+</span></span>
+<span id="cb58-16"><a href="#cb58-16"></a>        <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span>
+<span id="cb58-17"><a href="#cb58-17"></a><span class="co">#&gt; `summarise()` has grouped output by 'gender', 'year'. You can override using</span></span>
+<span id="cb58-18"><a href="#cb58-18"></a><span class="co">#&gt; the `.groups` argument.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.7</span> Exercises</h2>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.1 </strong></span>How can you tell if an object is a tibble?</p>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.2 </strong></span>Compare and contrast the following operations on a <code>data.frame</code> and equivalent <code>tibble</code>. What is different? Why might the default data frame behaviors cause you frustration?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">xyz =</span> <span class="st">"a"</span>)</span>
-<span id="cb38-2"><a href="#cb38-2"></a>df<span class="sc">$</span>x</span>
-<span id="cb38-3"><a href="#cb38-3"></a>df[, <span class="st">"xyz"</span>]</span>
-<span id="cb38-4"><a href="#cb38-4"></a>df[, <span class="fu">c</span>(<span class="st">"abc"</span>, <span class="st">"xyz"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">xyz =</span> <span class="st">"a"</span>)</span>
+<span id="cb59-2"><a href="#cb59-2"></a>df<span class="sc">$</span>x</span>
+<span id="cb59-3"><a href="#cb59-3"></a>df[, <span class="st">"xyz"</span>]</span>
+<span id="cb59-4"><a href="#cb59-4"></a>df[, <span class="fu">c</span>(<span class="st">"abc"</span>, <span class="st">"xyz"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.3 </strong></span>If you have the name of a variable stored in an object, e.g., <code>var &lt;- "xyz"</code>, how can you extract the reference variable from a tibble? You may use the following codes to get a tibble.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">xyz =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">xyz =</span> <span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -1160,10 +1525,10 @@ Tip
 <li>Renaming the columns to one, two, and three:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>annoying <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span>))</span>
-<span id="cb40-4"><a href="#cb40-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>annoying <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb61-3"><a href="#cb61-3"></a><span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">1</span><span class="st">`</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span>))</span>
+<span id="cb61-4"><a href="#cb61-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -1173,8 +1538,8 @@ Tip
 <p><span class="theorem-title"><strong>Exercise 8.6 </strong></span>Use <code>flights</code> dataset. Currently <code>dep_time</code> and <code>sched_dep_time</code> are convenient to look at, but hard to compute with because they’re not really continuous numbers. Convert them to a more convenient representation of number of minutes since midnight.</p>
 </div>
 </section>
-<section id="projects" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="projects"><span class="header-section-number">8.6</span> Projects</h2>
+<section id="projects" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="projects"><span class="header-section-number">8.8</span> Projects</h2>
 <div class="cell">
 
 </div>
@@ -1232,8 +1597,8 @@ table4a %>%
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.7 </strong></span>Please make the following data tidy.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb41-2"><a href="#cb41-2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Day=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">`</span><span class="at">Plant_A_Height (cm)</span><span class="st">`</span><span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>, <span class="fl">1.3</span>, <span class="fl">1.8</span>), <span class="st">`</span><span class="at">Plant_B_Height (cm)</span><span class="st">`</span><span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.7</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="fl">1.8</span>, <span class="fl">2.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb62-2"><a href="#cb62-2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Day=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">`</span><span class="at">Plant_A_Height (cm)</span><span class="st">`</span><span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>, <span class="fl">1.3</span>, <span class="fl">1.8</span>), <span class="st">`</span><span class="at">Plant_B_Height (cm)</span><span class="st">`</span><span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.7</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="fl">1.8</span>, <span class="fl">2.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -1247,6 +1612,20 @@ table4a %>%
 <li>Were delayed by at least an hour, but made up over 30 minutes in flight.</li>
 <li>Departed between midnight and 6 a.m. (inclusive).</li>
 </ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.9 </strong></span>Re-create the R code necessary to generate the following graphs. The dataset is <code>mpg</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-63-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="08-_files/figure-html/unnamed-chunk-63-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </div>
 
 

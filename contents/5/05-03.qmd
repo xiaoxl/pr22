@@ -76,9 +76,7 @@ sns.barplot(x='count', y='tz', hue='os', data=dftovc)
 ```
 
 ### Example 2: US Baby Names 1880–2010
-The United States Social Security Administration (SSA) has made available data on
-the frequency of baby names from 1880 through the present. Hadley Wickham, an
-author of several popular R packages, has often made use of this dataset in illustrating data manipulation in `R`. The dataset can be downloaded from [here](assests/datasets/babynames.zip) as a zip file. Please unzip it and put it in your working folder.
+The United States Social Security Administration (SSA) has made available data on the frequency of baby names from 1880 through the present. Hadley Wickham, an author of several popular R packages, has often made use of this dataset in illustrating data manipulation in `R`. The dataset can be downloaded from [here](assests/datasets/babynames.zip) as a zip file. Please unzip it and put it in your working folder.
 
 In the folder there are 131 `.txt` files. The naming scheme is `yob` + the year. Each file contains 3 columns: `name`, `gender`, and `counts`. We would like to add a column `year`, and combine all files into a single DataFrame. In our example, the year is from 1880 to 2010.
 

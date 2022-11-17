@@ -50,3 +50,87 @@ ggplot(data = mpg) +
 ggplot(data = mpg) +
     geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
+
+
+### `facet`
+For categorical data, you can split the plot into `facets`. This `facet` function will be attached as a layer followed by a `+` sign.
+
+- To facet your plot by a single variable, use `facet_wrap()`. The first argument should be a formula, which you create with `~` followed by a variable name.
+- To facet your plot by two variables, use `facet_grid()`. The first argument is a formula which contains two variable names separated by a `~`.
+
+
+::: {#exm-}
+```{r}
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy)) +
+    facet_wrap(~ class, nrow = 2)
+```
+You may look at the variables to see the relations with the plot.
+
+```{r}
+unique(mpg$class)
+```
+:::
+
+
+
+::: {#exm-}
+
+```{r}
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy)) +
+    facet_grid(drv ~ cyl)
+```
+
+You may look at the variables to see the relations with the plot.
+
+```{r}
+unique(mpg$drv)
+unique(mpg$cyl)
+```
+
+:::
+
+
+
+::: {.callout-tip}
+The `~` symbol is used to define a `formula`. The `formula` is a R object, which provide the pattern of a "formula". Therefore `drv~cyl` means that `drv` is a function of `cyl`.
+:::
+
+### `geom` objects
+
+A `geom` is the geometrical object that a plot uses to represent data. When drawing plots, you just need to attach those geometrical objects to a `ggplot` canvas with `+` symbol. Some of the geometrical objects can automatically do statistical transformations. The statistical transformations is short for `stat`, and the `stat` argument in those `geom` will show which statistical transformations are applied.
+
+- `geom_point()` draws scatter plot.
+- `geom_smooth()` draws smooth line approximation.
+- `geom_bar()` draws bar plot.
+- `geom_histogram()` draws histogram.
+
+The arguments can be written in `ggplot()`. All the later `geom` will get those arguments from `ggplot()`. If the arguments are written again in `geom` object, it will override the `ggplot()` arguments.
+
+::: {#exm-}
+
+```{r}
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy))
+
+ggplot(data = mpg) +
+    geom_smooth(mapping = aes(x = displ, y = hwy), formula = y ~ x, method = "loess")
+
+ggplot(data = mpg) +
+    geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv), formula = y ~ x, method = "loess")
+
+ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy)) +
+    geom_smooth(mapping = aes(x = displ, y = hwy), formula = y ~ x, method = "loess")
+
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+    geom_point(mapping = aes(color = class)) +
+    geom_smooth(
+        data = filter(mpg, class == "subcompact"),
+        se = FALSE, 
+        formula = y ~ x, method = "loess"
+        )
+```
+
+:::

@@ -113,43 +113,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 </strong></span>This is a Python question. Please download the datasets from here. It is the same datasets as in <strong>?@exm-tidydatasets</strong>. Please use Python to finish the following tasks.</p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 </strong></span>Why are <code>gather()</code> and <code>spread()</code> not perfectly symmetrical? Carefully consider the following example:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">half =</span> <span class="fu">c</span>( <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">spread</span>(year, return) <span class="sc">%&gt;%</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(<span class="st">"year"</span>, <span class="st">"return"</span>, <span class="st">`</span><span class="at">2015</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2016</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
+<!-- 
+::: {#exr-}
+This is a Python question. Please download the datasets from here. It is the same datasets as in @exm-tidydatasets. Please use Python to make `
+::: -->
+<!-- 
+::: {#exr-}
+Why are `gather()` and `spread()` not perfectly symmetrical? Carefully consider the following example:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+stocks <- tibble(
+    year = c(2015, 2015, 2016, 2016),
+    half = c( 1, 2, 1, 2),
+    return = c(1.88, 0.59, 0.92, 0.17)
+)
+stocks %>%
+    spread(year, return) %>%
+    gather("year", "return", `2015`:`2016`)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 4 × 3
    half year  return
-  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+  <dbl> <chr>  <dbl>
 1     1 2015    1.88
 2     2 2015    0.59
 3     1 2016    0.92
-4     2 2016    0.17</code></pre>
-</div>
-</div>
-<p>(Hint: look at the variable types and think about column <code>names</code>.)</p>
-<p>Both <code>spread()</code> and <code>gather()</code> have a <code>convert</code> argument. What does it do?</p>
-</div>
-<div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 </strong></span>Why does this code fail?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather</span>(<span class="dv">1999</span>, <span class="dv">2000</span>, <span class="at">key =</span> <span class="st">"year"</span>, <span class="at">value =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in `loc_validate()`:
+4     2 2016    0.17
+```
+:::
+:::
+
+(Hint: look at the variable types and think about column `names`.)
+
+Both `spread()` and `gather()` have a `convert` argument. What does it do?
+::: -->
+
+<!-- 
+
+::: {#exr-}
+Why does this code fail?
+
+::: {.cell}
+
+```{.r .cell-code}
+table4a %>%
+    gather(1999, 2000, key = "year", value = "cases")
+```
+
+::: {.cell-output .cell-output-error}
+```
+Error in `loc_validate()`:
 ! Can't subset columns past the end.
 ℹ Locations 1999 and 2000 don't exist.
-ℹ There are only 3 columns.</code></pre>
+ℹ There are only 3 columns.
+```
+:::
+:::
+
+
+::: -->
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 </strong></span>Please make the following data tidy.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Day=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="st">`</span><span class="at">Plant_A_Height (cm)</span><span class="st">`</span><span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>, <span class="fl">1.3</span>, <span class="fl">1.8</span>), <span class="st">`</span><span class="at">Plant_B_Height (cm)</span><span class="st">`</span><span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.7</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="fl">1.8</span>, <span class="fl">2.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 </strong></span>Please use the <code>flights</code> dataset. Please find all flights that :</p>
+<ol type="1">
+<li>Had an arrival delay of two or more hours.</li>
+<li>Flew to <code>IAH</code> or <code>HOU</code>.</li>
+<li>Were operated by <code>United</code>, <code>American</code> or <code>Delta</code>.</li>
+<li>Departed in summer (July, August, and September).</li>
+<li>Arrived more than two hours late, but didn’t leave late.</li>
+<li>Were delayed by at least an hour, but made up over 30 minutes in flight.</li>
+<li>Departed between midnight and 6 a.m. (inclusive).</li>
+</ol>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 </strong></span>Re-create the R code necessary to generate the following graphs. The dataset is <code>mpg</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="08-proj_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="08-proj_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="08-proj_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
